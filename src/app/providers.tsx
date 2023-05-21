@@ -1,8 +1,8 @@
 // app/providers.jsx
 
-'use client'
+"use client";
 
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from "next-themes";
 import React from "react";
 
 export function Providers({
@@ -10,5 +10,9 @@ export function Providers({
 }: {
   children: React.ReactNode;
 }): React.ReactElement {
-  return <ThemeProvider attribute="class" disableTransitionOnChange>{children}</ThemeProvider>
+  return (
+    <ThemeProvider attribute="class" disableTransitionOnChange>
+      {children}
+    </ThemeProvider>
+  );
 }

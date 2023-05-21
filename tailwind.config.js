@@ -15,8 +15,12 @@ module.exports = {
           dark: "#0F052B",
         },
         "on-background": {
-          DEFAULT: "#050505",
-          dark: "#FCEDF9",
+          DEFAULT: "rgb(5, 5, 5)",
+          hover: "rgb(80, 80, 80)",
+          dark: {
+            DEFAULT: "rgb(252, 252, 252)",
+            hover: "rgb(177, 177, 177)",
+          },
         },
         primary: {
           DEFAULT: "#ce6fc4",

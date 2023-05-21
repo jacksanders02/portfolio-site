@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .hover-link {
+    &-light {
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+      color: theme('colors.on-background.DEFAULT');
+
+      &:hover {
+        color: theme('colors.on-background.hover');
+      }
+    }
+
+    &-dark {
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+      color: theme('colors.on-background.dark.DEFAULT');
+
+      &:hover {
+        color: theme('colors.on-background.dark.hover');
+      }
+    }
+  }
+}

@@ -12,11 +12,18 @@ export default function Home(): React.ReactNode {
     setMounted(true);
   }, []);
 
-  if (!mounted) { return null; }
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <CentredMain>
-      <h1 onClick={() => setTheme(toggleTheme(theme))}>Home Page!</h1>
+      <a
+        className="hover-link-light dark:hover-link-dark"
+        onClick={() => setTheme(toggleTheme(theme))}
+      >
+        Home Page!
+      </a>
     </CentredMain>
   );
 }

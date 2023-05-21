@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import React from "react";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`bg-colour-background dark:bg-colour-background-dark 
-                      text-on-background dark:text-on-background-dark 
+                      text-on-background dark:text-on-background-dark
                       ${inter.className}`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
         <Analytics />
       </body>
     </html>
