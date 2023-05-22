@@ -12,6 +12,7 @@
     "fullcheck": "npm run lint && npm run prettify && npm run stylelint"
   },
   "dependencies": {
+    "@georgedoescode/spline": "^1.0.1",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -22,6 +23,7 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "simplex-noise": "^4.0.1",
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {

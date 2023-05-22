@@ -1,13 +1,49 @@
 "use client";
 import CentredMain from "@/components/centred-main";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { fontSerif, fontSans } from "@/helpers/font-helpers";
+import { spline } from "@georgedoescode/spline";
+import { genPoints, nextPointStep, Point } from "@/helpers/noisy-circle";
 
 export default function Home(): React.ReactNode {
+  const blobPathRef: React.Ref<SVGPathElement> = useRef<SVGPathElement>(null);
+
+  const points: Point[] = genPoints(200, 200);
+
+  let noiseStep: number = 0.005;
+
+  useEffect(() => {
+    (function animate() {
+      if (blobPathRef.current === null) {
+        return;
+      }
+
+      blobPathRef.current.setAttribute("d", spline(points, 1, true));
+
+      for (let point of points) {
+        const newCoords: { x: number; y: number } = nextPointStep(point);
+        point.x = newCoords.x;
+        point.y = newCoords.y;
+        point.noiseX += noiseStep;
+        point.noiseY += noiseStep;
+      }
+
+      requestAnimationFrame(animate);
+    })();
+  }, [noiseStep, points]);
+
+  function increaseNoiseStep(): void {
+    noiseStep = 0.015;
+  }
+
+  function resetNoiseStep(): void {
+    noiseStep = 0.0075;
+  }
+
   return (
     <CentredMain extraClasses={"p-8"}>
-      <div>
+      <div className={`z-20 pointer-events-none`}>
         <motion.div
           initial={{ y: 100, scale: 0 }}
           animate={{ y: 0, scale: 1 }}
@@ -32,13 +68,19 @@ export default function Home(): React.ReactNode {
         </motion.div>
       </div>
 
-      <div
-        className={
-          "absolute -z-10 flex items-center justify-center w-full h-full overflow-hidden"
-        }
+      <svg
+        viewBox="0 0 200 200"
+        className={`absolute z-10 h-48 blur-lg sm:h-72 sm:blur-xl lg:h-96 
+                        lg:blur-2xl xl:h-[30rem] xl:blur-3xl aspect-square 
+                        fill-accent dark:fill-accent-dark`}
       >
-        <div className="h-48 blur-2xl sm:h-72 sm:blur-[3.5rem] lg:h-96 lg:blur-[5rem] aspect-square rotating-oval bg-accent dark:bg-accent-dark" />
-      </div>
+        <path
+          ref={blobPathRef}
+          d=""
+          onMouseEnter={increaseNoiseStep}
+          onMouseLeave={resetNoiseStep}
+        ></path>
+      </svg>
     </CentredMain>
   );
 }
