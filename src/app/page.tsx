@@ -14,7 +14,7 @@ export default function Home(): React.ReactNode {
           transition={{ type: "spring", stiffness: 80 }}
         >
           <h1
-            className={`${fontSerif.className} text-5xl sm:text-8xl lg:text-9xl text-center mb-2`}
+            className={`${fontSerif.className} text-7xl sm:text-8xl lg:text-9xl text-center mb-2`}
           >
             Jack Sanders
           </h1>
@@ -37,7 +37,7 @@ export default function Home(): React.ReactNode {
           "absolute -z-10 flex items-center justify-center w-full h-full overflow-hidden"
         }
       >
-        <div className="oval bg-accent dark:bg-accent-dark" />
+        <div className="h-48 blur-2xl sm:h-72 sm:blur-[3.5rem] lg:h-96 lg:blur-[5rem] aspect-square rotating-oval bg-accent dark:bg-accent-dark" />
       </div>
     </CentredMain>
   );

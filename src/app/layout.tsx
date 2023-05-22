@@ -4,6 +4,8 @@ import React from "react";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/navbar";
+import ThemeToggle from "@/components/themeToggle";
+import ScrollIndicator from "@/components/scrollIndicator";
 
 export const metadata = {
   title: "Jack Sanders",
@@ -24,6 +26,9 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <div className={"fixed bottom-0 p-8"}>
+            <ScrollIndicator />
+          </div>
         </Providers>
         <Analytics />
       </body>

@@ -45,12 +45,9 @@
   }
 }
 
-/* Create background oval */
-.oval {
-  animation: rotate 15s linear infinite;
-  height: 25rem;
-  aspect-ratio: 1;
+/* Turns a square into a rotating oval */
+.rotating-oval {
+  animation: rotate 20s linear infinite;
   scale: 1 1.75;
   border-radius: 50%;
-  filter: blur(5rem);
 }
