@@ -6,14 +6,16 @@ import { fontSerif, fontSans } from "@/helpers/font-helpers";
 
 export default function Home(): React.ReactNode {
   return (
-    <CentredMain>
+    <CentredMain extraClasses={"p-8"}>
       <div>
         <motion.div
           initial={{ y: 100, scale: 0 }}
           animate={{ y: 0, scale: 1 }}
           transition={{ type: "spring", stiffness: 80 }}
         >
-          <h1 className={`${fontSerif.className} text-9xl text-center mb-2`}>
+          <h1
+            className={`${fontSerif.className} text-5xl sm:text-8xl lg:text-9xl text-center mb-2`}
+          >
             Jack Sanders
           </h1>
         </motion.div>
@@ -22,13 +24,21 @@ export default function Home(): React.ReactNode {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <h2 className={`${fontSans.className} text-xl text-center`}>
+          <h2
+            className={`${fontSans.className} text-sm sm:text-base lg:text-xl text-center`}
+          >
             Student of computer science, hobbyist full-stack software engineer
           </h2>
         </motion.div>
       </div>
 
-      <div className="oval bg-accent dark:bg-accent-dark"></div>
+      <div
+        className={
+          "absolute -z-10 flex items-center justify-center w-full h-full overflow-hidden"
+        }
+      >
+        <div className="oval bg-accent dark:bg-accent-dark" />
+      </div>
     </CentredMain>
   );
 }

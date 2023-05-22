@@ -3,7 +3,6 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 import React from "react";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
-import Socials from "@/components/socials";
 import Navbar from "@/components/navbar";
 
 export const metadata = {

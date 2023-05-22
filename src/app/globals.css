@@ -49,8 +49,6 @@
 /* Create background oval */
 .oval {
   animation: rotate 15s linear infinite;
-  position: absolute;
-  z-index: -1;
   height: 25rem;
   aspect-ratio: 1.75;
   border-radius: 50%;
