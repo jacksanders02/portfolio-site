@@ -31,18 +31,17 @@
 /* Set up rotation animation for background oval */
 @keyframes rotate {
   from {
-    rotate: 0;
-    aspect-ratio: 1.75;
+    scale: 1 1.75;
   }
 
   50% {
     rotate: 180deg;
-    aspect-ratio: 1.3;
+    scale: 1 1.33;
   }
 
   to {
     rotate: 360deg;
-    aspect-ratio: 1.75;
+    scale: 1 1.75;
   }
 }
 
@@ -50,7 +49,8 @@
 .oval {
   animation: rotate 15s linear infinite;
   height: 25rem;
-  aspect-ratio: 1.75;
+  aspect-ratio: 1;
+  scale: 1 1.75;
   border-radius: 50%;
-  filter: blur(25rem);
+  filter: blur(5rem);
 }
