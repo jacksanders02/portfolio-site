@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Allow classes to be used by tailwind
+ * (for example, allow tha dark: prefix to select a class when dark mode is toggled)
+ */
+
 @layer utilities {
   .hover-link {
-    &-light {
-      cursor: pointer;
-      transition: color 0.2s ease-in-out;
-      color: theme('colors.on-background.DEFAULT');
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    color: theme("colors.on-background.DEFAULT");
 
-      &:hover {
-        color: theme('colors.on-background.hover');
-      }
+    &:hover {
+      color: theme("colors.on-background.hover");
     }
 
     &-dark {
       cursor: pointer;
       transition: color 0.2s ease-in-out;
-      color: theme('colors.on-background.dark.DEFAULT');
+      color: theme("colors.on-background.dark.DEFAULT");
 
       &:hover {
-        color: theme('colors.on-background.dark.hover');
+        color: theme("colors.on-background.dark.hover");
       }
     }
   }
+}
+
+/* Set up rotation animation for background oval */
+@keyframes rotate {
+  from {
+    rotate: 0;
+    aspect-ratio: 1.75;
+  }
+
+  50% {
+    rotate: 180deg;
+    aspect-ratio: 1.3;
+  }
+
+  to {
+    rotate: 360deg;
+    aspect-ratio: 1.75;
+  }
+}
+
+/* Create background oval */
+.oval {
+  animation: rotate 15s linear infinite;
+  position: absolute;
+  z-index: -1;
+  height: 25rem;
+  aspect-ratio: 1.75;
+  border-radius: 50%;
+  filter: blur(25rem);
 }

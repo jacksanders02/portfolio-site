@@ -6,12 +6,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
         "colour-background": {
-          DEFAULT: "#fcfcfc",
+          DEFAULT: "#e0ffff",
           dark: "#0F052B",
         },
         "on-background": {
@@ -23,7 +21,7 @@ module.exports = {
           },
         },
         primary: {
-          DEFAULT: "#ce6fc4",
+          DEFAULT: "#ff8bec",
           dark: "#CE6FC4",
         },
         secondary: {
@@ -31,7 +29,7 @@ module.exports = {
           dark: "#F9F1F1",
         },
         accent: {
-          DEFAULT: "#ce6fc4",
+          DEFAULT: "#ff8bec",
           dark: "#CE6FC4",
         },
       },

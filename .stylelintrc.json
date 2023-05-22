@@ -8,6 +8,12 @@
       }
     ],
     "block-no-empty": null,
-    "unit-allowed-list": ["em", "rem", "s"]
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme"]
+      }
+    ],
+    "unit-allowed-list": ["em", "rem", "s", "deg", "%"]
   }
 }

@@ -1,7 +1,12 @@
 import React from "react";
+import Socials from "./socials";
+import ThemeToggle from "@/components/themeToggle";
 
 export default function Navbar(): React.ReactElement {
   return (
-    <nav className="w-full border-solid border-b-2 border-b-on-background dark:border-b-on-background-dark"></nav>
+    <div className="fixed w-full top-0 p-8 flex justify-between items-center">
+      <Socials />
+      <ThemeToggle />
+    </div>
   );
 }

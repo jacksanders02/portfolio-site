@@ -1,29 +1,34 @@
 "use client";
 import CentredMain from "@/components/centred-main";
-import React, { useEffect } from "react";
-import { useTheme } from "next-themes";
-import { toggleTheme } from "@/helpers/global-functions";
+import React from "react";
+import { motion } from "framer-motion";
+import { fontSerif, fontSans } from "@/helpers/font-helpers";
 
 export default function Home(): React.ReactNode {
-  const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <CentredMain>
-      <a
-        className="hover-link-light dark:hover-link-dark"
-        onClick={() => setTheme(toggleTheme(theme))}
-      >
-        Home Page!
-      </a>
+      <div>
+        <motion.div
+          initial={{ y: 100, scale: 0 }}
+          animate={{ y: 0, scale: 1 }}
+          transition={{ type: "spring", stiffness: 80 }}
+        >
+          <h1 className={`${fontSerif.className} text-9xl text-center mb-2`}>
+            Jack Sanders
+          </h1>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className={`${fontSans.className} text-xl text-center`}>
+            Student of computer science, hobbyist full-stack software engineer
+          </h2>
+        </motion.div>
+      </div>
+
+      <div className="oval bg-accent dark:bg-accent-dark"></div>
     </CentredMain>
   );
 }
