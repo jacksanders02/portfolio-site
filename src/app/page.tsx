@@ -1,49 +1,19 @@
 "use client";
-import CentredMain from "@/components/centred-main";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { fontSerif, fontSans } from "@/helpers/font-helpers";
-import { spline } from "@georgedoescode/spline";
-import { genPoints, nextPointStep, Point } from "@/helpers/noisy-circle";
+import RandomBlob from "@/components/RandomBlob";
+import Parallax from "@/components/parallax";
 
 export default function Home(): React.ReactNode {
-  const blobPathRef: React.Ref<SVGPathElement> = useRef<SVGPathElement>(null);
-
-  const points: Point[] = genPoints(200, 200);
-
-  let noiseStep: number = 0.005;
-
-  useEffect(() => {
-    (function animate() {
-      if (blobPathRef.current === null) {
-        return;
-      }
-
-      blobPathRef.current.setAttribute("d", spline(points, 1, true));
-
-      for (let point of points) {
-        const newCoords: { x: number; y: number } = nextPointStep(point);
-        point.x = newCoords.x;
-        point.y = newCoords.y;
-        point.noiseX += noiseStep;
-        point.noiseY += noiseStep;
-      }
-
-      requestAnimationFrame(animate);
-    })();
-  }, [noiseStep, points]);
-
-  function increaseNoiseStep(): void {
-    noiseStep = 0.015;
-  }
-
-  function resetNoiseStep(): void {
-    noiseStep = 0.0075;
-  }
-
   return (
-    <CentredMain extraClasses={"p-8"}>
-      <div className={`z-20 pointer-events-none`}>
+    <main>
+      <Parallax
+        parallaxSpeed={1}
+        stickToTop={true}
+        className={`z-20 pointer-events-none fixed left-[50%] top-[50%]
+                    translate-y-[-50%] translate-x-[-50%]`}
+      >
         <motion.div
           initial={{ y: 100, scale: 0 }}
           animate={{ y: 0, scale: 1 }}
@@ -66,21 +36,24 @@ export default function Home(): React.ReactNode {
             Student of computer science, hobbyist full-stack software engineer
           </h2>
         </motion.div>
-      </div>
-
-      <svg
-        viewBox="0 0 200 200"
-        className={`absolute z-10 h-48 blur-lg sm:h-72 sm:blur-xl lg:h-96 
-                        lg:blur-2xl xl:h-[30rem] xl:blur-3xl aspect-square 
-                        fill-accent dark:fill-accent-dark`}
+      </Parallax>
+      <Parallax
+        parallaxSpeed={2}
+        stickToTop={false}
+        className={`fixed left-[50%] top-[50%] translate-y-[-50%] 
+                    translate-x-[-50%]`}
       >
-        <path
-          ref={blobPathRef}
-          d=""
-          onMouseEnter={increaseNoiseStep}
-          onMouseLeave={resetNoiseStep}
-        ></path>
-      </svg>
-    </CentredMain>
+        <RandomBlob
+          svgWidth={200}
+          svgHeight={200}
+          className={`z-10 h-48 blur-lg sm:h-72 sm:blur-xl lg:h-96 lg:blur-2xl 
+                    xl:h-[30rem] xl:blur-3xl aspect-square fill-accent 
+                    dark:fill-accent-dark`}
+        />
+      </Parallax>
+
+      <div className={"w-full h-screen"} />
+      <div className={"w-full h-screen"} />
+    </main>
   );
 }
