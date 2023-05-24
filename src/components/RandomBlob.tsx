@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { genPoints, nextPointStep, Point } from "@/helpers/noisy-circle";
+import { genPoints, nextPointStep, Point } from "@/helpers/noisyCircle";
 import { spline } from "@georgedoescode/spline";
 
 /**

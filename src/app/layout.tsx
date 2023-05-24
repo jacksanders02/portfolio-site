@@ -3,8 +3,8 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 import React from "react";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
-import Navbar from "@/components/navbar";
-import ScrollIndicator from "@/components/scrollIndicator";
+import Navbar from "@/components/Navbar";
+import ScrollHelper from "@/components/ScrollHelper";
 
 export const metadata = {
   title: "Jack Sanders",
@@ -25,9 +25,6 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
-          <div className={"fixed bottom-0 p-8"}>
-            <ScrollIndicator />
-          </div>
         </Providers>
         <Analytics />
       </body>

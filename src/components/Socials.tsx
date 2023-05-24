@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import MediaQuery from "react-responsive";
-import ExpandedSocials from "@/components/expandedSocials";
+import ExpandedSocials from "@/components/ExpandedSocials";
 
 /**
  * Creates links to my social media accounts/about me page

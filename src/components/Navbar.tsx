@@ -1,6 +1,6 @@
 import React from "react";
-import Socials from "./socials";
-import ThemeToggle from "@/components/themeToggle";
+import Socials from "./Socials";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar(): React.ReactElement {
   return (

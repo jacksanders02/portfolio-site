@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
  * further down the page.
  * @constructor
  */
-export default function ScrollIndicator(): React.ReactElement {
+export default function ScrollHelper(): React.ReactElement {
   const [mounted, setMounted] = React.useState(false);
 
   useEffect(() => {
