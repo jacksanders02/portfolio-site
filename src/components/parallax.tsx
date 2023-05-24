@@ -37,9 +37,8 @@ export default function Parallax({
       (divRef.current.offsetTop / document.documentElement.clientHeight) * 100;
 
     transformedTopChange.current =
-      ((divRef.current.offsetTop - divRef.current.getBoundingClientRect().top) /
-        document.documentElement.clientHeight) *
-      100;
+      (divRef.current.offsetTop - divRef.current.getBoundingClientRect().top) /
+      divRef.current.clientHeight;
 
     document.addEventListener("scroll", () => handleScroll(divRef.current));
     function handleScroll(elem: HTMLDivElement | null) {
@@ -47,16 +46,19 @@ export default function Parallax({
         return;
       }
 
-      let nextTop =
+      let nextTop: number =
         startTop.current -
         (window.scrollY / document.documentElement.clientHeight) *
           100 *
           parallaxSpeed;
 
-      nextTop =
-        nextTop < transformedTopChange.current && stickToTop
-          ? transformedTopChange.current
-          : nextTop;
+      // Transform translate amount to vh (initially stored as % of elem height)
+      const translateVH: number =
+        ((transformedTopChange.current * elem.clientHeight) /
+          document.documentElement.clientHeight) *
+        100;
+
+      nextTop = nextTop < translateVH && stickToTop ? translateVH : nextTop;
 
       elem.animate(
         {

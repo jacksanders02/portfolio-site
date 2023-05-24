@@ -23,6 +23,6 @@ export default function Socials(): React.ReactElement {
       </div>
     );
   } else {
-    return (<ExpandedSocials />)
+    return <ExpandedSocials />;
   }
 }
