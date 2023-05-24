@@ -21,15 +21,15 @@ module.exports = {
           },
         },
         primary: {
-          DEFAULT: "#ff8bec",
+          DEFAULT: "#ffbef3",
           dark: "#CE6FC4",
         },
         secondary: {
-          DEFAULT: "#d4cfcf",
-          dark: "#F9F1F1",
+          DEFAULT: "#ffffff",
+          dark: "#383838",
         },
         accent: {
-          DEFAULT: "#ff8bec",
+          DEFAULT: "#ffbef3",
           dark: "#CE6FC4",
         },
       },

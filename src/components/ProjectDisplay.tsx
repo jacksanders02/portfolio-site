@@ -1,27 +1,22 @@
 import React from "react";
+import projectsJSON from "@/data/projects.json";
+import ProjectCard from "@/components/ProjectCard";
+import { Project } from "@/helpers/types";
 
-export default function ExpandedSocials(): React.ReactElement {
+function renderProjects(projectArray: Project[]): React.ReactElement[] {
+  let i: number = 0;
+  return projectArray.map(project => (
+    <ProjectCard project={project} nProject={i++} key={`project-${i}`} />
+  ));
+}
+
+export default function ProjectDisplay(): React.ReactElement {
+  const projects: Project[] = projectsJSON["projects"]
   return (
-    <div className="flex items-center gap-6 text-3xl">
-      <a
-        className="bi bi-instagram hover-link dark:hover-link-dark"
-        href="https://www.instagram.com/jacksanders02/"
-      />
-      <a
-        className="bi bi-linkedin hover-link dark:hover-link-dark"
-        href="https://www.linkedin.com/in/jack-sanders-05915423a/"
-      />
-      <a
-        className="bi bi-github hover-link dark:hover-link-dark"
-        href="https://github.com/JSanders02"
-      />
-      <div
-        className={`self-stretch border-r-2 border-on-background 
-                      dark:border-on-background-dark`}
-      />
-      <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-        more about me
-      </a>
+    <div
+      className="flex items-center justify-center overflow-clip relative
+              w-full h-screen p-8">
+      {renderProjects(projects)}
     </div>
   );
 }

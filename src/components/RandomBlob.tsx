@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { genPoints, nextPointStep, Point } from "@/helpers/noisyCircle";
+import { genPoints, nextPointStep } from "@/helpers/noisyCircle";
 import { spline } from "@georgedoescode/spline";
+import { Point } from "@/helpers/types";
 
 /**
  * Creates a random blob svg, using simplex noise & Catmull-Rom splines

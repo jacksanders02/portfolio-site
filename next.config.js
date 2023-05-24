@@ -1,2 +1,6 @@
 /** @type {import('next').NextConfig} */
-module.exports = {};
+module.exports = {
+  images: {
+    domains: ['images.unsplash.com', 'logos-download.com']
+  }
+};

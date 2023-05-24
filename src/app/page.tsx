@@ -1,21 +1,25 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { fontSerif, fontSans } from "@/helpers/fontHelpers";
 import RandomBlob from "@/components/RandomBlob";
 import Parallax from "@/components/Parallax";
 import ScrollHelper from "@/components/ScrollHelper";
+import ProjectDisplay from "@/components/ProjectDisplay";
 
 /**
  * Index page
  * @constructor
  */
 export default function Home(): React.ReactNode {
+  useEffect(() => {
+    window.scrollTo({top: 0});
+  })
   return (
     <main>
       <div className={"w-full h-screen"} >
         <Parallax
-          parallaxSpeed={1}
+          parallaxSpeed={0.5}
           stickToTop={true}
           className={`z-20 pointer-events-none fixed left-[50%] top-[50%]
                     translate-y-[-50%] translate-x-[-50%]`}
@@ -44,7 +48,7 @@ export default function Home(): React.ReactNode {
           </motion.div>
         </Parallax>
         <Parallax
-          parallaxSpeed={2}
+          parallaxSpeed={1}
           stickToTop={false}
           className={`fixed left-[50%] top-[50%] translate-y-[-50%] 
                     translate-x-[-50%]`}
@@ -62,7 +66,7 @@ export default function Home(): React.ReactNode {
         </Parallax>
       </div>
 
-      <div className={"w-full h-screen"} />
+      <ProjectDisplay />
       <div className={"fixed bottom-0 p-8"}>
         <ScrollHelper />
       </div>

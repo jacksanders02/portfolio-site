@@ -3,22 +3,7 @@
  */
 
 import { createNoise2D, NoiseFunction2D } from "simplex-noise";
-
-/**
- * Point type, used to store the array of points that make up the blob
- */
-export type Point = {
-  x: number;
-  y: number;
-
-  originX: number;
-  originY: number;
-
-  noiseX: number;
-  noiseY: number;
-
-  range: number;
-};
+import { Point } from "@/helpers/types";
 
 /**
  * Generates an initial set of 8 points, within a given bounding box.
