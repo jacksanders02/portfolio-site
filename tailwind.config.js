@@ -21,7 +21,7 @@ module.exports = {
           },
         },
         primary: {
-          DEFAULT: "#dc6ef1",
+          DEFAULT: "#ff8bec",
           dark: "#CE6FC4",
         },
         secondary: {
@@ -29,7 +29,7 @@ module.exports = {
           dark: "#F9F1F1",
         },
         accent: {
-          DEFAULT: "#dc6ef1",
+          DEFAULT: "#ff8bec",
           dark: "#CE6FC4",
         },
       },

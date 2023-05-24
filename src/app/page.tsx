@@ -53,9 +53,11 @@ export default function Home(): React.ReactNode {
             svgWidth={200}
             svgHeight={200}
             baseNoiseStep={0.0075}
-            className={`z-10 h-48 blur-lg sm:h-72 sm:blur-xl lg:h-96 lg:blur-2xl 
-                    xl:h-[30rem] xl:blur-3xl aspect-square fill-accent 
-                    dark:fill-accent-dark`}
+            className={`z-10 h-48 blur-md dark:blur-lg 
+                    sm:h-72 sm:blur-lg sm:dark:blur-xl 
+                    lg:h-96 lg:blur-xl lg:dark:blur-2xl
+                    xl:h-[30rem] xl:blur-2xl xl:dark:blur-3xl 
+                    aspect-square fill-accent dark:fill-accent-dark`}
           />
         </Parallax>
       </div>
