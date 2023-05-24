@@ -3,27 +3,44 @@ import React, { useEffect, useRef } from "react";
 import { genPoints, nextPointStep, Point } from "@/helpers/noisy-circle";
 import { spline } from "@georgedoescode/spline";
 
+/**
+ * Creates a random blob svg, using simplex noise & Catmull-Rom splines
+ * Adapted from: https://georgefrancis.dev/writing/build-a-smooth-animated-blob-with-svg-and-js/
+ * @param svgWidth {number} the width of the SVG's bounding box
+ * @param svgHeight {number} the height of the SVG's bounding box
+ * @param baseNoiseStep {number} the initial 'speed' of the animation (smaller = slower)
+ * @param className {string} any classes to apply to the SVG
+ * @constructor
+ */
 export default function RandomBlob({
   svgWidth,
   svgHeight,
+  baseNoiseStep,
   className,
 }: {
   svgWidth: number;
   svgHeight: number;
+  baseNoiseStep: number;
   className?: string;
 }): React.ReactElement {
+  // Store a reference to the path element
   const blobPathRef: React.Ref<SVGPathElement> = useRef<SVGPathElement>(null);
 
+  // Initialise the points
   const points: Point[] = genPoints(200, 200);
 
-  let noiseStep: number = 0.005;
+  // Higher number = faster movement
+  let noiseStep: number = baseNoiseStep;
 
   useEffect(() => {
+    // Run animation function infinitely when rendered
     (function animate() {
       if (blobPathRef.current === null) {
         return;
       }
 
+      // Use 'spline' method of @georgedoescode/spline to create a Catmull-Rom
+      // spline joining all points
       blobPathRef.current.setAttribute("d", spline(points, 1, true));
 
       for (let point of points) {
@@ -38,21 +55,15 @@ export default function RandomBlob({
     })();
   }, [noiseStep, points]);
 
-  function increaseNoiseStep(): void {
-    noiseStep = 0.015;
-  }
-
-  function resetNoiseStep(): void {
-    noiseStep = 0.0075;
-  }
-
+  // Returns an svg containing the animated path.
+  // Animation will speed up on hover
   return (
     <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={className}>
       <path
         ref={blobPathRef}
         d=""
-        onMouseEnter={increaseNoiseStep}
-        onMouseLeave={resetNoiseStep}
+        onMouseEnter={(): number => (noiseStep = baseNoiseStep * 2)}
+        onMouseLeave={(): number => (noiseStep = baseNoiseStep)}
       ></path>
     </svg>
   );

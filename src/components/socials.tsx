@@ -3,6 +3,10 @@ import React, { useEffect } from "react";
 import MediaQuery from "react-responsive";
 import ExpandedSocials from "@/components/expandedSocials";
 
+/**
+ * Creates links to my social media accounts/about me page
+ * @constructor
+ */
 export default function Socials(): React.ReactElement {
   const [mounted, setMounted] = React.useState(false);
   useEffect(() => {

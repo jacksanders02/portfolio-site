@@ -1,3 +1,7 @@
+/**
+ * Helper constants for fonts
+ */
+
 import { Open_Sans, DM_Serif_Display, Courier_Prime } from "next/font/google";
 
 export const fontSerif = DM_Serif_Display({

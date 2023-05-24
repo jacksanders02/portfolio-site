@@ -5,6 +5,10 @@ import { fontSerif, fontSans } from "@/helpers/font-helpers";
 import RandomBlob from "@/components/RandomBlob";
 import Parallax from "@/components/parallax";
 
+/**
+ * Index page
+ * @constructor
+ */
 export default function Home(): React.ReactNode {
   return (
     <main>
@@ -46,6 +50,7 @@ export default function Home(): React.ReactNode {
         <RandomBlob
           svgWidth={200}
           svgHeight={200}
+          baseNoiseStep={0.0075}
           className={`z-10 h-48 blur-lg sm:h-72 sm:blur-xl lg:h-96 lg:blur-2xl 
                     xl:h-[30rem] xl:blur-3xl aspect-square fill-accent 
                     dark:fill-accent-dark`}

@@ -1,6 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
 
+/**
+ * Creates a small button, indicating to the user that there is more content
+ * further down the page.
+ * @constructor
+ */
 export default function ScrollIndicator(): React.ReactElement {
   const [mounted, setMounted] = React.useState(false);
 
