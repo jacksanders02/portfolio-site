@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { genPoints, nextPointStep } from "@/helpers/noisyCircle";
 import { spline } from "@georgedoescode/spline";
 import { Point } from "@/helpers/types";
+import { tailwindConf } from "@/helpers/globalFunctions";
 
 /**
  * Creates a random blob svg, using simplex noise & Catmull-Rom splines
@@ -34,38 +35,53 @@ export default function RandomBlob({
   let noiseStep: number = baseNoiseStep;
 
   useEffect(() => {
+    let prevFrame: number;
     // Run animation function infinitely when rendered
-    (function animate() {
-      if (blobPathRef.current === null) {
-        return;
+    function animate(elem:SVGPathElement, timestamp: number, req: (time: number) => void) {
+      if (typeof prevFrame === 'undefined') {
+        prevFrame = timestamp;
       }
+
+      let sinceLastFrame: number = (timestamp - prevFrame) / 1000;
 
       // Use 'spline' method of @georgedoescode/spline to create a Catmull-Rom
       // spline joining all points
-      blobPathRef.current.setAttribute("d", spline(points, 1, true));
+      elem.setAttribute("d", spline(points, 1, true))
 
       for (let point of points) {
         const newCoords: { x: number; y: number } = nextPointStep(point);
         point.x = newCoords.x;
         point.y = newCoords.y;
-        point.noiseX += noiseStep;
-        point.noiseY += noiseStep;
+        point.noiseX += noiseStep * sinceLastFrame;
+        point.noiseY += noiseStep * sinceLastFrame;
       }
 
-      requestAnimationFrame(animate);
-    })();
+      prevFrame = timestamp;
+      requestAnimationFrame(req);
+    }
+
+    if (blobPathRef.current === null) {
+      return;
+    }
+
+    const elem: SVGPathElement = blobPathRef.current;
+
+    const animateRequest = (timestamp: number) => animate(elem, timestamp, animateRequest);
+    requestAnimationFrame(animateRequest)
   }, [noiseStep, points]);
 
   // Returns an svg containing the animated path.
   // Animation will speed up on hover
   return (
-    <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={className}>
-      <path
-        ref={blobPathRef}
-        d=""
-        onMouseEnter={(): number => (noiseStep = baseNoiseStep * 2)}
-        onMouseLeave={(): number => (noiseStep = baseNoiseStep)}
-      ></path>
-    </svg>
+    <div>
+      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={className}>
+        <path
+          ref={blobPathRef}
+          d=""
+          onMouseEnter={(): number => (noiseStep = baseNoiseStep * 2)}
+          onMouseLeave={(): number => (noiseStep = baseNoiseStep)}
+        ></path>
+      </svg>
+    </div>
   );
 }

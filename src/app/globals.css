@@ -28,30 +28,13 @@
   }
 }
 
-/* Set up rotation animation for background oval */
-@keyframes rotate {
-  from {
-    scale: 1 1.75;
-  }
-
-  50% {
-    rotate: 180deg;
-    scale: 1 1.33;
-  }
-
-  to {
-    rotate: 360deg;
-    scale: 1 1.75;
-  }
-}
-
-/* Turns a square into a rotating oval */
-.rotating-oval {
-  animation: rotate 20s linear infinite;
-  scale: 1 1.75;
-  border-radius: 50%;
-}
-
 .project-card {
   transform-origin: 0px 5000px;
+}
+
+svg {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
 }

@@ -52,7 +52,14 @@ export default function Parallax({
     startTop.current =
       (divRef.current.offsetTop / document.documentElement.clientHeight) * 100;
 
-    document.addEventListener("scroll", () => handleScroll(divRef.current));
+    const scrollHandler = () => handleScroll(divRef.current)
+
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+
+    return () => window.removeEventListener("scroll", scrollHandler)
+
+    // It's annoying to have a function down here, but for some reason if it's
+    // anywhere else, ESLint throws several hundred errors about divRef
     function handleScroll(elem: HTMLDivElement | null) {
       if (elem === null) {
         return;
