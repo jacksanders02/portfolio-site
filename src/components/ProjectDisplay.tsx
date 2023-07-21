@@ -15,7 +15,7 @@ export default function ProjectDisplay(): React.ReactElement {
   return (
     <div
       className="flex items-center justify-center overflow-clip relative
-              w-full h-screen p-8">
+              w-full h-screen p-8 isolate">
       {renderProjects(projects)}
     </div>
   );

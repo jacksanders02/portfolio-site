@@ -17,11 +17,11 @@ export default function Home(): React.ReactNode {
   })
   return (
     <main>
-      <div className={"w-full h-screen"} >
+      <div className={"w-full h-screen"}>
         <Parallax
           parallaxSpeed={0.5}
           stickToTop={true}
-          className={`z-20 pointer-events-none fixed left-[50%] top-[50%]
+          className={`z-20 pointer-events-none absolute left-[50%] top-[50%]
                     translate-y-[-50%] translate-x-[-50%]`}
         >
           <motion.div
