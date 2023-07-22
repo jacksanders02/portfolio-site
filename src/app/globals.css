@@ -32,6 +32,16 @@
   transform-origin: 0px 5000px;
 }
 
+.vertical-stack-children {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  > * {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+}
+
 svg {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;

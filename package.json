@@ -12,9 +12,8 @@
     "fullcheck": "npm run lint && npm run prettify && npm run stylelint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "@georgedoescode/spline": "^1.0.1",
-    "@types/node": "20.2.1",
-    "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@vercel/analytics": "^1.0.1",
     "bootstrap-icons": "^1.10.5",
@@ -22,12 +21,16 @@
     "next": "13.4.3",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-awesome-reveal": "^4.2.5",
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
+    "react-scroll-parallax": "^3.4.2",
     "simplex-noise": "^4.0.1",
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {
+    "@types/node": "20.4.3",
+    "@types/react": "18.2.15",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.41.0",
@@ -44,6 +47,6 @@
     "prettier": "^2.8.8",
     "stylelint": "^15.6.2",
     "stylelint-config-standard": "^33.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "5.1.6"
   }
 }
