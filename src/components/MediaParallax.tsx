@@ -1,4 +1,7 @@
-import MediaQuery from "react-responsive";
+import dynamic from "next/dynamic"
+const MediaQuery = dynamic(() => import("react-responsive"), {
+  ssr: false
+})
 import React from "react";
 import {Parallax} from "react-scroll-parallax";
 

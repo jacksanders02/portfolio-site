@@ -15,7 +15,7 @@ export default function ScrollHelper(): React.ReactElement {
 
   function handleClick() {
     if (mounted) {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     }
   }
 

@@ -36,10 +36,10 @@ function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
  * Renders JSX for any required buttons (if any)
  * @param proj {Project} The project to render buttons for
  */
-function renderButtons(proj: Project): React.JSX.Element | null{
+function renderButtons(proj: Project): React.JSX.Element | string{
   // If no buttons needed, simply return
   if (!proj.writeupLink && !proj.demoLink) {
-    return null;
+    return "";
   }
 
   return (
@@ -98,7 +98,7 @@ export default function ProjectCard({
         <Slide direction={"right"} triggerOnce>
           <div className={`flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left`}>
             <h2 className={`${fontSerif.className} text-5xl tracking-wider`}>{project.title}</h2>
-            <p dangerouslySetInnerHTML={{__html: project.shortDescription}}></p>
+            <div dangerouslySetInnerHTML={{__html: project.shortDescription}} />
             {renderButtons(project)}
           </div>
         </Slide>

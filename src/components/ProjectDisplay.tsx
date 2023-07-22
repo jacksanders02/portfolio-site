@@ -4,8 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { Project } from "@/helpers/types";
 
 function renderProjects(projectArray: Project[]): React.ReactElement[] {
-  let i: number = 0;
-  return projectArray.map(project => (
+  return projectArray.map((project: Project, i: number) => (
     <ProjectCard project={project} key={`project-${i}`} />
   ));
 }
