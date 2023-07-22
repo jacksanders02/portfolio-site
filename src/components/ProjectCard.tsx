@@ -16,7 +16,7 @@ function renderTechnologies(techs: Technology[]) {
             height={24}
             draggable={false}
           />
-          <div className={"absolute top-[110%] tooltip bg-gray-600 after:border-b-gray-600"}>
+          <div className={"absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600"}>
             {technology.name}
           </div>
         </div>
