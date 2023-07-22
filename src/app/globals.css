@@ -87,6 +87,17 @@
   opacity: 1;
 }
 
+@keyframes slide-in {
+  from {transform: translateX(-100%);}
+  to {transform: translateX(0);}
+}
+
+.skip-animation {
+  animation-name: slide-in !important;
+  animation-duration: 0s !important;
+  animation-fill-mode: both !important;
+}
+
 svg {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;

@@ -64,18 +64,32 @@ function renderButtons(proj: Project): React.JSX.Element | string{
  */
 export default function ProjectCard({
   project,
+  id,
   className,
 }: {
   project: Project;
+  id?: string;
   className?: string;
 }): React.ReactElement {
   return (
-    <div className={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16 w-[60%] min-[1200px]:max-2xl:w-[50%]`}>
+    <div id={id ? id : ""} className={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16 w-[60%] min-[1200px]:max-2xl:w-[50%]`}>
       {/* Cascade fade animation so that image is visible before title/description */ }
       <Fade cascade damping={0.33}>
-        <Slide triggerOnce>
+        <Slide
+          onVisibilityChange={(inView, entry) => {
+              let target: Element = entry.target;
+              if (inView && target.getBoundingClientRect().top < 0) {
+                setTimeout(() => {
+                  target.classList.add("skip-animation");
+                }, 10);
+              }
+            }
+          }
+        >
           <div
-            className={`m-auto w-full 2xl:min-w-[300px] max-w-[350px] p-2 sm:p-4 bg-on-background-dark ${fontSans.className}`}
+            className={
+              `m-auto w-full 2xl:min-w-[300px] max-w-[350px] p-2 sm:p-4 bg-on-background-dark ${fontSans.className}`
+            }
           >
             <div className={"relative"}>
               <Image
@@ -95,7 +109,18 @@ export default function ProjectCard({
             </div>
           </div>
         </Slide>
-        <Slide direction={"right"} triggerOnce>
+        <Slide
+          onVisibilityChange={(inView, entry) => {
+              let target: Element = entry.target;
+              if (inView && target.getBoundingClientRect().top < 0) {
+                setTimeout(() => {
+                  target.classList.add("skip-animation");
+                }, 10);
+              }
+            }
+          }
+          direction={"right"}
+        >
           <div className={`flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left`}>
             <h2 className={`${fontSerif.className} text-5xl tracking-wider`}>{project.title}</h2>
             <div dangerouslySetInnerHTML={{__html: project.shortDescription}} />
