@@ -6,6 +6,7 @@ import RandomBlob from "@/components/RandomBlob";
 import {Parallax} from "react-scroll-parallax";
 import ScrollHelper from "@/components/ScrollHelper";
 import ProjectDisplay from "@/components/ProjectDisplay";
+import MediaParallax from "@/components/MediaParallax";
 
 /**
  * Index page
@@ -20,11 +21,7 @@ export default function Home(): React.ReactNode {
       <div className={"w-full h-screen"}>
         <div className={`absolute left-[50%] top-[50%] translate-y-[-50%] 
                     translate-x-[-50%] vertical-stack-children`}>
-          <Parallax
-            speed={-25}
-            onProgressChange={p => console.log(p)}
-            className={`pointer-events-none m-auto z-20`}
-          >
+          <MediaParallax>
             <motion.div
               initial={{ y: 100, scale: 0 }}
               animate={{ y: 0, scale: 1 }}
@@ -47,7 +44,7 @@ export default function Home(): React.ReactNode {
                 Student of computer science, hobbyist full-stack software engineer
               </h2>
             </motion.div>
-          </Parallax>
+          </MediaParallax>
           <Parallax className={`m-auto z-10`} speed={15} rotateZ={[0, 360]}>
             <RandomBlob
               svgWidth={200}

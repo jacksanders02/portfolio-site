@@ -32,5 +32,7 @@ export type Project = {
   title: string;
   caption?: string;
   keyTechnologies: Technology[];
-  fullDescription: string;
+  shortDescription: string;
+  writeupLink?: string;
+  demoLink?: string;
 }

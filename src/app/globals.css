@@ -26,6 +26,29 @@
       }
     }
   }
+
+  .hover-button {
+    border: 2px solid currentColor;
+    border-radius: .5em;
+    padding: .25em .5em;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    color: theme("colors.on-background.DEFAULT");
+
+    &:hover {
+      color: theme("colors.on-background.hover");
+    }
+
+    &-dark {
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+      color: theme("colors.on-background.dark.DEFAULT");
+
+      &:hover {
+        color: theme("colors.on-background.dark.hover");
+      }
+    }
+  }
 }
 
 .vertical-stack-children {

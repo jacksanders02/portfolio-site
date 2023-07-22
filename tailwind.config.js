@@ -14,7 +14,7 @@ module.exports = {
         },
         "on-background": {
           DEFAULT: "rgb(5, 5, 5)",
-          hover: "rgb(80, 80, 80)",
+          hover: "rgb(111,111,111)",
           dark: {
             DEFAULT: "rgb(252, 252, 252)",
             hover: "rgb(177, 177, 177)",

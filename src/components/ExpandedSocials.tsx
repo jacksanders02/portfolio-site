@@ -20,7 +20,7 @@ export default function ExpandedSocials(): React.ReactElement {
                       dark:border-on-background-dark`}
       />
       <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-        more about me
+        about me
       </a>
     </div>
   );
