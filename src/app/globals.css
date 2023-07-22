@@ -28,10 +28,6 @@
   }
 }
 
-.project-card {
-  transform-origin: 0px 5000px;
-}
-
 .vertical-stack-children {
   display: grid;
   grid-template-columns: 1fr;
@@ -40,6 +36,32 @@
     grid-row-start: 1;
     grid-column-start: 1;
   }
+}
+
+.tooltip {
+  left: 50%;
+  top: calc(100% + 12px);
+  transform: translateX(-50%);
+  padding: .25em;
+  border-radius: .5em;
+  opacity: 0;
+  transition: opacity .5s ease;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: -10px;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid;
+  }
+}
+
+.technology-icon:hover .tooltip {
+  opacity: 1;
 }
 
 svg {

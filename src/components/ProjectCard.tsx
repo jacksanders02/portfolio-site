@@ -8,7 +8,7 @@ function renderTechnologies(techs: Technology[]) {
   let i: number = 0;
   return techs.map(technology => {
       return (
-        <div className={"flex gap-1 z-10"} key={`technology_${i++}`}>
+        <div className={"flex gap-1 z-10 technology-icon relative"} key={`technology_${i++}`}>
           <Image
             src={technology.iconURL}
             alt={technology.alt}
@@ -16,6 +16,9 @@ function renderTechnologies(techs: Technology[]) {
             height={24}
             draggable={false}
           />
+          <div className={"absolute top-[110%] tooltip bg-gray-600 after:border-b-gray-600"}>
+            {technology.name}
+          </div>
         </div>
       );
     }
@@ -58,7 +61,7 @@ export default function ProjectCard({
         <Slide direction={"right"} triggerOnce>
           <div>
             <h2 className={`${fontSerif.className} text-5xl tracking-wider mb-4`}>{project.title}</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse natus omnis quas. Animi dicta doloribus et, illum inventore ipsa labore omnis quod ratione recusandae sed sit totam ullam velit voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam at deserunt eaque earum explicabo fugiat, ipsam iste, iure nesciunt nostrum odit perspiciatis porro provident, quaerat quod repellendus unde ut vel. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet consectetur consequuntur doloremque dolorum eaque error eum, explicabo iusto maiores pariatur rerum sit unde. Autem ea id in iure numquam.</p>
+            <p dangerouslySetInnerHTML={{__html: project.fullDescription}}></p>
           </div>
         </Slide>
       </Fade>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ExpandedSocials(): React.ReactElement {
   return (
-    <div className="flex items-center gap-6 text-3xl p-8 bg-colour-background dark:bg-colour-background-dark">
+    <div className="flex items-center gap-6 text-3xl">
       <a
         className="bi bi-instagram hover-link dark:hover-link-dark"
         href="https://www.instagram.com/jacksanders02/"

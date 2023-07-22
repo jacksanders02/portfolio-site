@@ -17,7 +17,7 @@ export default function ThemeToggle(): React.ReactElement {
   }
 
   return (
-    <div className={"flex items-center p-8 gap-6 text-3xl"}>
+    <div className={"flex items-center gap-6 text-3xl"}>
       <i
         className="bi bi-sun-fill hover-link dark:hover-link-dark"
         onClick={handleClick}
