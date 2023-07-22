@@ -14,8 +14,7 @@ export default function ProjectDisplay(): React.ReactElement {
   const projects: Project[] = projectsJSON["projects"]
   return (
     <div
-      className="flex items-center justify-center overflow-clip relative
-              w-full h-screen p-8 isolate">
+      className="flex flex-col gap-32 items-center justify-center overflow-clip relative p-8 isolate">
       {renderProjects(projects)}
     </div>
   );
