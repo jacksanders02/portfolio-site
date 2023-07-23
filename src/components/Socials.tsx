@@ -44,6 +44,16 @@ export default function Socials(): React.ReactElement {
     }),
   };
 
+  const tabletMenuVariants = {
+    visible: {
+      translateX: 0,
+    },
+
+    hidden: {
+      translateX: `-110%`,
+    },
+  };
+
   const handleClick: MouseEventHandler<SVGElement> = (
     e: React.MouseEvent<SVGElement, MouseEvent>
   ) => {
@@ -98,28 +108,24 @@ export default function Socials(): React.ReactElement {
           className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
         />
         <motion.div
-          className={`absolute w-full h-[150%] flex-col left-0 top-[100%] items-center`}
+          className={`absolute flex-col gap-4 left-0 top-[100%] items-center`}
           data-expanded={menuExpanded}
           variants={menubgVariants}
           initial={"hidden"}
           animate={menuExpanded ? "visible" : "hidden"}
         >
+          {SocialLinks().map((link: React.ReactElement, n: number) => (
+            <motion.div
+              key={`social-link-${n}`}
+              className={`flex items-center justify-center ps-8 pe-8`}
+              variants={tabletMenuVariants}
+            >
+              {link}
+            </motion.div>
+          ))}
           <motion.div
-            className={`menu-item-left flex w-full justify-around flex-1 items-center
-                        bg-colour-background dark:bg-colour-background-dark
-                        border-t-2 border-b-[1px] border-on-background
-                        dark:border-on-background-dark`}
-            custom={0}
-            variants={menuVariants}
-          >
-            <SocialLinks />
-          </motion.div>
-          <motion.div
-            className={`menu-item-right flex-1 flex items-center border-b-2 w-full justify-center
-                        bg-colour-background dark:bg-colour-background-dark
-                        border-b-on-background dark:border-b-on-background-dark`}
-            custom={1}
-            variants={menuVariants}
+            className={`flex items-center justify-center`}
+            variants={tabletMenuVariants}
           >
             <a className={`hover-link dark:hover-link-dark text-lg underline`}>
               About Me

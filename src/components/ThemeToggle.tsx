@@ -10,7 +10,7 @@ export default function ThemeToggle(): React.ReactElement {
 
   useEffect(() => {
     setMounted(true);
-    setDataTheme(document.getElementsByTagName('html')[0].classList[0]);
+    setDataTheme(document.getElementsByTagName("html")[0].classList[0]);
   }, []);
 
   function handleClick() {
