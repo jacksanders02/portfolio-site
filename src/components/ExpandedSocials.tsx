@@ -9,11 +9,11 @@ export default function ExpandedSocials(): React.ReactElement {
       />
       <a
         className="bi bi-linkedin hover-link dark:hover-link-dark"
-        href="https://www.linkedin.com/in/jack-sanders-05915423a/"
+        href="https://www.linkedin.com/in/jacksanders02/"
       />
       <a
         className="bi bi-github hover-link dark:hover-link-dark"
-        href="https://github.com/JSanders02"
+        href="https://github.com/jacksanders02"
       />
       <div
         className={`self-stretch border-r-2 border-on-background 

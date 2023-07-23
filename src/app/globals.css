@@ -98,6 +98,27 @@
   animation-fill-mode: both !important;
 }
 
+.theme-switch {
+  height: 2rem;
+  aspect-ratio: 1.75;
+  border-radius: 25px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 5px;
+
+  > div {
+    height: 1.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  &[data-theme="dark"] {
+    justify-content: end;
+  }
+}
+
 svg {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;

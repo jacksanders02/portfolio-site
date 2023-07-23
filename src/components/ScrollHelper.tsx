@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import {AttentionSeeker} from "react-awesome-reveal";
+import {motion} from "framer-motion";
 
 /**
  * Creates a small button, indicating to the user that there is more content
@@ -40,12 +40,13 @@ export default function ScrollHelper(): React.ReactElement {
   }
 
   return (
-    <AttentionSeeker effect={`pulse`}>
-      <i
-        className="bi bi-arrow-down-circle-fill hover-link dark:hover-link-dark
-                  text-5xl"
-        onClick={handleClick}
-      />
-    </AttentionSeeker>
+    <motion.div
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.8 }}
+
+      className="bi bi-arrow-down-circle-fill hover-link dark:hover-link-dark
+                text-5xl"
+      onClick={handleClick}
+    />
   );
 }
