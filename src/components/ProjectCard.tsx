@@ -6,7 +6,7 @@ import { Slide, Fade } from "react-awesome-reveal";
 
 /**
  * Renders JSX for a project's technologies.
- * Just icons for all of the used techs, with tooltips that appear when a user hovers over the icons
+ * Just icons for all the used techs, with tooltips that appear when a user hovers over the icons
  * @param techs {Technology[]} A list of technologies used by the project
  */
 function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
