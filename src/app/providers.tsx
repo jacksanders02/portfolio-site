@@ -4,7 +4,7 @@
 
 import { ThemeProvider } from "next-themes";
 import React from "react";
-import {ParallaxProvider} from "react-scroll-parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 export function Providers({
   children,
@@ -13,9 +13,7 @@ export function Providers({
 }): React.ReactElement {
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
-      <ParallaxProvider>
-        {children}
-      </ParallaxProvider>
+      <ParallaxProvider>{children}</ParallaxProvider>
     </ThemeProvider>
   );
 }

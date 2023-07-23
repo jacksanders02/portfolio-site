@@ -21,7 +21,7 @@ export type Technology = {
   name: string;
   iconURL: string;
   alt: string;
-}
+};
 
 /**
  * Project type, used to store details about one of my projects
@@ -35,4 +35,4 @@ export type Project = {
   shortDescription: string;
   writeupLink?: string;
   demoLink?: string;
-}
+};

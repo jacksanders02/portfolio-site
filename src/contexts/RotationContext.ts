@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const RotateContext = createContext(1)
+export const RotateContext = createContext(1);

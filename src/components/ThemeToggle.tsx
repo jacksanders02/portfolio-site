@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
@@ -22,12 +22,16 @@ export default function ThemeToggle(): React.ReactElement {
 
   return (
     <div
-      className={"theme-switch bg-colour-background-dark dark:bg-colour-background relative isolate"}
+      className={
+        "theme-switch bg-colour-background-dark dark:bg-colour-background relative isolate"
+      }
       data-theme={dataTheme}
       onClick={handleClick}
     >
-      <div className={`w-full absolute left-0 pe-[8px] ps-[8px] flex justify-between items-center z-10 text-sm
-                        text-colour-background dark:text-colour-background-dark`}>
+      <div
+        className={`w-full absolute left-0 pe-[8px] ps-[8px] flex justify-between items-center z-10 text-sm
+                        text-colour-background dark:text-colour-background-dark`}
+      >
         <i className="bi bi-sun-fill" />
         <i className="bi bi-moon-fill" />
       </div>
@@ -36,9 +40,8 @@ export default function ThemeToggle(): React.ReactElement {
         transition={{
           type: "spring",
           stiffness: 400,
-          damping: 25
+          damping: 25,
         }}
-
         className={`bg-colour-background dark:bg-colour-background-dark z-20`}
       />
     </div>

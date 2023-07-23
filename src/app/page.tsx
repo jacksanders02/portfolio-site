@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { fontSerif, fontSans } from "@/helpers/fontHelpers";
 import RandomBlob from "@/components/RandomBlob";
-import {Parallax} from "react-scroll-parallax";
+import { Parallax } from "react-scroll-parallax";
 import ScrollHelper from "@/components/ScrollHelper";
 import ProjectDisplay from "@/components/ProjectDisplay";
 import MediaParallax from "@/components/MediaParallax";
@@ -14,13 +14,15 @@ import MediaParallax from "@/components/MediaParallax";
  */
 export default function Home(): React.ReactNode {
   useEffect(() => {
-    window.scrollTo({top: 0});
-  })
+    window.scrollTo({ top: 0 });
+  });
   return (
     <main>
       <div className={"w-full h-screen"}>
-        <div className={`absolute left-[50%] top-[50%] translate-y-[-50%] 
-                    translate-x-[-50%] vertical-stack-children`}>
+        <div
+          className={`absolute left-[50%] top-[50%] translate-y-[-50%] 
+                    translate-x-[-50%] vertical-stack-children`}
+        >
           <MediaParallax>
             <motion.div
               initial={{ y: 100, scale: 0 }}
@@ -41,7 +43,8 @@ export default function Home(): React.ReactNode {
               <h2
                 className={`${fontSans.className} text-sm sm:text-base lg:text-xl text-center`}
               >
-                Student of computer science, hobbyist full-stack software engineer
+                Student of computer science, hobbyist full-stack software
+                engineer
               </h2>
             </motion.div>
           </MediaParallax>

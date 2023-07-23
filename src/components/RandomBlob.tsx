@@ -1,9 +1,7 @@
-"use client";
 import React, { useEffect, useRef } from "react";
 import { genPoints, nextPointStep } from "@/helpers/noisyCircle";
 import { spline } from "@georgedoescode/spline";
 import { Point } from "@/helpers/types";
-import { tailwindConf } from "@/helpers/globalFunctions";
 
 /**
  * Creates a random blob svg, using simplex noise & Catmull-Rom splines
@@ -37,8 +35,12 @@ export default function RandomBlob({
   useEffect(() => {
     let prevFrame: number;
     // Run animation function infinitely when rendered
-    function animate(elem:SVGPathElement, timestamp: number, req: (time: number) => void) {
-      if (typeof prevFrame === 'undefined') {
+    function animate(
+      elem: SVGPathElement,
+      timestamp: number,
+      req: (time: number) => void
+    ) {
+      if (typeof prevFrame === "undefined") {
         prevFrame = timestamp;
       }
 
@@ -46,7 +48,7 @@ export default function RandomBlob({
 
       // Use 'spline' method of @georgedoescode/spline to create a Catmull-Rom
       // spline joining all points
-      elem.setAttribute("d", spline(points, 1, true))
+      elem.setAttribute("d", spline(points, 1, true));
 
       for (let point of points) {
         const newCoords: { x: number; y: number } = nextPointStep(point);
@@ -66,8 +68,9 @@ export default function RandomBlob({
 
     const elem: SVGPathElement = blobPathRef.current;
 
-    const animateRequest = (timestamp: number) => animate(elem, timestamp, animateRequest);
-    requestAnimationFrame(animateRequest)
+    const animateRequest = (timestamp: number) =>
+      animate(elem, timestamp, animateRequest);
+    requestAnimationFrame(animateRequest);
   }, [noiseStep, points]);
 
   // Returns an svg containing the animated path.

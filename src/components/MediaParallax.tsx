@@ -1,9 +1,10 @@
-import dynamic from "next/dynamic"
+"use client";
+import dynamic from "next/dynamic";
 const MediaQuery = dynamic(() => import("react-responsive"), {
-  ssr: false
-})
+  ssr: false,
+});
 import React from "react";
-import {Parallax} from "react-scroll-parallax";
+import { Parallax } from "react-scroll-parallax";
 
 /**
  * A responsive parallax for the hero section.
@@ -13,32 +14,20 @@ import {Parallax} from "react-scroll-parallax";
  * @constructor
  */
 export default function MediaParallax({
-  children
+  children,
 }: {
-  children: React.JSX.Element[]
+  children: React.JSX.Element[];
 }): React.ReactElement {
   return (
     <div className={`pointer-events-none m-auto z-20`}>
       <MediaQuery maxHeight={849}>
-        <Parallax
-          speed={-15}
-        >
-          {children}
-        </Parallax>
+        <Parallax speed={-15}>{children}</Parallax>
       </MediaQuery>
       <MediaQuery minHeight={850} maxHeight={999}>
-        <Parallax
-          speed={-20}
-        >
-          {children}
-        </Parallax>
+        <Parallax speed={-20}>{children}</Parallax>
       </MediaQuery>
       <MediaQuery minHeight={1000}>
-        <Parallax
-          speed={-25}
-        >
-          {children}
-        </Parallax>
+        <Parallax speed={-25}>{children}</Parallax>
       </MediaQuery>
     </div>
   );

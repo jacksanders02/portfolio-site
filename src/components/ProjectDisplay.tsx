@@ -10,11 +10,12 @@ function renderProjects(projectArray: Project[]): React.ReactElement[] {
 }
 
 export default function ProjectDisplay(): React.ReactElement {
-  const projects: Project[] = projectsJSON["projects"]
+  const projects: Project[] = projectsJSON["projects"];
   return (
     <div
       id={"projects"}
-      className="flex flex-col gap-32 items-center justify-center overflow-clip relative p-8 isolate">
+      className="flex flex-col gap-32 items-center justify-center overflow-clip relative p-8 isolate"
+    >
       {renderProjects(projects)}
     </div>
   );

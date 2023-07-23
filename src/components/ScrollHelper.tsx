@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
  * Creates a small button, indicating to the user that there is more content
@@ -13,7 +13,9 @@ export default function ScrollHelper(): React.ReactElement {
 
   useEffect(() => {
     setMounted(true);
-    let projectsElement = document.getElementById('projects') || {children: {}};
+    let projectsElement = document.getElementById("projects") || {
+      children: {},
+    };
     setProjects(Object.values(projectsElement.children));
   }, []);
 
@@ -48,7 +50,6 @@ export default function ScrollHelper(): React.ReactElement {
     <motion.div
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
-
       className="bi bi-arrow-down-circle-fill hover-link dark:hover-link-dark
                 text-5xl bg-colour-background dark:bg-colour-background-dark rounded-full"
       onClick={handleClick}

@@ -29,8 +29,8 @@
 
   .hover-button {
     border: 2px solid currentColor;
-    border-radius: .5em;
-    padding: .25em .5em;
+    border-radius: 0.5em;
+    padding: 0.25em 0.5em;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
     color: theme("colors.on-background.DEFAULT");
@@ -65,10 +65,10 @@
   left: 50%;
   top: calc(100% + 12px);
   transform: translateX(-50%);
-  padding: .25em;
-  border-radius: .5em;
+  padding: 0.25em;
+  border-radius: 0.5em;
   opacity: 0;
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 
   &:after {
     content: " ";
@@ -88,8 +88,12 @@
 }
 
 @keyframes slide-in {
-  from {transform: translateX(-100%);}
-  to {transform: translateX(0);}
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .skip-animation {
