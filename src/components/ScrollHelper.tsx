@@ -45,7 +45,7 @@ export default function ScrollHelper(): React.ReactElement {
       whileTap={{ scale: 0.8 }}
 
       className="bi bi-arrow-down-circle-fill hover-link dark:hover-link-dark
-                text-5xl"
+                text-5xl bg-colour-background dark:bg-colour-background-dark rounded-full"
       onClick={handleClick}
     />
   );

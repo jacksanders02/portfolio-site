@@ -103,7 +103,7 @@
   aspect-ratio: 1.75;
   border-radius: 25px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   padding: 0 5px;
@@ -115,7 +115,7 @@
   }
 
   &[data-theme="dark"] {
-    justify-content: end;
+    justify-content: flex-end;
   }
 }
 

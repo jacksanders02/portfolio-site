@@ -72,7 +72,7 @@ export default function ProjectCard({
   className?: string;
 }): React.ReactElement {
   return (
-    <div id={id ? id : ""} className={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16 w-[60%] min-[1200px]:max-2xl:w-[50%]`}>
+    <div id={id ? id : ""} className={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16 md:w-[60%] min-[1200px]:max-2xl:w-[50%]`}>
       {/* Cascade fade animation so that image is visible before title/description */ }
       <Fade cascade damping={0.33}>
         <Slide
