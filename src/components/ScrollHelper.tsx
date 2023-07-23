@@ -24,6 +24,7 @@ export default function ScrollHelper(): React.ReactElement {
     if (mounted) {
       let firstBottomHalf: number = window.scrollY;
       let i: number = 0;
+      let navElem: Element = document.getElementsByTagName("nav")[0];
 
       // Find first project that is more than halfway down the viewport
       while (projects.length > i && firstBottomHalf === window.scrollY) {
@@ -33,6 +34,10 @@ export default function ScrollHelper(): React.ReactElement {
         }
 
         i++;
+      }
+
+      if (window.innerWidth < 768) {
+        firstBottomHalf -= navElem.getBoundingClientRect().height;
       }
 
       window.scrollTo({ top: firstBottomHalf, behavior: "smooth" });
