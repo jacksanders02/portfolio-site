@@ -20,17 +20,17 @@ export default function Socials(): React.ReactElement {
       display: "flex",
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.15
-      }
+        staggerChildren: 0.15,
+      },
     },
 
     hidden: {
       display: "none",
       transition: {
-        when: "afterChildren"
-      }
-    }
-  }
+        when: "afterChildren",
+      },
+    },
+  };
 
   const menuVariants = {
     visible: {
@@ -40,15 +40,18 @@ export default function Socials(): React.ReactElement {
 
     hidden: (i: number) => ({
       opacity: 0,
-      translateX: `${100 * (-1 + (i % 2) * 2)}%`
-    })
-  }
+      translateX: `${100 * (-1 + (i % 2) * 2)}%`,
+    }),
+  };
 
-  const handleClick: MouseEventHandler<HTMLElement> = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    let display: string = (e.currentTarget.nextElementSibling as HTMLElement).style.display;
+  const handleClick: MouseEventHandler<SVGElement> = (
+    e: React.MouseEvent<SVGElement, MouseEvent>
+  ) => {
+    let display: string = (e.currentTarget.nextElementSibling as HTMLElement)
+      .style.display;
 
     setMenuExpanded(display === "none");
-  }
+  };
 
   return (
     <div className="flex items-center gap-6 text-3xl">

@@ -1,58 +1,63 @@
 import React, { MouseEventHandler } from "react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function MenuButton({
   clickAction,
   menuOpenState,
-  className
+  className,
 }: {
-  clickAction: MouseEventHandler<HTMLElement>;
+  clickAction: MouseEventHandler<SVGElement>;
   menuOpenState: boolean;
   className?: string;
 }): React.ReactElement {
-
   const topVariants = {
     open: {
       rotate: 45,
-      translateY: 2
+      translateY: 2,
     },
 
     closed: {
       rotate: 0,
-      translateY: 0
-    }
-  }
+      translateY: 0,
+    },
+  };
 
   const midVariants = {
     open: {
       opacity: 0,
-      translateX: -2
+      translateX: -2,
     },
 
     closed: {
       opacity: 1,
-      translateX: 0
-    }
-  }
+      translateX: 0,
+    },
+  };
 
   const lowVariants = {
     open: {
       rotate: -45,
-      translateY: -2
+      translateY: -2,
     },
 
     closed: {
       rotate: 0,
-      translateY: 0
-    }
-  }
+      translateY: 0,
+    },
+  };
+
+  const clickHandler: MouseEventHandler<SVGElement> = (
+    e: React.MouseEvent<SVGElement, MouseEvent>
+  ) => {
+    clickAction(e);
+  };
 
   return (
     <motion.svg
       viewBox={`0 0 4 4`}
       overflow="visible"
       preserveAspectRatio="none"
-      onClick={clickAction}
+      onClick={clickHandler}
       className={className}
     >
       <motion.line
@@ -89,5 +94,5 @@ export default function MenuButton({
     // <i className="bi bi-list hover-link dark:hover-link-dark cursor-pointer"
     //    onClick={clickAction}
     // />
-  )
+  );
 }
