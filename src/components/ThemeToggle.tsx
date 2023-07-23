@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 export default function ThemeToggle(): React.ReactElement {
   const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
-  const [dataTheme, setDataTheme] = React.useState<string | undefined>("dark");
+  const [dataTheme, setDataTheme] = React.useState<string>("dark");
 
   useEffect(() => {
     setMounted(true);
-    setDataTheme(theme);
+    setDataTheme(document.getElementsByTagName('html')[0].classList[0]);
   }, []);
 
   function handleClick() {
