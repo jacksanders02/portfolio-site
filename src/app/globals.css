@@ -9,20 +9,24 @@
 @layer utilities {
   .hover-link {
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, stroke .2s ease-in-out;
     color: theme("colors.on-background.DEFAULT");
+    stroke: theme("colors.on-background.DEFAULT");
 
     &:hover {
       color: theme("colors.on-background.hover");
+      stroke: theme("colors.on-background.hover");
     }
 
     &-dark {
       cursor: pointer;
-      transition: color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out, stroke .2s ease-in-out;
       color: theme("colors.on-background.dark.DEFAULT");
+      stroke: theme("colors.on-background.dark.DEFAULT");
 
       &:hover {
         color: theme("colors.on-background.dark.hover");
+        stroke: theme("colors.on-background.dark.hover");
       }
     }
   }
@@ -122,6 +126,8 @@
     justify-content: flex-end;
   }
 }
+
+
 
 svg {
   -webkit-backface-visibility: hidden;

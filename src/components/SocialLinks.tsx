@@ -1,27 +1,27 @@
 import React from "react";
 
-export default function ExpandedSocials(): React.ReactElement {
+/**
+ * Creates links to my social media accounts/about me page
+ * @constructor
+ */
+export default function SocialLinks(): React.ReactElement[] {
   return (
-    <div className="flex items-center gap-6 text-3xl">
+    [
       <a
         className="bi bi-instagram hover-link dark:hover-link-dark"
         href="https://www.instagram.com/jacksanders02/"
-      />
+        key="instagram"
+      />,
       <a
         className="bi bi-linkedin hover-link dark:hover-link-dark"
         href="https://www.linkedin.com/in/jacksanders02/"
-      />
+        key="linkedin"
+      />,
       <a
         className="bi bi-github hover-link dark:hover-link-dark"
         href="https://github.com/jacksanders02"
+        key="github"
       />
-      <div
-        className={`self-stretch border-r-2 border-on-background 
-                      dark:border-on-background-dark`}
-      />
-      <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-        about me
-      </a>
-    </div>
+    ]
   );
 }
