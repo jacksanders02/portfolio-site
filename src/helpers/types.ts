@@ -32,7 +32,7 @@ export type Project = {
   title: string;
   caption?: string;
   keyTechnologies: Technology[];
-  shortDescription: string;
+  briefDescription: string;
   writeupLink?: string;
   demoLink?: string;
 };

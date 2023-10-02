@@ -143,7 +143,7 @@ export default function ProjectCard({
               {project.title}
             </h2>
             <div
-              dangerouslySetInnerHTML={{ __html: project.shortDescription }}
+              dangerouslySetInnerHTML={{ __html: project.briefDescription }}
             />
             {renderButtons(project)}
           </div>
