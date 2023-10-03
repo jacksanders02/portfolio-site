@@ -44,28 +44,40 @@ function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
  */
 function renderButtons(proj: Project): React.JSX.Element | string {
   // If no buttons needed, simply return
-  if (!proj.writeupLink && !proj.demoLink) {
+  if (!proj.writeupLink && !proj.demoLink && !proj.githubLink) {
     return "";
   }
 
   return (
-    <div className={`flex flex-col min-[560px]:flex-row gap-4`}>
+    <div className={`flex flex-col min-[560px]:flex-row gap-4 items-center`}>
       {proj.demoLink && (
         <a
-          className={`hover-button dark:hover-button-dark text-center`}
+          className={`hover-button dark:hover-button-dark text-center text-xl
+                      flex items-center`}
           href={proj.demoLink}
         >
           <i className={`bi bi-joystick me-2`} />
-          View Demo
+          Demo
+        </a>
+      )}
+      {proj.githubLink && (
+        <a
+          className={`hover-button dark:hover-button-dark text-center text-xl
+                      flex items-center`}
+          href={proj.writeupLink}
+        >
+          <i className={`bi bi-github me-2`} />
+          Source/Download
         </a>
       )}
       {proj.writeupLink && (
         <a
-          className={`hover-button dark:hover-button-dark text-center`}
+          className={`hover-button dark:hover-button-dark text-center text-xl
+                      flex items-center`}
           href={proj.writeupLink}
         >
           <i className={`bi bi-file-text-fill me-2`} />
-          Read Writeup
+          Writeup
         </a>
       )}
     </div>
@@ -105,14 +117,14 @@ export default function ProjectCard({
           }}
         >
           <div
-            className={`m-auto w-full 2xl:min-w-[300px] max-w-[350px] p-2 sm:p-4 bg-on-background-dark ${fontSans.className}`}
+            className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark ${fontSans.className}`}
           >
             <div className={"relative"}>
               <Image
                 src={project.imageURL}
                 alt={project.alt}
-                width={350}
-                height={350}
+                width={500}
+                height={500}
                 draggable={false}
                 className={`w-full h-auto`}
               />

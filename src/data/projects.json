@@ -11,7 +11,10 @@
           "alt": "Two intertwined snakes, one blue and one yellow, forming the logo of the python programming language"
         }
       ],
-      "briefDescription": "This was a project made by me and a friend in our second year of studies, to help us to better understand the <a class='hover-link dark:hover-link-dark underline' href='https://en.wikipedia.org/wiki/Perceptron#Learning_algorithm'>Perceptron Learning Algorithm</a>, and also for myself to become acquainted with PyQt, the python binding for the popular Qt GUI toolkit."
+      "briefDescription": "This was a project made by me and a friend in our second year of studies, to help us to better understand the <a class='hover-link dark:hover-link-dark underline' href='https://en.wikipedia.org/wiki/Perceptron#Learning_algorithm'>Perceptron Learning Algorithm</a>, and also for myself to become acquainted with PyQt, the python binding for the popular Qt GUI toolkit.",
+      "demoLink":  "https://github.com/kj-collabs/simple-linear-perceptron",
+      "githubLink":  "https://github.com/kj-collabs/simple-linear-perceptron",
+      "writeupLink":  "https://github.com/kj-collabs/simple-linear-perceptron"
     },
     {
       "imageURL": "/projects/cat1.jpg",

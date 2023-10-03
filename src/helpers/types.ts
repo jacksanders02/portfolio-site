@@ -35,4 +35,5 @@ export type Project = {
   briefDescription: string;
   writeupLink?: string;
   demoLink?: string;
+  githubLink?: string;
 };
