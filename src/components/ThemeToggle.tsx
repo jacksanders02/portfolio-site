@@ -10,11 +10,15 @@ export default function ThemeToggle(): React.ReactElement {
 
   useEffect(() => {
     setMounted(true);
-    setDataTheme(document.getElementsByTagName("html")[0].classList[0]);
+    // Detect system theme, and set initial theme accordingly
+    let isDark = window.matchMedia("(prefers-color-scheme: dark)");
+    setTheme(isDark.matches ? "dark" : "light");
+    setDataTheme(isDark.matches ? "dark" : "light");
   }, []);
 
   function handleClick() {
     if (mounted) {
+      console.log(theme)
       setTheme(theme === "dark" ? "light" : "dark");
       setDataTheme(theme === "dark" ? "light" : "dark");
     }
