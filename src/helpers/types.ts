@@ -15,23 +15,14 @@ export type Point = {
 };
 
 /**
- * Technology type to support the Project type
- */
-export type Technology = {
-  name: string;
-  iconURL: string;
-  alt: string;
-};
-
-/**
  * Project type, used to store details about one of my projects
  */
 export type Project = {
   imageURL: string;
   alt: string;
   title: string;
-  caption?: string;
-  keyTechnologies: Technology[];
+  date: string;
+  keyTechnologies: string[];
   briefDescription: string;
   writeupLink?: string;
   demoLink?: string;

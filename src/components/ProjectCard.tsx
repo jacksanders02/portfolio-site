@@ -1,18 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import { Project, Technology } from "@/helpers/types";
+import { Project } from "@/helpers/types";
 import { fontSans, fontSerif } from "@/helpers/fontHelpers";
 import { Slide, Fade } from "react-awesome-reveal";
+import { technologyIcons, technologyAlts } from "@/helpers/technologies";
 
 /**
  * Renders JSX for a project's technologies.
  * Just icons for all the used techs, with tooltips that appear when a user hovers over the icons
- * @param techs {Technology[]} A list of technologies used by the project
+ * @param techs {string[]} A list of technologies used by the project
  */
-function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
+function renderTechnologies(techs: string[]): React.JSX.Element[] {
   let i: number = 0;
   // Map each technology to a div containing both the icon and the tooltip
-  return techs.map((technology: Technology) => {
+  return techs.map((technology: string) => {
     return (
       // Relative positioned div so that absolute tooltip is positioned relative to this (nearest positioned ancestor)
       <div
@@ -20,8 +21,8 @@ function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
         key={`technology_${i++}`}
       >
         <Image
-          src={technology.iconURL}
-          alt={technology.alt}
+          src={technologyIcons.get(technology) || 'technologies/notfound.svg'}
+          alt={technologyAlts.get(technology) || 'A question mark, indicating that the technology icon was not found'}
           width={24}
           height={24}
           draggable={false}
@@ -31,7 +32,7 @@ function renderTechnologies(techs: Technology[]): React.JSX.Element[] {
             "absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600"
           }
         >
-          {technology.name}
+          {technology}
         </div>
       </div>
     );
@@ -52,7 +53,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
     <div className={`flex flex-col min-[560px]:flex-row gap-4 items-center`}>
       {proj.demoLink && (
         <a
-          className={`hover-button dark:hover-button-dark text-center text-xl
+          className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.demoLink}
         >
@@ -62,7 +63,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
       )}
       {proj.githubLink && (
         <a
-          className={`hover-button dark:hover-button-dark text-center text-xl
+          className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.writeupLink}
         >
@@ -72,7 +73,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
       )}
       {proj.writeupLink && (
         <a
-          className={`hover-button dark:hover-button-dark text-center text-xl
+          className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.writeupLink}
         >
@@ -151,9 +152,12 @@ export default function ProjectCard({
           <div
             className={`flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left`}
           >
-            <h2 className={`${fontSerif.className} text-5xl tracking-wider`}>
-              {project.title}
-            </h2>
+            <div>
+              <h2 className={`${fontSerif.className} text-3xl lg:text-5xl tracking-wider`}>
+                {project.title}
+              </h2>
+              <p className={`text-sm lg:text-base underline`}>{project.date}</p>
+            </div>
             <div
               dangerouslySetInnerHTML={{ __html: project.briefDescription }}
             />
