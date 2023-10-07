@@ -4,6 +4,7 @@ import React from "react";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
+import { fontSans } from "@/app/fonts";
 
 export const metadata = {
   title: "Jack Sanders",
@@ -18,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className="bg-colour-background dark:bg-colour-background-dark
-                      text-on-background dark:text-on-background-dark"
+        className={`bg-colour-background dark:bg-colour-background-dark
+                      text-on-background dark:text-on-background-dark
+                      ${fontSans.className}`}
       >
         <Providers>
           <Navbar />

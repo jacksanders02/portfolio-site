@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { fontSerif, fontSans } from "@/helpers/fontHelpers";
+import { fontSerif } from "@/app/fonts";
 import RandomBlob from "@/components/RandomBlob";
 import { Parallax } from "react-scroll-parallax";
 import ScrollHelper from "@/components/ScrollHelper";
@@ -41,7 +41,7 @@ export default function Home(): React.ReactNode {
               transition={{ duration: 1 }}
             >
               <h2
-                className={`${fontSans.className} text-sm sm:text-base lg:text-xl text-center`}
+                className={`text-sm sm:text-base lg:text-xl text-center`}
               >
                 Student of computer science, hobbyist full-stack software
                 engineer

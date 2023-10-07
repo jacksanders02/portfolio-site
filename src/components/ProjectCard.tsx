@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Project } from "@/helpers/types";
-import { fontSans, fontSerif } from "@/helpers/fontHelpers";
+import { fontSerif } from "@/app/fonts";
 import { Slide, Fade } from "react-awesome-reveal";
 import { technologyIcons, technologyAlts } from "@/helpers/technologies";
 import PaddedDiv from "@/components/PaddedDiv";
@@ -117,7 +117,7 @@ export default function ProjectCard({
           }}
         >
           <div
-            className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark ${fontSans.className}`}
+            className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark`}
           >
             <div className={"relative"}>
               <Image

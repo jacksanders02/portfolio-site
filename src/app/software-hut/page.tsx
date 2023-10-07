@@ -1,5 +1,6 @@
+"use client"
 import PaddedDiv from "@/components/PaddedDiv";
-import { fontSerif } from "@/helpers/fontHelpers";
+import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
 
 /**

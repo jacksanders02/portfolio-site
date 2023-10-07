@@ -65,10 +65,9 @@ export default function Socials(): React.ReactElement {
   };
 
   const path: string = usePathname();
-  console.log(path)
 
   return (
-    <div className="flex items-center gap-6 text-3xl">
+    <div className={`flex items-center gap-6 text-3xl`}>
       <MediaQuery maxWidth={767}>
         <MenuButton
           clickAction={handleClick}
@@ -99,8 +98,10 @@ export default function Socials(): React.ReactElement {
             custom={1}
             variants={menuVariants}
           >
-            { path === "/" ? (
-              <a className={`hover-link dark:hover-link-dark text-lg underline`}>
+            {path === "/" ? (
+              <a
+                className={`hover-link dark:hover-link-dark text-lg underline`}
+              >
                 About Me
               </a>
             ) : (
@@ -140,8 +141,10 @@ export default function Socials(): React.ReactElement {
             className={`flex items-center justify-center`}
             variants={tabletMenuVariants}
           >
-            { path === "/" ? (
-              <a className={`hover-link dark:hover-link-dark text-lg underline`}>
+            {path === "/" ? (
+              <a
+                className={`hover-link dark:hover-link-dark text-lg underline`}
+              >
                 About Me
               </a>
             ) : (
@@ -161,7 +164,7 @@ export default function Socials(): React.ReactElement {
           className={`self-stretch border-r-2 border-on-background 
                       dark:border-on-background-dark`}
         />
-        { path === "/" ? (
+        {path === "/" ? (
           <a className={`hover-link dark:hover-link-dark text-lg underline`}>
             About Me
           </a>
