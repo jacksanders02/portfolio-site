@@ -4,6 +4,7 @@ import { Project } from "@/helpers/types";
 import { fontSans, fontSerif } from "@/helpers/fontHelpers";
 import { Slide, Fade } from "react-awesome-reveal";
 import { technologyIcons, technologyAlts } from "@/helpers/technologies";
+import PaddedDiv from "@/components/PaddedDiv";
 
 /**
  * Renders JSX for a project's technologies.
@@ -77,8 +78,8 @@ function renderButtons(proj: Project): React.JSX.Element | string {
                       flex items-center`}
           href={proj.writeupLink}
         >
-          <i className={`bi bi-file-text-fill me-2`} />
-          Writeup
+          <i className={`bi bi-info-circle-fill me-2`} />
+          More Info
         </a>
       )}
     </div>
@@ -93,17 +94,15 @@ function renderButtons(proj: Project): React.JSX.Element | string {
  */
 export default function ProjectCard({
   project,
-  id,
-  className,
+  id
 }: {
   project: Project;
   id?: string;
-  className?: string;
 }): React.ReactElement {
   return (
-    <div
-      id={id ? id : ""}
-      className={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16 md:w-[60%] min-[1200px]:max-2xl:w-[50%]`}
+    <PaddedDiv
+      id={id}
+      extraClasses={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16`}
     >
       {/* Cascade fade animation so that image is visible before title/description */}
       <Fade cascade damping={0.33}>
@@ -165,6 +164,6 @@ export default function ProjectCard({
           </div>
         </Slide>
       </Fade>
-    </div>
+    </PaddedDiv>
   );
 }

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Socials from "./Socials";
 import ThemeToggle from "@/components/ThemeToggle";

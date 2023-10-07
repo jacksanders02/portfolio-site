@@ -1,19 +1,6 @@
 {
   "projects": [
     {
-      "imageURL": "/projects/PLA-vis/perceptron-run.png",
-      "alt": "an image of the visualiser.",
-      "title": "Perceptron Algorithm Visualiser",
-      "date": "18th-22nd January 2023",
-      "keyTechnologies": [
-        "Python"
-      ],
-      "briefDescription": "This was a project made by me and <a class='hover-link dark:hover-link-dark underline' href='https://github.com/KushBharakhada/'>a friend</a> in our second year of studies, to help us to better understand the <a class='hover-link dark:hover-link-dark underline' href='https://en.wikipedia.org/wiki/Perceptron#Learning_algorithm'>Perceptron Learning Algorithm</a>, and also for myself to become acquainted with PyQt, the python binding for the popular Qt GUI toolkit.",
-      "githubLink":  "https://github.com/kj-collabs/simple-linear-perceptron",
-      "demoLink":  "https://github.com/kj-collabs/simple-linear-perceptron",
-      "writeupLink":  "https://github.com/kj-collabs/simple-linear-perceptron"
-    },
-    {
       "imageURL": "/projects/software-hut/strokes-gained-thumbnail.png",
       "alt": "an image of a golf course. There is a line indicating a shot path, and a box with strokes gained information.",
       "title": "Software Hut Project",
@@ -23,8 +10,19 @@
         "Rails",
         "JavaScript"
       ],
-      "briefDescription": "As part of my second year of studies, I led a team of 6 other computer science students in a full-stack software engineering project where we had to develop a system for our client. After gathering all requirements from our client, we developed a system that would allow users with a 'map creator' role to interact with a satellite map in order to map out golf courses, and allow for users with no role to browse the database of maps created by the map creators, annotate these (in case they know that the course has changed, but the map creators have not yet updated it), and explore how to optimise their game using the 'strokes gained' metric. For this we received the Software Hut Prize (Client), for producing the best system out of all teams that worked for this client.",
-      "writeupLink": "/"
+      "briefDescription": "As part of my second year of studies, I led a team of 6 other computer science students in a full-stack software engineering project where we had to develop a system for our client. After gathering all requirements from our client, we developed a system that would allow users with a 'map creator' role to interact with a satellite map in order to map out golf courses, and allow for users with no role to browse the database of maps created by the map creators, annotate these (in case they know that the course has changed, but the map creators have not yet updated it), and explore how to optimise their game using the 'strokes gained' metric. For this our team received the Software Hut Prize (Client), for producing the best system out of all teams that worked for this client, and I received a personal grade of 95%",
+      "writeupLink": "/software-hut"
+    },
+    {
+      "imageURL": "/projects/PLA-vis/perceptron-run.png",
+      "alt": "an image of the visualiser.",
+      "title": "Perceptron Algorithm Visualiser",
+      "date": "18th-22nd January 2023",
+      "keyTechnologies": [
+        "Python"
+      ],
+      "briefDescription": "This was a project made by me and <a class='hover-link dark:hover-link-dark underline' href='https://github.com/KushBharakhada/'>a friend</a> in our second year of studies, to help us to better understand the <a class='hover-link dark:hover-link-dark underline' href='https://en.wikipedia.org/wiki/Perceptron#Learning_algorithm'>Perceptron Learning Algorithm</a>, and also for myself to become acquainted with PyQt, the python binding for the popular Qt GUI toolkit.",
+      "githubLink":  "https://github.com/kj-collabs/simple-linear-perceptron"
     },
     {
       "imageURL": "/projects/cat1.jpg",

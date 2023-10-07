@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import SocialLinks from "@/components/SocialLinks";
 import { motion } from "framer-motion";
 import MenuButton from "@/components/MenuButton";
+import { usePathname } from "next/navigation";
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
 });
@@ -63,6 +64,9 @@ export default function Socials(): React.ReactElement {
     setMenuExpanded(display === "none");
   };
 
+  const path: string = usePathname();
+  console.log(path)
+
   return (
     <div className="flex items-center gap-6 text-3xl">
       <MediaQuery maxWidth={767}>
@@ -95,9 +99,18 @@ export default function Socials(): React.ReactElement {
             custom={1}
             variants={menuVariants}
           >
-            <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-              About Me
-            </a>
+            { path === "/" ? (
+              <a className={`hover-link dark:hover-link-dark text-lg underline`}>
+                About Me
+              </a>
+            ) : (
+              <a
+                className={`hover-link dark:hover-link-dark text-lg underline`}
+                href={`/`}
+              >
+                Main Page
+              </a>
+            )}
           </motion.div>
         </motion.div>
       </MediaQuery>
@@ -127,9 +140,18 @@ export default function Socials(): React.ReactElement {
             className={`flex items-center justify-center`}
             variants={tabletMenuVariants}
           >
-            <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-              About Me
-            </a>
+            { path === "/" ? (
+              <a className={`hover-link dark:hover-link-dark text-lg underline`}>
+                About Me
+              </a>
+            ) : (
+              <a
+                className={`hover-link dark:hover-link-dark text-lg underline`}
+                href={`/`}
+              >
+                Main Page
+              </a>
+            )}
           </motion.div>
         </motion.div>
       </MediaQuery>
@@ -139,9 +161,18 @@ export default function Socials(): React.ReactElement {
           className={`self-stretch border-r-2 border-on-background 
                       dark:border-on-background-dark`}
         />
-        <a className={`hover-link dark:hover-link-dark text-lg underline`}>
-          about me
-        </a>
+        { path === "/" ? (
+          <a className={`hover-link dark:hover-link-dark text-lg underline`}>
+            About Me
+          </a>
+        ) : (
+          <a
+            className={`hover-link dark:hover-link-dark text-lg underline`}
+            href={`/`}
+          >
+            Main Page
+          </a>
+        )}
       </MediaQuery>
     </div>
   );
