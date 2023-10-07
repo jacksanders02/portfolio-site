@@ -10,7 +10,7 @@ import Image from "next/image";
 export default function SoftwareHutWriteup() {
   return (
     <main>
-      <PaddedDiv extraClasses={`m-auto mt-20 md:mt-0 p-8 md:ps-0 md:pe-0 flex flex-col gap-6`}>
+      <PaddedDiv extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
         <div className={`flex flex-col gap-2 mb-2`}>
           <h1
             className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
