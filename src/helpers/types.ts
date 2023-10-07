@@ -21,9 +21,9 @@ export type Project = {
   imageURL: string;
   alt: string;
   title: string;
-  date: string;
   keyTechnologies: string[];
   briefDescription: string;
+  date?: string;
   writeupLink?: string;
   demoLink?: string;
   githubLink?: string;

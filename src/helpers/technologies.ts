@@ -5,6 +5,9 @@ export const technologyIcons: Map<string, string> = new Map<string, string>([
   ["React", "technologies/react.svg"],
   ["Python", "technologies/python.svg"],
   ["JavaScript", "technologies/javascript.svg"],
+  ["Next.js", "technologies/nextjs.svg"],
+  ["TypeScript", "technologies/typescript.svg"],
+  ["Tailwind CSS", "technologies/tailwindcss.svg"],
 ])
 
 export const technologyAlts: Map<string, string> = new Map<string, string>([
@@ -13,4 +16,7 @@ export const technologyAlts: Map<string, string> = new Map<string, string>([
   ["React", "A simplified diagram of an atom, the logo of the react framework"],
   ["Python", "Two intertwined snakes, one blue and one yellow, forming the logo of the python programming language"],
   ["JavaScript", "A pale yellow square, with the letters 'JS' in the bottom-right-hand corner, forming the logo of the JavaScript programming language"],
+  ["Next.js", "The letter 'N' in a circle, the bottom-right of the N is fading out"],
+  ["TypeScript", "A pale blue square, with the letters 'TS' in the bottom-right-hand corner, forming the logo of the TypeScript programming language"],
+  ["Tailwind CSS", "Two waves, forming the logo of the Tailwind CSS framework"],
 ])

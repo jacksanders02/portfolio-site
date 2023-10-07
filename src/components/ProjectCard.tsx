@@ -30,7 +30,7 @@ function renderTechnologies(techs: string[]): React.JSX.Element[] {
         />
         <div
           className={
-            "absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600"
+            "absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600 w-max"
           }
         >
           {technology}
@@ -69,7 +69,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           href={proj.writeupLink}
         >
           <i className={`bi bi-github me-2`} />
-          Source/Download
+          View on Github
         </a>
       )}
       {proj.writeupLink && (
@@ -130,7 +130,7 @@ export default function ProjectCard({
               />
               <div
                 className={`absolute top-0 right-0 flex gap-3 p-2 bg-on-background-dark
-                  rounded-bl-lg isolate`}
+                  rounded-bl-lg isolate items-center`}
               >
                 {renderTechnologies(project.keyTechnologies)}
               </div>
@@ -155,7 +155,9 @@ export default function ProjectCard({
               <h2 className={`${fontSerif.className} text-3xl lg:text-5xl tracking-wider`}>
                 {project.title}
               </h2>
-              <p className={`text-sm lg:text-base underline`}>{project.date}</p>
+              {project.date && (
+                <p className={`text-sm lg:text-base underline`}>{project.date}</p>
+              )}
             </div>
             <div
               dangerouslySetInnerHTML={{ __html: project.briefDescription }}
