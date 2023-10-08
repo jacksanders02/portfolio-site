@@ -34,7 +34,7 @@ export default function SoftwareHutWriteup() {
         <p className={`text-center`}>For this project, my team and I were tasked with creating a system that our client could &lsquo;interrogate for data&rsquo; about various golf courses. During the course of our weekly client meetings, we captured his requirements in the form of story cards and mockup diagrams. The outline of the system is as follows: there are two main roles - map creators and regular users. The role of map creators is to create detailed maps of the holes of golf courses, which can then be utilised by regular users in optimising their golf game in a data-driven manner, using the <a className={`underline hover-link dark:hover-link-dark`} href={`https://www.golfmonthly.com/features/the-game/what-is-strokes-gained-185460`}>strokes gained</a> metric.</p>
 
         <div className={'flex flex-col gap-1 items-center'}>
-          <div className={`relative w-[100%] aspect-[1.86]`}> {/* Image Container */}
+          <div className={`relative w-[100%] aspect-[1.86] border-2 border-colour-background-dark`}> {/* Image Container */}
             <Image
               src={"/projects/software-hut/login-page.png"}
               alt={`The login page of my software hut project. A faint outline of
@@ -50,7 +50,7 @@ export default function SoftwareHutWriteup() {
             autoPlay
             loop
             muted
-            className={`relative w-[100%]`}
+            className={`relative w-[100%] border-2 border-colour-background-dark`}
           >
             <source src={"/projects/software-hut/map-creation.mp4"} type={`video/mp4`} />
             Your browser does not support the video tag :(
@@ -71,7 +71,7 @@ export default function SoftwareHutWriteup() {
             autoPlay
             loop
             muted
-            className={`relative w-[100%]`}
+            className={`relative w-[100%] border-2 border-colour-background-dark`}
           >
             <source src={"/projects/software-hut/user-optimal.mp4"} type={`video/mp4`} />
             Your browser does not support the video tag :(
