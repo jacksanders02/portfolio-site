@@ -12,8 +12,20 @@ export default function ThemeToggle(): React.ReactElement {
     setMounted(true);
     // Detect system theme, and set initial theme accordingly
     let isDark = window.matchMedia("(prefers-color-scheme: dark)");
-    setTheme(isDark.matches ? "dark" : "light");
-    setDataTheme(isDark.matches ? "dark" : "light");
+
+    // Only update if html element doesn't have a theme class already
+    // Prevents theme changing back to default on page change
+    let htmlClasses = document.getElementsByTagName("html")[0].classList
+
+    // Set data theme to default, so theme toggle position matches actual theme
+    if (htmlClasses.contains("light")) {
+      setDataTheme("light");
+    } else if(htmlClasses.contains("dark")) {
+      setDataTheme("dark");
+    } else {
+      setTheme(isDark.matches ? "dark" : "light");
+      setDataTheme(isDark.matches ? "dark" : "light");
+    }
   }, []);
 
   function handleClick() {
