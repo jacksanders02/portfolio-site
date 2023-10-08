@@ -1,4 +1,4 @@
-import PaddedDiv from "@/components/PaddedDiv";
+import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function SoftwareHutWriteup() {
   return (
     <main>
-      <PaddedDiv extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
+      <PageContainer>
         <div className={`flex flex-col gap-2 mb-2`}>
           <h1
             className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
@@ -84,7 +84,7 @@ export default function SoftwareHutWriteup() {
           <br className={`mb-2`} />
           The algorithm that I wrote for this essentially takes a random sample of points across the user&apos;s dispersion for a club (1 point for every square metre), calculates the average strokes gained for each aiming point within a 150&deg; cone, centered on the hole (as it is highly unlikely that the optimal shot will be outside of that range, and limiting the search range speeds up the algorithm massively), and outputs the club/aim point combination that produces the best average strokes gained. The algorithm also takes into account trees - if the shot being checked starts or ends less than 20m from a tree that that the line of the shot intersects, it is assumed that that tree will be blocking the shot, and therefore that shot is discarded. However, this only works if a tree has been marked on the map - either by the map creators, or by the user themselves in their annotations. The 20m threshold is somewhat arbitrary - it is the distance that a ball would need to travel to clear a 20m high tree, assuming the ball is travelling at 45&deg;. This could be improved by allowing the map creator to change the height of the trees that they are marking, and then checking the shot line against individual tree heights, rather than assuming that all trees are 20m tall.
         </p>
-      </PaddedDiv>
+      </PageContainer>
     </main>
   )
 }

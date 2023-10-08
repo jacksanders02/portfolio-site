@@ -4,7 +4,7 @@ import { Project } from "@/helpers/types";
 import { fontSerif } from "@/app/fonts";
 import { Slide, Fade } from "react-awesome-reveal";
 import { technologyIcons, technologyAlts } from "@/helpers/technologies";
-import PaddedDiv from "@/components/PaddedDiv";
+import PageContainer from "@/components/PageContainer";
 
 /**
  * Renders JSX for a project's technologies.
@@ -103,9 +103,10 @@ export default function ProjectCard({
   id?: string;
 }): React.ReactElement {
   return (
-    <PaddedDiv
+    <PageContainer
       id={id}
       extraClasses={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16`}
+      isProjectDisplay
     >
       {/* Cascade fade animation so that image is visible before title/description */}
       <Fade cascade damping={0.33}>
@@ -170,6 +171,6 @@ export default function ProjectCard({
           </div>
         </Slide>
       </Fade>
-    </PaddedDiv>
+    </PageContainer>
   );
 }

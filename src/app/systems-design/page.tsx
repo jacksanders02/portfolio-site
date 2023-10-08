@@ -1,4 +1,4 @@
-import PaddedDiv from "@/components/PaddedDiv";
+import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function SystemsDesignWriteup() {
   return (
     <main>
-      <PaddedDiv extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
+      <PageContainer>
         <div className={`flex flex-col gap-2 mb-2`}>
           <h1
             className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
@@ -81,7 +81,7 @@ export default function SystemsDesignWriteup() {
           <br className={`mb-2`} />
           I also created a class that could display a list of orders as shown in the above video. Orders are collapsed by default to allow staff members to quickly scan for the order number/customer name that they are looking for, before being able to expand the order to show all of the details, or to action the order. This class was reused by the team member who programmed the &lsquo;Track Orders&rsquo; page, since the functionality for that is essentially the same, although the buttons to action an order are not displayed, instead replaced by an option to delete pending orders.
         </p>
-      </PaddedDiv>
+      </PageContainer>
     </main>
   )
 }

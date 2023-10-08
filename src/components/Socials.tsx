@@ -101,7 +101,7 @@ export default function Socials(): React.ReactElement {
             {path === "/" ? (
               <a
                 className={`hover-link dark:hover-link-dark text-lg underline`}
-                href={`/`}
+                href={`/about-me`}
               >
                 About Me
               </a>
@@ -145,7 +145,7 @@ export default function Socials(): React.ReactElement {
             {path === "/" ? (
               <a
                 className={`hover-link dark:hover-link-dark text-lg underline`}
-                href={`/`}
+                href={`/about-me`}
               >
                 About Me
               </a>
@@ -168,7 +168,7 @@ export default function Socials(): React.ReactElement {
         />
         {path === "/" ? (
           <a className={`hover-link dark:hover-link-dark text-lg underline`}
-             href={`/`}
+             href={`/about-me`}
           >
             About Me
           </a>
