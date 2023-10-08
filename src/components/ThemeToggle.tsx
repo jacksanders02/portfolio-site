@@ -26,7 +26,7 @@ export default function ThemeToggle(): React.ReactElement {
       setTheme(isDark.matches ? "dark" : "light");
       setDataTheme(isDark.matches ? "dark" : "light");
     }
-  }, []);
+  }, [setTheme]);
 
   function handleClick() {
     if (mounted) {

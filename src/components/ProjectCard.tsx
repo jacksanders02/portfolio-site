@@ -57,6 +57,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.demoLink}
+          aria-label={`A link to a live version of ${proj.title}`}
         >
           <i className={`bi bi-joystick me-2`} />
           Demo
@@ -66,7 +67,8 @@ function renderButtons(proj: Project): React.JSX.Element | string {
         <a
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
-          href={proj.writeupLink}
+          href={proj.githubLink}
+          aria-label={`The github link for ${proj.title}`}
         >
           <i className={`bi bi-github me-2`} />
           View on Github
@@ -77,9 +79,10 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.writeupLink}
+          aria-label={`Read more about ${proj.title}`}
         >
           <i className={`bi bi-info-circle-fill me-2`} />
-          More Info
+          Project Writeup
         </a>
       )}
     </div>
