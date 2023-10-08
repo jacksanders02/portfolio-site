@@ -156,7 +156,7 @@ export default function ProjectCard({
                 {project.title}
               </h2>
               {project.date && (
-                <p className={`text-sm lg:text-base underline`}>{project.date}</p>
+                <p className={`text-sm lg:text-base mt-2 underline`}>{project.date}</p>
               )}
             </div>
             <div

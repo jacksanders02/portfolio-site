@@ -8,6 +8,8 @@ export const technologyIcons: Map<string, string> = new Map<string, string>([
   ["Next.js", "technologies/nextjs.svg"],
   ["TypeScript", "technologies/typescript.svg"],
   ["Tailwind CSS", "technologies/tailwindcss.svg"],
+  ["Java", "technologies/java.svg"],
+  ["SQL", "technologies/sql.svg"],
 ])
 
 export const technologyAlts: Map<string, string> = new Map<string, string>([
@@ -19,4 +21,6 @@ export const technologyAlts: Map<string, string> = new Map<string, string>([
   ["Next.js", "The letter 'N' in a circle, the bottom-right of the N is fading out"],
   ["TypeScript", "A pale blue square, with the letters 'TS' in the bottom-right-hand corner, forming the logo of the TypeScript programming language"],
   ["Tailwind CSS", "Two waves, forming the logo of the Tailwind CSS framework"],
+  ["Java", "A coffee cup with two wisps of steam rising from the top, the logo for the Java programming language"],
+  ["SQL", "A cylinder with 'SQL' written on the front"],
 ])
