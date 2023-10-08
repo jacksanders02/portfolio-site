@@ -120,7 +120,8 @@ export default function ProjectCard({
           }}
         >
           <div
-            className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark`}
+            className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark
+                        border-2 border-colour-background-dark`}
           >
             <div className={"relative"}>
               <Image
