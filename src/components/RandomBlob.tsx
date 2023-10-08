@@ -77,12 +77,30 @@ export default function RandomBlob({
   // Animation will speed up on hover
   return (
     <div>
-      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={className}>
+      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={`overflow-visible ${className}`}>
+        <defs>
+          <filter id={"blur1"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+            <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
+          </filter>
+          <filter id={"blur2"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+            <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
+          </filter>
+          <filter id={"blur3"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+            <feGaussianBlur in={"SourceGraphic"} stdDeviation={20} />
+          </filter>
+          <filter id={"blur4"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+            <feGaussianBlur in={"SourceGraphic"} stdDeviation={25} />
+          </filter>
+          <filter id={"blur5"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+            <feGaussianBlur in={"SourceGraphic"} stdDeviation={30} />
+          </filter>
+        </defs>
         <path
           ref={blobPathRef}
           d=""
           onMouseEnter={(): number => (noiseStep = baseNoiseStep * 2)}
           onMouseLeave={(): number => (noiseStep = baseNoiseStep)}
+          className={"overflow-visible"}
         ></path>
       </svg>
     </div>

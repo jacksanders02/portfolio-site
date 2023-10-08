@@ -53,6 +53,26 @@
       }
     }
   }
+
+  .blur-1 path {
+    filter: url(#blur1)
+  }
+
+  .blur-2 path {
+    filter: url(#blur2)
+  }
+
+  .blur-3 path {
+    filter: url(#blur3)
+  }
+
+  .blur-4 path {
+    filter: url(#blur4)
+  }
+
+  .blur-5 path {
+    filter: url(#blur5)
+  }
 }
 
 .vertical-stack-children {
