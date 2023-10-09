@@ -2,7 +2,7 @@
 import React, { MouseEventHandler } from "react";
 import dynamic from "next/dynamic";
 import SocialLinks from "@/components/SocialLinks";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import MenuButton from "@/components/MenuButton";
 import { usePathname } from "next/navigation";
 const MediaQuery = dynamic(() => import("react-responsive"), {
@@ -15,23 +15,6 @@ const MediaQuery = dynamic(() => import("react-responsive"), {
  */
 export default function Socials(): React.ReactElement {
   const [menuExpanded, setMenuExpanded] = React.useState<boolean>(false);
-
-  const menubgVariants = {
-    visible: {
-      display: "flex",
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.15,
-      },
-    },
-
-    hidden: {
-      display: "none",
-      transition: {
-        when: "afterChildren",
-      },
-    },
-  };
 
   const menuVariants = {
     visible: {
@@ -61,7 +44,9 @@ export default function Socials(): React.ReactElement {
     let display: string = (e.currentTarget.nextElementSibling as HTMLElement)
       .style.display;
 
-    setMenuExpanded(display === "none");
+    setMenuExpanded(!menuExpanded);
+
+    console.log(menuExpanded)
   };
 
   const path: string = usePathname();
@@ -75,9 +60,8 @@ export default function Socials(): React.ReactElement {
           className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
         />
         <motion.div
-          className={`absolute w-full h-[150%] flex-col left-0 top-[100%] items-center`}
-          data-expanded={menuExpanded}
-          variants={menubgVariants}
+          className={`absolute w-full h-[150%] flex flex-col left-0 top-[100%] items-center`}
+          transition={{staggerChildren: 0.15}}
           initial={"hidden"}
           animate={menuExpanded ? "visible" : "hidden"}
         >
@@ -123,9 +107,8 @@ export default function Socials(): React.ReactElement {
           className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
         />
         <motion.div
-          className={`absolute flex-col gap-4 left-0 top-[100%] items-center`}
-          data-expanded={menuExpanded}
-          variants={menubgVariants}
+          className={`absolute flex flex-col gap-4 left-0 top-[100%] items-center`}
+          transition={{staggerChildren: 0.15}}
           initial={"hidden"}
           animate={menuExpanded ? "visible" : "hidden"}
         >
@@ -139,22 +122,22 @@ export default function Socials(): React.ReactElement {
             </motion.div>
           ))}
           <motion.div
-            className={`flex items-center justify-center`}
+            className={`flex items-center justify-center w-full`}
             variants={tabletMenuVariants}
           >
             {path === "/" ? (
               <a
-                className={`hover-link dark:hover-link-dark text-lg underline`}
+                className={`hover-link dark:hover-link-dark text-lg underline w-min text-center`}
                 href={`/about-me`}
               >
                 About Me
               </a>
             ) : (
               <a
-                className={`hover-link dark:hover-link-dark text-lg underline`}
+                className={`hover-link dark:hover-link-dark text-lg underline w-min text-center`}
                 href={`/`}
               >
-                Main Page
+                Home
               </a>
             )}
           </motion.div>
