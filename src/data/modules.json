@@ -1,0 +1,28 @@
+{
+  "modules": [
+    {
+      "name": "COM1001<br />Introduction to Software Engineering",
+      "description": "This module served as an introduction to general concepts and skills that are needed for a software engineering project (for example, different development methodologies such as agile & waterfall, usage of git for version control, and the ruby programming language). The module finished with a group project, in which I led a team of 7 computer science students to develop a twitter-like application for a fictional company, using <a href='https://sinatrarb.com' class='hover-link dark:hover-link-dark underline'>Sinatra</a>.",
+      "grade": "85%",
+      "year": 1
+    },
+    {
+      "name": "COM1002<br />Foundations of Computer Science",
+      "description": "This module served to introduce mathematical concepts that are foundational to the field of computer science, such as propositional & predicate logic, basic statistics (such as gaussian/poisson distributions), and calculations using modulus.",
+      "grade": "92%",
+      "year": 1
+    },
+    {
+      "name": "COM1003<br />Java Programming",
+      "description": "This module introduced me to programming using Java. It also helped me to deepen my understanding of object-oriented programming principles that I had developed during my A-Level computer science course. There was also an emphasis on producing readable code, which definitely helped me to develop my ability to produce high quality, maintainable, code.",
+      "grade": "81%",
+      "year": 1
+    },
+    {
+      "name": "COM1005<br />Machines and Intelligence",
+      "description": "",
+      "grade": "84%",
+      "year": 1
+    }
+  ]
+}

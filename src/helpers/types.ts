@@ -28,3 +28,13 @@ export type Project = {
   demoLink?: string;
   githubLink?: string;
 };
+
+/**
+ * Module type, used to store details about one of my modules
+ */
+export type Module = {
+  name: string;
+  description: string;
+  grade: string;
+  year: number;
+}
