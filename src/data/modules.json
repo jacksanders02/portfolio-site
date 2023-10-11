@@ -20,9 +20,93 @@
     },
     {
       "name": "COM1005<br />Machines and Intelligence",
-      "description": "",
+      "description": "This module provided me with an overview of how artificial intelligence has developed over time, and how it has transformed from relatively simple (by today's standards) robots such as Shakey, into what we know it as nowadays. The module also helped me to expand on my A-Level knowledge of python and pathfinding algorithms such as Dijkstra's Algorithm and the A* Algorithm.",
       "grade": "84%",
       "year": 1
+    },
+    {
+      "name": "COM1006<br />Devices and Networks",
+      "description": "",
+      "grade": "72%",
+      "year": 1
+    },
+    {
+      "name": "COM1008<br />Web and Internet Technology",
+      "description": "",
+      "grade": "94%",
+      "year": 1
+    },
+    {
+      "name": "COM1009<br />Introduction to Algorithms and Data Structures",
+      "description": "",
+      "grade": "78%",
+      "year": 1
+    },
+    {
+      "name": "Global Engineering Challenge Week",
+      "description": "",
+      "grade": "Pass",
+      "year": 1
+    },
+    {
+      "name": "COM2004<br />Data Driven Computing",
+      "description": "",
+      "grade": "83%",
+      "year": 2
+    },
+    {
+      "name": "COM2008<br />Systems Design and Security",
+      "description": "",
+      "grade": "68%",
+      "year": 2
+    },
+    {
+      "name": "COM2009<br />Robotics",
+      "description": "",
+      "grade": "78%",
+      "year": 2
+    },
+    {
+      "name": "COM2107<br />Logic in Computer Science",
+      "description": "",
+      "grade": "79%",
+      "year": 2
+    },
+    {
+      "name": "COM2108<br />Functional Programming",
+      "description": "",
+      "grade": "98%",
+      "year": 2
+    },
+    {
+      "name": "COM2109<br />Automata, Computation and Complexity",
+      "description": "",
+      "grade": "84%",
+      "year": 2
+    },
+    {
+      "name": "COM3420<br />Software Hut",
+      "description": "",
+      "grade": "95%",
+      "year": 2
+    },
+    {
+      "name": "MLT01032<br />Dutch Beginner 1",
+      "description": "",
+      "grade": "69%",
+      "year": 2
+    },
+    {
+      "name": "MLT01033<br />Dutch Beginner 2",
+      "description": "",
+      "grade": "72%",
+      "year": 2
+    },
+    {
+      "name": "Engineering You're Hired",
+      "description": "",
+      "grade": "Distinction",
+      "year": 2
     }
   ]
 }

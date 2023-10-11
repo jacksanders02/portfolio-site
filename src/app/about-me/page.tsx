@@ -20,13 +20,13 @@ function splitModules(allModules: Module[]): {[key: number]: Module[]} {
   return modules
 }
 
-function buildTableRows(modules: Module[], year: number): React.ReactNode {
-  return modules.map((module: Module, i: number) => (
-    <tr key={`module-${i}-year${year}`}>
-      <td dangerouslySetInnerHTML={{ __html: module.name }} />
-      <td dangerouslySetInnerHTML={{ __html: module.description }} />
-      <td>{module.grade}</td>
-    </tr>
+function buildTableRows(modules: Module[]): React.ReactNode {
+  return modules.map((module: Module) => (
+    <>
+      <p dangerouslySetInnerHTML={{ __html: module.name }} className={'max-lg:text-center max-lg:text-xl max-lg:font-bold max-lg:underline'} />
+      <p dangerouslySetInnerHTML={{ __html: module.description }} className={'max-lg:text-center'} />
+      <p className={'text-right mb-8'}>{module.grade}</p>
+    </>
   ));
 }
 
@@ -45,7 +45,7 @@ export default function AboutMe(): React.ReactNode {
           <div className={'overflow-hidden'}>
             <div
               className={`relative w-[250px] md:w-[350px] aspect-square 
-                        lg:float-right rounded-full overflow-clip m-2`}
+                        lg:float-right rounded-full overflow-clip m-auto mb-6 lg:m-2`}
               style={{ shapeOutside: "circle()" }}
             >
               <Image
@@ -67,7 +67,7 @@ export default function AboutMe(): React.ReactNode {
               As part of my dutch studies, I was asked to take part in a promotional video for the university&apos;s Languages for all program, which you can watch either below, or on the <a href={'https://www.sheffield.ac.uk/languages-for-all/choose-language/dutch'} className={`underline hover-link dark:hover-link-dark`}>Languages for All Dutch Course&apos;s homepage</a>. At first, this was a daunting prospect, as I had never been on film like this before, and the prospect of being one of the first things that prospective Dutch students would see when they looked on the course website was, admittedly, slightly scary. However, I ultimately decided that I needed to push myself out of my comfort zone to enable more personal growth, and this was a golden opportunity to do just that. Overall, I am very thankful that I decided to study Dutch - as well as teaching me a useful new skill, I have also managed to develop my confidence and self-belief, both of which will serve me very well in future.
             </p>
 
-            <div className={`w-1/2 aspect-video m-auto mt-4`}>
+            <div className={`w-full lg:w-2/3 aspect-video m-auto mt-4`}>
               <iframe className={`w-full h-full`}
                       title={`Dutch at the University of Sheffield`}
                       src="https://www.youtube-nocookie.com/embed/Yt1lXzREX14?origin=https%3A%2F%2Fjacksanders.uk"
@@ -84,12 +84,10 @@ export default function AboutMe(): React.ReactNode {
                 .map(year => parseInt(year))
                 .filter(year => modulesByYear[year].length > 0)
                 .map(year => (
-                  <table className={`w-full border-separate border-spacing-x-6 border-spacing-y-3`} key={`year-${year}`}>
+                  <div className={`w-full flex flex-col items-center lg:grid grid-cols-[1fr_5fr_max-content] gap-6`} key={`year-${year}`}>
                     <ModuleTableHeader year={year} />
-                    <tbody>
-                    {buildTableRows(modulesByYear[year], year)}
-                    </tbody>
-                  </table>
+                    {buildTableRows(modulesByYear[year])}
+                  </div>
                 ))
             }
           </div>
