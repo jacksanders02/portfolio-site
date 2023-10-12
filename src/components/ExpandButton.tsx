@@ -69,6 +69,7 @@ export default class ExpandButton extends React.Component {
           dangerouslySetInnerHTML={{ __html: moduleDescription }}
           variants={this.descVariants}
           animate={this.state.open ? "open" : "closed"}
+          initial={"closed"}
         />
       </>
     )
