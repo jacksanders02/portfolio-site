@@ -35,6 +35,7 @@ export default class ExpandButton extends React.Component {
   }
 
   render() {
+    // @ts-ignore
     const { moduleDescription } = this.props;
     return (
       <>
