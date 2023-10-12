@@ -64,6 +64,7 @@ export default function ModulesTable(): React.ReactNode {
         Object.keys(modulesByYear)
           .map(year => parseInt(year))
           .filter(year => modulesByYear[year].length > 0)
+          .reverse()
           .map(year => (
             <div className={`w-full flex flex-col items-center lg:grid grid-cols-[6fr_max-content_max-content] gap-2`} key={`year-${year}`}>
               <ModuleTableHeader year={year} />

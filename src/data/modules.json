@@ -2,7 +2,7 @@
   "modules": [
     {
       "name": "COM1001 Introduction to Software Engineering",
-      "description": "This module served as an introduction to general concepts and skills that are needed for a software engineering project (for example, different development methodologies such as agile & waterfall, usage of git for version control, and the ruby programming language). The module finished with a group project, in which I led a team of 7 computer science students to develop a twitter-like application for a fictional company, using <a href='https://sinatrarb.com' class='hover-link dark:hover-link-dark underline'>Sinatra</a>.",
+      "description": "This module served as an introduction to general concepts and skills that are needed for a software engineering project (for example, different development methodologies such as agile & waterfall, usage of git for version control, and the ruby programming language). The module finished with a group project, in which I led a team of 7 computer science students to develop a twitter-like application for a fictional company, using Sinatra (a fairly basic web framework, akin to a less 'on rails' version of ruby on rails).",
       "grade": "85%",
       "year": 1
     },
@@ -20,91 +20,91 @@
     },
     {
       "name": "COM1005 Machines and Intelligence",
-      "description": "This module provided me with an overview of how artificial intelligence has developed over time, and how it has transformed from relatively simple (by today's standards) robots such as Shakey, into what we know it as nowadays. The module also helped me to expand on my A-Level knowledge of python and pathfinding algorithms such as Dijkstra's Algorithm and the A* Algorithm.",
+      "description": "This module provided me with an overview of how artificial intelligence works, and how it has developed over time, and how it has transformed from relatively simple (by today's standards) robots such as Shakey, into what we know it as nowadays. The module also helped me to expand on my A-Level knowledge of python and pathfinding algorithms such as Dijkstra's Algorithm and the A* Algorithm.",
       "grade": "84%",
       "year": 1
     },
     {
       "name": "COM1006 Devices and Networks",
-      "description": "",
+      "description": "In the first semester, this module went over how computer systems work - starting with the most basic binary digital logic, and ending with sophisticated computing architectures such as the Harvard and von Neumann architectures. The second semester served as an introduction to how individual computers can be combined into a larger network, both wirelessly and physically.",
       "grade": "72%",
       "year": 1
     },
     {
       "name": "COM1008 Web and Internet Technology",
-      "description": "",
+      "description": "This first semester module served to teach us very basic HTML, CSS, and JavaScript. While the content was not necessarily new to me (as I had already experienced web development during A-Level) the assignment for this module was still excellent practice, and definitely sparked an interest in front-end development that I have kept to this day.",
       "grade": "94%",
       "year": 1
     },
     {
       "name": "COM1009 Introduction to Algorithms and Data Structures",
-      "description": "",
+      "description": "This second semester module introduced me to the design and analysis of efficient algorithms and data structures. Over the course of the semester I learnt how one can determine whether or not an algorithm is efficient, through calculating its complexity. I also deepened my knowledge of various commonly-used algorithms, such as the quicksort algorithm.",
       "grade": "78%",
       "year": 1
     },
     {
       "name": "Global Engineering Challenge Week",
-      "description": "",
+      "description": "Over the course of a week during the January of my first year, I worked in a team of 4 interdisciplinary engineers to tackle the problem of network connectivity in Cape York, Australia. As a couple of the team were Aerospace Engineers, we went with satellite internet as our chosen solution, and developed a brief overview of how it would work before giving a presentation to the group (roughly 30 students + a few staff members).",
       "grade": "Pass",
       "year": 1
     },
     {
       "name": "COM2004 Data Driven Computing",
-      "description": "",
+      "description": "This module provided me with a practical introduction to machine learning and data processing. Over the course of my first semester of second year I learned how to effectively use python (with numpy) to prepare data, process it, and draw conclusions from it. The assignment for this module had us building a classifier that could detect letters from images of a wordsearch, before then solving the wordsearch. I decided to approach this using Principal Component Analysis (PCA) to preprocess the data, before using a k-nearest neighbours (kNN) classifier to classify the letters, before using a simple algorithm to solve the wordsearch. This module also introduced the Perceptron Learning Algorithm, as well as the inner workings of neural networks (backpropagation, stochastic gradient descent, etc.)",
       "grade": "83%",
       "year": 2
     },
     {
       "name": "COM2008 Systems Design and Security",
-      "description": "",
+      "description": "This first semester module provides an introduction to formal systems design and key security issues. Topics that were covered include: choice of software lifecycle, customer-developer interaction, requirements capture, information management, database design, design patterns, software architectures, software verification, testing and security threats/countermeasures. The module was assessed through a combination of an assignment (visible on the homepage of this website) and an exam.",
       "grade": "68%",
       "year": 2
     },
     {
       "name": "COM2009 Robotics",
-      "description": "",
+      "description": "This second semester module covered the area of human-robot interaction, as well as going over ways that researchers are attempting to make robots more 'human-like' (for example implementing the PAD model of emotion.). This module culminated in a group project, in which I co-led a team of 4 students in programming a robot using python and the Robot Operating System (ROS). Our robot was required to complete a variety of tasks, including vision-based tasks, maze solving, and even autonomous exploration of an unknown environment.",
       "grade": "78%",
       "year": 2
     },
     {
       "name": "COM2107 Logic in Computer Science",
-      "description": "",
+      "description": "This second semester module gave me a more in-depth knowledge of how logic is used in computer science. TO begin with I studied propositional/predicate logics in further depth than they were touched upon during COM1002 in my first year. I was also introduced to notions such as soundness, completeness, and decidability of a logic. The second part of this module was concerned with applications of logic, such as program verification.",
       "grade": "79%",
       "year": 2
     },
     {
       "name": "COM2108 Functional Programming",
-      "description": "",
+      "description": "This first semester module introduced me to the paradigm of functional programming, using the Haskell programming language. For my assignment, I had to implement an algorithm that could break the enigma code using Haskell. As Haskell is completely different to any programming language I had ever used, this was quite the challenge, but I soon found myself enjoying the language, and this module quickly became one of my favourites.",
       "grade": "98%",
       "year": 2
     },
     {
       "name": "COM2109 Automata, Computation and Complexity",
-      "description": "",
+      "description": "This full-year module built on COM1009 from first year, to develop my skill with analysing complexity of algorithms, as well as using state machines (deterministic, non-deterministic, turing machines).",
       "grade": "84%",
       "year": 2
     },
     {
       "name": "COM3420 Software Hut",
-      "description": "",
+      "description": "This second semester module gave me my first experience of a 'true' software engineering project, as my team and I had to develop a real software solution for a real client, using ruby on rails. This module also taught me the importance of formal processes for teamwork, such as writing meeting agendas/meetings, and also timesheets. A full writeup of this project is available on the homepage of this site.",
       "grade": "95%",
       "year": 2
     },
     {
       "name": "MLT01032 Dutch Beginner 1",
-      "description": "",
+      "description": "This was the first semester of the Dutch Beginner course. At the University of Sheffield, it is possible to do a language alongside your degree if you have no unrestricted credits - I took this option in my second year for Dutch. The first semester served as a basic introduction to the language, using simple sentence structures and just generally getting a feel for the language.",
       "grade": "69%",
       "year": 2
     },
     {
       "name": "MLT01033 Dutch Beginner 2",
-      "description": "",
+      "description": "This was the second semester of the Dutch Beginner course. This semester built on what I learned in the first semester, with a learning outcome equivalent to A1+ in the Common European Framework Global Assessment Scale.",
       "grade": "72%",
       "year": 2
     },
     {
       "name": "Engineering You're Hired",
-      "description": "",
+      "description": "This was a week-long project in the January of my second year. Similarly to the Global Engineering Challenge Week, I was working in a team of 4 interdisciplinary engineers. However, contrasting to GEC, we were more well-organised, having already had one-and-a-half years of engineering experience under our belts. Our task was to apply the concept of swarm robotics (self-organising, multi-robot systems, characterised by high redundancy, which embodies ‘swarm intelligence’ a model copied from nature, and seen classically in the behaviour of insects, birds and fish). Our proposed idea was to use a swarm of flying drones to assist mountain rescue services, utilising the natural advantages of swarm intelligence to quickly search a large area of a remote environment to locate an injured/missing person.<br class='mb-2' />Over the course of the week, we led a couple of informal boardroom meetings with our hub supervisor, before giving a final presentation to the whole hub (roughly 30 students, plus the hub supervisor, and an industry mentor).",
       "grade": "Distinction",
       "year": 2
     }
