@@ -23,6 +23,7 @@ function splitModules(allModules: Module[]): {[key: number]: Module[]} {
 function buildTableRows(modules: Module[]): React.ReactNode {
   return modules.map((module: Module, i: number) => {
     const expandRef: React.MutableRefObject<ExpandButton | null> = useRef(null);
+    // @ts-ignore
     return (
       <>
         <div
@@ -38,6 +39,7 @@ function buildTableRows(modules: Module[]): React.ReactNode {
             }
           />
           <p className={"text-right"}>{module.grade}</p>
+          {/* @ts-ignore custom prop error */}
           <ExpandButton ref={expandRef} moduleDescription={module.description}/>
         </div>
 
