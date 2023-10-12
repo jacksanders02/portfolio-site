@@ -41,18 +41,13 @@ export default function Socials(): React.ReactElement {
   const handleClick: MouseEventHandler<SVGElement> = (
     e: React.MouseEvent<SVGElement, MouseEvent>
   ) => {
-    let display: string = (e.currentTarget.nextElementSibling as HTMLElement)
-      .style.display;
-
     setMenuExpanded(!menuExpanded);
-
-    console.log(menuExpanded)
   };
 
   const path: string = usePathname();
 
   return (
-    <div className={`flex items-center gap-6 text-3xl`}>
+    <div className={`flex items-center gap-6 text-3xl pointer-events-auto`}>
       <MediaQuery maxWidth={767}>
         <MenuButton
           clickAction={handleClick}

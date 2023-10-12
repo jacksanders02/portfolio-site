@@ -38,7 +38,7 @@ export default function ThemeToggle(): React.ReactElement {
   return (
     <div
       className={
-        "theme-switch bg-colour-background-dark dark:bg-colour-background relative isolate"
+        "theme-switch bg-colour-background-dark dark:bg-colour-background relative isolate pointer-events-auto"
       }
       data-theme={dataTheme}
       onClick={handleClick}
