@@ -1,43 +1,43 @@
 {
   "modules": [
     {
-      "name": "COM1001<br />Introduction to Software Engineering",
+      "name": "COM1001 Introduction to Software Engineering",
       "description": "This module served as an introduction to general concepts and skills that are needed for a software engineering project (for example, different development methodologies such as agile & waterfall, usage of git for version control, and the ruby programming language). The module finished with a group project, in which I led a team of 7 computer science students to develop a twitter-like application for a fictional company, using <a href='https://sinatrarb.com' class='hover-link dark:hover-link-dark underline'>Sinatra</a>.",
       "grade": "85%",
       "year": 1
     },
     {
-      "name": "COM1002<br />Foundations of Computer Science",
+      "name": "COM1002 Foundations of Computer Science",
       "description": "This module served to introduce mathematical concepts that are foundational to the field of computer science, such as propositional & predicate logic, basic statistics (such as gaussian/poisson distributions), and calculations using modulus.",
       "grade": "92%",
       "year": 1
     },
     {
-      "name": "COM1003<br />Java Programming",
+      "name": "COM1003 Java Programming",
       "description": "This module introduced me to programming using Java. It also helped me to deepen my understanding of object-oriented programming principles that I had developed during my A-Level computer science course. There was also an emphasis on producing readable code, which definitely helped me to develop my ability to produce high quality, maintainable, code.",
       "grade": "81%",
       "year": 1
     },
     {
-      "name": "COM1005<br />Machines and Intelligence",
+      "name": "COM1005 Machines and Intelligence",
       "description": "This module provided me with an overview of how artificial intelligence has developed over time, and how it has transformed from relatively simple (by today's standards) robots such as Shakey, into what we know it as nowadays. The module also helped me to expand on my A-Level knowledge of python and pathfinding algorithms such as Dijkstra's Algorithm and the A* Algorithm.",
       "grade": "84%",
       "year": 1
     },
     {
-      "name": "COM1006<br />Devices and Networks",
+      "name": "COM1006 Devices and Networks",
       "description": "",
       "grade": "72%",
       "year": 1
     },
     {
-      "name": "COM1008<br />Web and Internet Technology",
+      "name": "COM1008 Web and Internet Technology",
       "description": "",
       "grade": "94%",
       "year": 1
     },
     {
-      "name": "COM1009<br />Introduction to Algorithms and Data Structures",
+      "name": "COM1009 Introduction to Algorithms and Data Structures",
       "description": "",
       "grade": "78%",
       "year": 1
@@ -49,55 +49,55 @@
       "year": 1
     },
     {
-      "name": "COM2004<br />Data Driven Computing",
+      "name": "COM2004 Data Driven Computing",
       "description": "",
       "grade": "83%",
       "year": 2
     },
     {
-      "name": "COM2008<br />Systems Design and Security",
+      "name": "COM2008 Systems Design and Security",
       "description": "",
       "grade": "68%",
       "year": 2
     },
     {
-      "name": "COM2009<br />Robotics",
+      "name": "COM2009 Robotics",
       "description": "",
       "grade": "78%",
       "year": 2
     },
     {
-      "name": "COM2107<br />Logic in Computer Science",
+      "name": "COM2107 Logic in Computer Science",
       "description": "",
       "grade": "79%",
       "year": 2
     },
     {
-      "name": "COM2108<br />Functional Programming",
+      "name": "COM2108 Functional Programming",
       "description": "",
       "grade": "98%",
       "year": 2
     },
     {
-      "name": "COM2109<br />Automata, Computation and Complexity",
+      "name": "COM2109 Automata, Computation and Complexity",
       "description": "",
       "grade": "84%",
       "year": 2
     },
     {
-      "name": "COM3420<br />Software Hut",
+      "name": "COM3420 Software Hut",
       "description": "",
       "grade": "95%",
       "year": 2
     },
     {
-      "name": "MLT01032<br />Dutch Beginner 1",
+      "name": "MLT01032 Dutch Beginner 1",
       "description": "",
       "grade": "69%",
       "year": 2
     },
     {
-      "name": "MLT01033<br />Dutch Beginner 2",
+      "name": "MLT01033 Dutch Beginner 2",
       "description": "",
       "grade": "72%",
       "year": 2

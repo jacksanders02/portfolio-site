@@ -2,36 +2,9 @@ import React from "react";
 import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
-import modulesJSON from "@/data/modules.json";
-import { Module } from "@/helpers/types";
-import ModuleTableHeader from "@/components/ModuleTableHeader";
-
-/**
- * Splits an array of all modules into an indexable object of modules separated by year
- * @param allModules {Module[]}: a list of all modules to split
- */
-function splitModules(allModules: Module[]): {[key: number]: Module[]} {
-  const modules: {[key: number]: Module[]} = {1: [], 2: [], 3: [], 4: []}
-
-  allModules.forEach(module => {
-    modules[module.year].push(module);
-  })
-
-  return modules
-}
-
-function buildTableRows(modules: Module[]): React.ReactNode {
-  return modules.map((module: Module) => (
-    <>
-      <p dangerouslySetInnerHTML={{ __html: module.name }} className={'max-lg:text-center max-lg:text-xl max-lg:font-bold max-lg:underline'} />
-      <p dangerouslySetInnerHTML={{ __html: module.description }} className={'max-lg:text-center'} />
-      <p className={'text-right mb-8'}>{module.grade}</p>
-    </>
-  ));
-}
+import ModulesTable from "@/components/ModulesTable";
 
 export default function AboutMe(): React.ReactNode {
-  const modulesByYear: {[key: number]: Module[]} = splitModules(modulesJSON["modules"]);
   return (
     <main>
       <PageContainer extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
@@ -76,21 +49,7 @@ export default function AboutMe(): React.ReactNode {
             </div>
           </div>
 
-          <div className={`w-full clear-right`}>
-            <h2 className={`${fontSerif.className} text-2xl sm:text-3xl lg:text-4xl text-center mb-2`}>Academic Achievements</h2>
-            {
-              // Build a table header + body combo for each year that has modules inputted
-              Object.keys(modulesByYear)
-                .map(year => parseInt(year))
-                .filter(year => modulesByYear[year].length > 0)
-                .map(year => (
-                  <div className={`w-full flex flex-col items-center lg:grid grid-cols-[1fr_5fr_max-content] gap-6`} key={`year-${year}`}>
-                    <ModuleTableHeader year={year} />
-                    {buildTableRows(modulesByYear[year])}
-                  </div>
-                ))
-            }
-          </div>
+          <ModulesTable />
         </div>
       </PageContainer>
     </main>
