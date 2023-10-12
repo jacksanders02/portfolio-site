@@ -27,7 +27,7 @@ function buildTableRows(modules: Module[]): React.ReactNode {
     return (
       <>
         <div
-          className={`contents cursor-pointer hover-link dark:hover-link-dark`}
+          className={`flex flex-col w-full items-center lg:contents cursor-pointer hover-link dark:hover-link-dark`}
           onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
             expandRef.current?.toggleOpen();
           }}
@@ -38,7 +38,7 @@ function buildTableRows(modules: Module[]): React.ReactNode {
               "max-lg:text-center max-lg:text-xl max-lg:font-bold max-lg:underline"
             }
           />
-          <p className={"text-right"}>{module.grade}</p>
+          <p className={"text-right max-lg:grade-prefix"}>{module.grade}</p>
           {/* @ts-ignore custom prop error */}
           <ExpandButton ref={expandRef} moduleDescription={module.description}/>
         </div>

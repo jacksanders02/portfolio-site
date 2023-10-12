@@ -65,7 +65,7 @@ export default class ExpandButton extends React.Component {
           />
         </motion.svg>
         <motion.p
-          className={'col-span-3 overflow-hidden'}
+          className={'col-span-3 overflow-hidden text-center lg:text-left'}
           dangerouslySetInnerHTML={{ __html: moduleDescription }}
           variants={this.descVariants}
           animate={this.state.open ? "open" : "closed"}

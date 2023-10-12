@@ -35,7 +35,7 @@ export default function AboutMe(): React.ReactNode {
             </p>
           </div>
 
-          <div className={'clear-right mt-8 mb-8'}>
+          <div className={'clear-right mt-8 mb-8 text-center lg:text-left'}>
             <p>
               As part of my dutch studies, I was asked to take part in a promotional video for the university&apos;s Languages for all program, which you can watch either below, or on the <a href={'https://www.sheffield.ac.uk/languages-for-all/choose-language/dutch'} className={`underline hover-link dark:hover-link-dark`}>Languages for All Dutch Course&apos;s homepage</a>. At first, this was a daunting prospect, as I had never been on film like this before, and the prospect of being one of the first things that prospective Dutch students would see when they looked on the course website was, admittedly, slightly scary. However, I ultimately decided that I needed to push myself out of my comfort zone to enable more personal growth, and this was a golden opportunity to do just that. Overall, I am very thankful that I decided to study Dutch - as well as teaching me a useful new skill, I have also managed to develop my confidence and self-belief, both of which will serve me very well in future.
             </p>

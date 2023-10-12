@@ -10,23 +10,27 @@
   .hover-link {
     cursor: pointer;
     transition: color 0.2s ease-in-out, stroke 0.2s ease-in-out;
-    color: theme("colors.on-background.DEFAULT");
-    stroke: theme("colors.on-background.DEFAULT");
+    color: theme('colors.on-background.DEFAULT');
+    stroke: theme('colors.on-background.DEFAULT');
 
     &:hover {
-      color: theme("colors.on-background.hover");
-      stroke: theme("colors.on-background.hover");
+      @media (hover:hover) {
+        color: theme('colors.on-background.hover');
+        stroke: theme('colors.on-background.hover');
+      }
     }
 
     &-dark {
       cursor: pointer;
       transition: color 0.2s ease-in-out, stroke 0.2s ease-in-out;
-      color: theme("colors.on-background.dark.DEFAULT");
-      stroke: theme("colors.on-background.dark.DEFAULT");
+      color: theme('colors.on-background.dark.DEFAULT');
+      stroke: theme('colors.on-background.dark.DEFAULT');
 
       &:hover {
-        color: theme("colors.on-background.dark.hover");
-        stroke: theme("colors.on-background.dark.hover");
+        @media (hover:hover) {
+          color: theme('colors.on-background.dark.hover');
+          stroke: theme('colors.on-background.dark.hover');
+        }
       }
     }
   }
@@ -37,19 +41,23 @@
     padding: .5em .75em;
     cursor: pointer;
     transition: color .2s ease-in-out;
-    color: theme("colors.on-background.DEFAULT");
+    color: theme('colors.on-background.DEFAULT');
 
     &:hover {
-      color: theme("colors.on-background.hover");
+      @media (hover:hover) {
+        color: theme('colors.on-background.hover');
+      }
     }
 
     &-dark {
       cursor: pointer;
       transition: color .2s ease-in-out;
-      color: theme("colors.on-background.dark.DEFAULT");
+      color: theme('colors.on-background.dark.DEFAULT');
 
       &:hover {
-        color: theme("colors.on-background.dark.hover");
+        @media (hover:hover) {
+          color: theme('colors.on-background.dark.hover');
+        }
       }
     }
   }
@@ -73,6 +81,10 @@
   .blur-5 path {
     filter: url(#blur5)
   }
+
+  .grade-prefix:before {
+    content: "Grade Achieved: "
+  }
 }
 
 .vertical-stack-children {
@@ -95,7 +107,7 @@
   transition: opacity 0.5s ease;
 
   &:after {
-    content: " ";
+    content: ' ';
     position: absolute;
     right: 50%;
     transform: translateX(50%);
@@ -142,7 +154,7 @@
     border-radius: 50%;
   }
 
-  &[data-theme="dark"] {
+  &[data-theme='dark'] {
     justify-content: flex-end;
   }
 }
