@@ -3,7 +3,7 @@ import modulesJSON from "@/data/modules.json";
 import { Module } from "@/helpers/types";
 import ModuleTableHeader from "@/components/ModuleTableHeader";
 import { fontSerif } from "@/app/fonts";
-import React, { useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import ExpandButton from "@/components/ExpandButton";
 
 /**
@@ -20,12 +20,12 @@ function splitModules(allModules: Module[]): {[key: number]: Module[]} {
   return modules
 }
 
-function buildTableRows(modules: Module[]): React.ReactNode {
+function buildTableRows(modules: Module[], year: number): React.ReactNode {
   return modules.map((module: Module, i: number) => {
     const expandRef: React.MutableRefObject<ExpandButton | null> = useRef(null);
     // @ts-ignore
     return (
-      <>
+      <Fragment key={`${year}-${i}`}>
         <div
           className={`flex flex-col w-full items-center lg:contents cursor-pointer hover-link dark:hover-link-dark`}
           onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -48,7 +48,7 @@ function buildTableRows(modules: Module[]): React.ReactNode {
             "col-span-3 border-b-2 border-on-background dark:border-on-background-dark"
           }
         />
-      </>
+      </Fragment>
     );
   });
 }
@@ -68,7 +68,7 @@ export default function ModulesTable(): React.ReactNode {
           .map(year => (
             <div className={`w-full flex flex-col items-center lg:grid grid-cols-[6fr_max-content_max-content] gap-2`} key={`year-${year}`}>
               <ModuleTableHeader year={year} />
-              {buildTableRows(modulesByYear[year])}
+              {buildTableRows(modulesByYear[year], year)}
             </div>
           ))
       }

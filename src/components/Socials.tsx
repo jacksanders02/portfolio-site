@@ -55,7 +55,7 @@ export default function Socials(): React.ReactElement {
           className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
         />
         <motion.div
-          className={`absolute w-full h-[150%] flex flex-col left-0 top-[100%] items-center`}
+          className={`absolute w-full h-[150%] flex flex-col left-0 top-[100%] items-center pointer-events-none`}
           transition={{staggerChildren: 0.15}}
           initial={"hidden"}
           animate={menuExpanded ? "visible" : "hidden"}
@@ -64,7 +64,7 @@ export default function Socials(): React.ReactElement {
             className={`menu-item-left flex w-full justify-around flex-1 items-center
                         bg-colour-background dark:bg-colour-background-dark
                         border-t-2 border-b-[1px] border-on-background
-                        dark:border-on-background-dark`}
+                        dark:border-on-background-dark pointer-events-auto`}
             custom={0}
             variants={menuVariants}
           >
@@ -73,7 +73,7 @@ export default function Socials(): React.ReactElement {
           <motion.div
             className={`menu-item-right flex-1 flex items-center border-b-2 w-full justify-center
                         bg-colour-background dark:bg-colour-background-dark
-                        border-b-on-background dark:border-b-on-background-dark`}
+                        border-b-on-background dark:border-b-on-background-dark pointer-events-auto`}
             custom={1}
             variants={menuVariants}
           >
