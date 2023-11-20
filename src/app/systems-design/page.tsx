@@ -1,6 +1,8 @@
 import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
+import PageTitle from "@/components/PageTitle";
+import PageSubTitle from "@/components/PageSubTitle";
 
 /**
  * More information about my systems design project
@@ -11,18 +13,8 @@ export default function SystemsDesignWriteup() {
     <main>
       <PageContainer>
         <div className={`flex flex-col gap-2 mb-2`}>
-          <h1
-            className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
-                      text-center mb-2`}
-          >
-            Systems Design Project
-          </h1>
-
-          <h2
-            className={`${fontSerif.className} text-xl sm:text-2xl lg:text-3xl text-center mb-2`}
-          >
-            Individual Grade Achieved: 79%
-          </h2>
+          <PageTitle>Systems Design Project</PageTitle>
+          <PageSubTitle>Individual Grade Achieved: 79%</PageSubTitle>
         </div>
 
         <p className={`text-center`}>

@@ -106,7 +106,7 @@ export default function ProjectCard({
     <PageContainer
       id={id}
       extraClasses={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16`}
-      isProjectDisplay
+      isProjectCard
     >
       {/* Cascade fade animation so that image is visible before title/description */}
       <Fade cascade damping={0.33}>

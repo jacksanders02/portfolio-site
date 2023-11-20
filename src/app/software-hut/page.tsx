@@ -1,6 +1,8 @@
 import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
+import PageTitle from "@/components/PageTitle";
+import PageSubTitle from "@/components/PageSubTitle";
 
 /**
  * More information about my software hut project
@@ -11,24 +13,9 @@ export default function SoftwareHutWriteup() {
     <main>
       <PageContainer>
         <div className={`flex flex-col gap-2 mb-2`}>
-          <h1
-            className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
-                      text-center mb-2`}
-          >
-            Software Hut Project
-          </h1>
-
-          <h2
-            className={`${fontSerif.className} text-xl sm:text-2xl lg:text-3xl text-center mb-2`}
-          >
-            Individual Grade Achieved: 95%
-          </h2>
-
-          <h2
-            className={`${fontSerif.className} text-xl sm:text-2xl lg:text-3xl text-center`}
-          >
-            Software Hut Prize (Client Awarded)
-          </h2>
+          <PageTitle>Software Hut Project</PageTitle>
+          <PageSubTitle>Individual Grade Achieved: 95%</PageSubTitle>
+          <PageSubTitle>Software Hut Prize (Client Awarded)</PageSubTitle>
         </div>
 
         <p className={`text-center`}>For this project, my team and I were tasked with creating a system that our client could &lsquo;interrogate for data&rsquo; about various golf courses. During the course of our weekly client meetings, we captured his requirements in the form of story cards and mockup diagrams. The outline of the system is as follows: there are two main roles - map creators and regular users. The role of map creators is to create detailed maps of the holes of golf courses, which can then be utilised by regular users in optimising their golf game in a data-driven manner, using the <a className={`underline hover-link dark:hover-link-dark`} href={`https://www.golfmonthly.com/features/the-game/what-is-strokes-gained-185460`}>strokes gained</a> metric.</p>

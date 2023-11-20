@@ -3,17 +3,13 @@ import PageContainer from "@/components/PageContainer";
 import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
 import ModulesTable from "@/components/ModulesTable";
+import PageTitle from "@/components/PageTitle";
 
 export default function AboutMe(): React.ReactNode {
   return (
     <main>
       <PageContainer extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
-        <h1
-          className={`${fontSerif.className} text-5xl sm:text-6xl lg:text-7xl 
-                      text-center mb-4`}
-        >
-          About Me
-        </h1>
+        <PageTitle>About Me</PageTitle>
         <div className={'max-lg:flex flex-col items-center gap-6'}>
           <div className={'overflow-hidden'}>
             <div
