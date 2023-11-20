@@ -29,36 +29,39 @@ export default function DividendDashboard() {
       <PageContainer extraClasses={'items-center'}>
         <PageTitle>Portfolio Overview</PageTitle>
         {!keySubmitted && (
-          <form onSubmit={submitAPIKey} className={"w-96 flex flex-col"}>
+          <form onSubmit={submitAPIKey} className={"w-96 flex flex-col items-center gap-6 mt-16"}>
             <input
               type={"text"}
               placeholder={"Trading212 API Key..."}
               onChange={(e) => setKey(e.target.value)}
+              className={'w-full p-2'}
             />
-            <button type={"submit"}>Enter API Key</button>
+            <button type={"submit"} className={'hover-button dark:hover-button-dark w-1/2'}>Enter API Key</button>
           </form>
         )}
-        {keySubmitted && portfolio === null && (
-          <p>Loading...</p>
-        )}
-        {portfolio !== null && (
-          <div className={'w-[80vmin] h-[80vmin]'}>
-            <Pie
-              data={{
-                labels: portfolio["tickers"],
-                datasets: [
-                  {
-                    label: "# of Shares",
-                    data: portfolio["shares"],
-                    backgroundColor: 'rgb(255, 0, 0)',
-                    hoverOffset: 200
-                  },
-                ],
-              }}
-              options={{
-                radius: '66%'
-              }}
-            />
+        {keySubmitted && (
+          <div className={'w-[80vmin] h-[80vmin] flex items-center justify-center'}>
+            {portfolio === null && (
+              <p>Loading...</p>
+            )}
+            {portfolio !== null && (
+              <Pie
+                data={{
+                  labels: portfolio["tickers"],
+                  datasets: [
+                    {
+                      label: "# of Shares",
+                      data: portfolio["shares"],
+                      backgroundColor: 'rgb(255, 0, 0)',
+                      hoverOffset: 200
+                    },
+                  ],
+                }}
+                options={{
+                  radius: '66%'
+                }}
+              />
+            )}
           </div>
         )}
       </PageContainer>
