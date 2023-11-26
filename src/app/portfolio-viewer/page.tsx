@@ -6,10 +6,11 @@ import PageContainer from "@/components/PageContainer";
 import PageTitle from "@/components/PageTitle";
 
 export default function DividendDashboard() {
-  type portfolio = {tickers: string[]; shares: number[]}
+  type portfolio = {shareLabels: string[]; shares: number[]; message?: string};
   Chart.register(PieController, ArcElement, Tooltip, Title)
 
   const [portfolio, setPortfolio] = useState<portfolio | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [keySubmitted, setSubmitted] = useState<boolean>(false);
   const [key, setKey] = useState<string | null>(null);
 
@@ -19,7 +20,13 @@ export default function DividendDashboard() {
       fetch(`get-portfolio?auth=${key}`)
         .then(res => res.json())
         .then((data: portfolio) => {
-          setPortfolio(data);
+          if (data.message) {
+            setErrorMessage(data.message);
+            setSubmitted(false);
+          } else {
+            setErrorMessage(null);
+            setPortfolio(data);
+          }
         })
     }
   }
@@ -29,23 +36,31 @@ export default function DividendDashboard() {
       <PageContainer extraClasses={"items-center"}>
         <PageTitle>Portfolio Overview</PageTitle>
         {!keySubmitted && (
-          <form
-            onSubmit={submitAPIKey}
-            className={"w-96 flex flex-col items-center gap-6 mt-16"}
-          >
-            <input
-              type={"text"}
-              placeholder={"Trading212 API Key..."}
-              onChange={(e) => setKey(e.target.value)}
-              className={"w-full p-2"}
-            />
-            <button
-              type={"submit"}
-              className={"hover-button dark:hover-button-dark w-1/2"}
+          <>
+            <p className={'mt-16 text-center'}>
+              Note: The only permissions this needs from your T212 account are &lsquo;Metadata&rsquo; and &lsquo;Portfolio&rsquo;. API keys can be very powerful, so never give one more permissions than necessary.
+            </p>
+            <form
+              onSubmit={submitAPIKey}
+              className={"w-96 flex flex-col items-center gap-6"}
             >
-              Enter API Key
-            </button>
-          </form>
+              {errorMessage !== null && (
+                <p className={`text-red-700 font-bold text-center`}>{errorMessage}</p>
+              )}
+              <input
+                type={"text"}
+                placeholder={"Trading212 API Key..."}
+                onChange={(e) => setKey(e.target.value)}
+                className={"w-full p-2"}
+              />
+              <button
+                type={"submit"}
+                className={"hover-button dark:hover-button-dark w-1/2"}
+              >
+                Enter API Key
+              </button>
+            </form>
+          </>
         )}
         {keySubmitted && (
           <div className={"flex flex-col items-center mt-6"}>
@@ -58,7 +73,7 @@ export default function DividendDashboard() {
                 //<p>{JSON.stringify(portfolio)}</p>
                 <Pie
                   data={{
-                    labels: portfolio.tickers,
+                    labels: portfolio.shareLabels,
                     datasets: [
                       {
                         label: "# of Shares",
