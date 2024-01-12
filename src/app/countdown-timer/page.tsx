@@ -46,7 +46,6 @@ export default function CountdownTimer({
           <>
             <p>Set a timer using the inputs below:</p>
 
-            <p>{days}-{hours}:{minutes}:{seconds}</p>
             {errorMessage !== null && (
               <p className={`text-red-700 font-bold text-center`}>{errorMessage}</p>
             )}
