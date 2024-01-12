@@ -1,0 +1,110 @@
+/* Author: Jack Sanders */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~Custom Properties~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~General Tags~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Set font-family, font-size, and color to default values, to avoid needing to
+specify for everything that isn't a heading
+ */
+* {
+    font-family: Verdana, sans-serif;
+    font-size: 1em;
+    color: var(--main-text-colour);
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: .5em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.5em;
+
+    margin: 1em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~Generic Classes~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.hidden {
+    display: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~Main Content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#maze-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+#buttons {
+    width: 90vw;
+
+    margin: 2em auto;
+}
+
+#map-size {
+    text-align: center;
+}
+
+.absolute-top {
+    position: absolute;
+
+    /* Move top-left corner to top-centre of canvas-wrapper */
+    left: 50%;
+
+    /* Translate left and up by 50% of button dimensions, to ensure that the
+    centre of the button is in the centre of the div
+     */
+    transform: translate(-50%, 0);
+}
+
+form,
+input {
+    /* Make the width attribute include borders, giving consistent sizing for
+    input elements.
+     */
+    box-sizing: border-box;
+    width: 25%;
+
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    margin: .5em auto;
+    text-align: center;
+}
+
+input {
+    height: 3em;
+    border: 1px solid black;
+}
+
+button {
+    box-sizing: border-box;
+
+    border: none;
+    margin-top: .5em;
+    padding: .5em 2%;
+
+    width: 100%;
+    height: 3em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~Footer~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

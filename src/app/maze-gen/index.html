@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jack Sanders">
+    <meta name="copyright" content="Jack Sanders">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A*.js</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/desktop.css"
+          media="screen and (min-width: 750px)">
+</head>
+<body>
+    <h1>A* Algorithm</h1>
+    <h2 id="instructions">Generate a maze for the A* Algorithm to solve</h2>
+    <div id="container">
+        <div id="map-size" class="absolute-top">
+            <label for="map-size-input">Desired Side Length of Maze</label>
+            <input id="map-size-input" type="text" name="Name">
+            <p id="error-text"></p>
+        </div>
+        <canvas id="maze-area"></canvas>
+        <div id="buttons">
+            <button id="generate-maze">Generate New Maze</button>
+            <button id="start-search">Start Search</button>
+            <button id="save-png">Save Maze as .PNG</button>
+        </div>
+    </div>
+</body>
+
+<script src="../../../ignore/setup.ts"></script>
+<script src="js/buttonColour.js"></script>
+<script src="../../../ignore/AStar.ts"></script>
+<script src="../../../ignore/canvasSize.ts"></script>
+<script src="../../helpers/maze-gen/AStarNode.ts"></script>
+<script src="../../../ignore/mapGenerator.ts"></script>
+
+</html>
