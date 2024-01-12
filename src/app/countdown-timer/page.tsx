@@ -96,12 +96,12 @@ export default function CountdownTimer({
             <Countdown
               date={time*1000}
               now={() => new Date().getTime()}
-              className={`${fontMono.className} text-9xl mt-32`}
+              className={`${fontMono.className} text-5xl sm:text-8xl lg:text-9xl mt-32 mb-16`}
             />
             <a href={'/countdown-timer'} className={'hover-button dark:hover-button-dark w-max'}>Set a new timer</a>
             <div className={'flex flex-col items-center'}>
               <p>Link to this timer:</p>
-              <p className={'underline'}>https://www.jacksanders.uk{pathname}?t={time}</p>
+              <p className={'underline text-center'}>https://www.jacksanders.uk{pathname}?t={time}</p>
             </div>
           </div>
         )}
