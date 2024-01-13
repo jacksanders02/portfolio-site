@@ -48,7 +48,7 @@ export default function CountdownTimer({
 
   return (
     <main>
-      <PageContainer extraClasses={"items-center pt-0 pb-0 mt-0 mb-0"}>
+      <PageContainer extraClasses={"items-center !pt-0 !pb-0 !mt-0 !mb-0"}>
         <PageTitle extraClasses={'fixed pt-5 mt-24 md:mt-0'}>Countdown Timer</PageTitle>
         {isNaN(time) && (
           <div className={`flex flex-col gap-6 items-center justify-center h-screen w-full`}>
