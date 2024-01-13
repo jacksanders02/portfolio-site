@@ -5,6 +5,7 @@ import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import { fontSans } from "@/app/fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: "Jack Sanders",
@@ -27,6 +28,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </Providers>
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>

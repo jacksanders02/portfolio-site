@@ -48,8 +48,8 @@ export default function CountdownTimer({
 
   return (
     <main>
-      <PageContainer extraClasses={"items-center pt-0 pb-0"}>
-        <PageTitle extraClasses={'fixed pt-5'}>Countdown Timer</PageTitle>
+      <PageContainer extraClasses={"items-center pt-0 pb-0 mt-0 mb-0"}>
+        <PageTitle extraClasses={'fixed pt-5 mt-24 md:mt-0'}>Countdown Timer</PageTitle>
         {isNaN(time) && (
           <div className={`flex flex-col gap-6 items-center justify-center h-screen w-full`}>
             <p className={'text-xl sm:text-2xl lg:text-3xl text-center'}>
@@ -102,12 +102,12 @@ export default function CountdownTimer({
           </div>
         )}
         {!isNaN(time) && (
-          <div className={`flex flex-col gap-6 items-center justify-center h-screen w-full`}>
+          <div className={`flex flex-col gap-6 items-center justify-center h-screen w-full text-xs md:text-lg`}>
             <div className={`flex flex-col items-center`}>
               <Countdown
                 date={time*1000}
                 now={() => new Date().getTime()}
-                className={`${fontMono.className} text-5xl sm:text-8xl lg:text-9xl`}
+                className={`${fontMono.className} text-4xl md:text-8xl lg:text-9xl`}
                 renderer={CountdownRenderer}
               />
               <p className={`text-center`}>This timer will end at: {endDate.toString()}</p>
