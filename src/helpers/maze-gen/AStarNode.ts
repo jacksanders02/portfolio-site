@@ -6,6 +6,7 @@ export default class AStarNode {
     width: number;
     height: number;
     parent: null|AStarNode;
+    lineTo: null|AStarNode;
     walls: boolean[];
     visited: boolean;
     g: number;
@@ -14,10 +15,11 @@ export default class AStarNode {
 
     constructor(x: number, y: number, width: number, height: number) {
         this.coords = [y, x];
-        this.topLeft = [x * width, y * height];
-        this.width = width;
-        this.height = height;
+        this.topLeft = [Math.round(x * width), Math.round(y * height)];
+        this.width = Math.round(width);
+        this.height = Math.round(height);
         this.parent = null;
+        this.lineTo = null;
         this.walls = [true, true, true, true]; // [TOP, RIGHT, BOTTOM, LEFT]
         this.visited = false;
 
@@ -52,35 +54,17 @@ export default class AStarNode {
             ctx.fillRect(this.topLeft[0], this.topLeft[1], this.width, this.height);
         }
 
-        ctx.beginPath()
-
-        ctx.lineWidth = 2;
-
         // Top
         if (this.walls[0]) {
             ctx.moveTo(this.topLeft[0], this.topLeft[1]);
-            ctx.lineTo(this.topLeft[0] + this.width, this.topLeft[1]);
+            ctx.lineTo(this.topLeft[0] + this.width + 1, this.topLeft[1]);
         }
 
         // Right
         if (this.walls[1]) {
             ctx.moveTo(this.topLeft[0] + this.width, this.topLeft[1]);
-            ctx.lineTo(this.topLeft[0] + this.width, this.topLeft[1] + this.height);
+            ctx.lineTo(this.topLeft[0] + this.width, this.topLeft[1] + this.height + 1);
         }
-
-        // Bottom
-        if (this.walls[2]) {
-            ctx.moveTo(this.topLeft[0] + this.width, this.topLeft[1] + this.height);
-            ctx.lineTo(this.topLeft[0], this.topLeft[1] + this.height);
-        }
-
-        // Left
-        if (this.walls[3]) {
-            ctx.moveTo(this.topLeft[0], this.topLeft[1] + this.height);
-            ctx.lineTo(this.topLeft[0], this.topLeft[1]);
-        }
-
-        ctx.stroke();
     }
 
     visit() {

@@ -106,13 +106,21 @@ export function search(mh: MazeHelper) {
     // If current node is the finish node, solution is found!
     // If not, then there is no valid path between the two nodes.
     if (equalCoords(currentNode.coords, goalCoords)) {
+        mh.redrawCanvas();
+
+        mh.ctx.beginPath();
+        mh.ctx.strokeStyle = "green";
+        mh.ctx.lineWidth = currentNode.width > 4 ? 4 : 1;
+        mh.ctx.moveTo(currentNode.topLeft[0] + currentNode.width / 2, currentNode.topLeft[1] + currentNode.height / 2);
+
         while (currentNode.parent) {
-            if (!equalCoords(currentNode.parent.coords, startCoords)) {
-                currentNode.parent.fill = "green";
-            }
+            let pr = currentNode.parent;
+            mh.ctx.lineTo(pr.topLeft[0] + pr.width / 2, pr.topLeft[1] + pr.height / 2);
             currentNode = currentNode.parent;
         }
-        mh.redrawCanvas();
+
+        mh.ctx.stroke();
+
         document.dispatchEvent(new Event("maze-solved"));
     } else {
         document.dispatchEvent(new Event("maze-not-solved"));

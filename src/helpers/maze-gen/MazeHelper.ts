@@ -17,6 +17,8 @@ export default class MazeHelper {
   constructor(canvas: HTMLCanvasElement, cols: number, rows: number) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d')!;
+    this.ctx.imageSmoothingEnabled = false;
+    this.ctx.translate(0.5, 0.5);
 
     this.map = new Array(rows);
     this.startCoords = [0, 0];
@@ -46,11 +48,17 @@ export default class MazeHelper {
   redrawCanvas() {
     this.ctx.fillStyle = "white";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+
+    this.ctx.beginPath();
     for (let row of this.map) {
       for (let node of row) {
         node.draw(this.ctx);
       }
     }
+
+    this.ctx.lineWidth = 2;
+    this.ctx.strokeStyle = "black";
+    this.ctx.stroke();
   }
 
   /**
