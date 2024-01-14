@@ -1,5 +1,7 @@
+import { Coordinate } from "@/helpers/types";
+
 export default class AStarNode {
-    coords: number[];
+    coords: Coordinate;
     topLeft: number[];
     width: number;
     height: number;
@@ -11,7 +13,7 @@ export default class AStarNode {
     fill: string;
 
     constructor(x: number, y: number, width: number, height: number) {
-        this.coords = [x, y];
+        this.coords = [y, x];
         this.topLeft = [x * width, y * height];
         this.width = width;
         this.height = height;
