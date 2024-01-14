@@ -1,13 +1,9 @@
 "use client"
 
-import React, { useEffect } from "react";
+import React from "react";
 import PageContainer from "@/components/PageContainer";
 import PageTitle from "@/components/PageTitle";
 import MazeHelper from "@/helpers/maze-gen/MazeHelper";
-import PageSubTitle from "@/components/PageSubTitle";
-import { validateNaturalNumber } from "@/helpers/inputValidators";
-import { startServer } from "next/dist/server/lib/start-server";
-import { set } from "zod";
 import { search } from "@/helpers/maze-gen/AStar";
 
 export default function AStar(): React.ReactNode {
@@ -144,7 +140,6 @@ export default function AStar(): React.ReactNode {
                   <input
                     className={"w-12 text-center"}
                     type="text"
-                    onBeforeInput={validateNaturalNumber}
                     ref={widthInputRef}
                     maxLength={4}
                   />
@@ -154,7 +149,6 @@ export default function AStar(): React.ReactNode {
                   <input
                     className={"w-12 text-center"}
                     type="text"
-                    onBeforeInput={validateNaturalNumber}
                     ref={heightInputRef}
                     maxLength={4}
                   />
