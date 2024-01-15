@@ -8,7 +8,7 @@ import PageTitle from "@/components/PageTitle";
 export default function AboutMe(): React.ReactNode {
   return (
     <main>
-      <PageContainer extraClasses={`m-auto mt-20 md:mt-0 p-8 flex flex-col gap-6`}>
+      <PageContainer>
         <PageTitle>About Me</PageTitle>
         <div className={'max-lg:flex flex-col items-center gap-6'}>
           <div className={'overflow-hidden'}>

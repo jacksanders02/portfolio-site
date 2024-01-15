@@ -48,14 +48,14 @@ export default function Socials(): React.ReactElement {
 
   return (
     <div className={`flex items-center gap-6 text-3xl pointer-events-auto`}>
-      <MediaQuery maxWidth={767}>
+      <MediaQuery maxWidth={849}>
         <MenuButton
           clickAction={handleClick}
           menuOpenState={menuExpanded}
           className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
         />
         <motion.div
-          className={`absolute w-full h-[150%] flex flex-col left-0 top-[100%] items-center pointer-events-none`}
+          className={`absolute w-full h-[300%] flex flex-col left-0 top-[100%] items-center pointer-events-none`}
           transition={{staggerChildren: 0.15}}
           initial={"hidden"}
           animate={menuExpanded ? "visible" : "hidden"}
@@ -93,52 +93,31 @@ export default function Socials(): React.ReactElement {
               </a>
             )}
           </motion.div>
-        </motion.div>
-      </MediaQuery>
-      <MediaQuery minWidth={768} maxWidth={1199}>
-        <MenuButton
-          clickAction={handleClick}
-          menuOpenState={menuExpanded}
-          className={`cursor-pointer hover-link dark:hover-link-dark w-7 h-6`}
-        />
-        <motion.div
-          className={`absolute flex flex-col gap-4 left-0 top-[100%] items-center`}
-          transition={{staggerChildren: 0.15}}
-          initial={"hidden"}
-          animate={menuExpanded ? "visible" : "hidden"}
-        >
-          {SocialLinks().map((link: React.ReactElement, n: number) => (
-            <motion.div
-              key={`social-link-${n}`}
-              className={`flex items-center justify-center ps-8 pe-8`}
-              variants={tabletMenuVariants}
-            >
-              {link}
-            </motion.div>
-          ))}
           <motion.div
-            className={`flex items-center justify-center w-full`}
-            variants={tabletMenuVariants}
+            className={`menu-item-right flex-1 flex items-center border-b-2 w-full justify-center
+                        bg-colour-background dark:bg-colour-background-dark
+                        border-b-on-background dark:border-b-on-background-dark pointer-events-auto`}
+            custom={2}
+            variants={menuVariants}
           >
-            {path === "/" ? (
-              <a
-                className={`hover-link dark:hover-link-dark text-lg underline w-min text-center`}
-                href={`/about-me`}
+            {path === "/other" ? (
+              <a className={`hover-link dark:hover-link-dark text-lg underline`}
+                 href={`/about-me`}
               >
                 About Me
               </a>
             ) : (
               <a
-                className={`hover-link dark:hover-link-dark text-lg underline w-min text-center`}
-                href={`/`}
+                className={`hover-link dark:hover-link-dark text-lg underline`}
+                href={`/other`}
               >
-                Home
+                My Smaller Projects (Typically Webapps)
               </a>
             )}
           </motion.div>
         </motion.div>
       </MediaQuery>
-      <MediaQuery minWidth={1200}>
+      <MediaQuery minWidth={850}>
         <SocialLinks />
         <div
           className={`self-stretch border-r-2 border-on-background 
@@ -155,7 +134,27 @@ export default function Socials(): React.ReactElement {
             className={`hover-link dark:hover-link-dark text-lg underline`}
             href={`/`}
           >
-            Main Page
+            Homepage
+          </a>
+        )}
+
+        <div
+          className={`self-stretch border-r-2 border-on-background 
+                      dark:border-on-background-dark`}
+        />
+
+        {path === "/other" ? (
+          <a className={`hover-link dark:hover-link-dark text-lg underline`}
+             href={`/about-me`}
+          >
+            About Me
+          </a>
+        ) : (
+          <a
+            className={`hover-link dark:hover-link-dark text-lg underline`}
+            href={`/other`}
+          >
+            My Smaller Projects (Typically Webapps)
           </a>
         )}
       </MediaQuery>
