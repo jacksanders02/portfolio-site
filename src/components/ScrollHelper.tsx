@@ -38,9 +38,7 @@ export default function ScrollHelper(): React.ReactElement {
         i++;
       }
 
-      if (window.innerWidth < 768) {
-        firstBottomHalf -= navElem.getBoundingClientRect().height;
-      }
+      firstBottomHalf -= navElem.getBoundingClientRect().height;
 
       window.scrollTo({ top: firstBottomHalf, behavior: "smooth" });
     }

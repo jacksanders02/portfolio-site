@@ -35,6 +35,34 @@
     }
   }
 
+  .inverse-hover-link {
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, stroke 0.2s ease-in-out;
+    color: theme('colors.on-background.hover');
+    stroke: theme('colors.on-background.hover');
+
+    &:hover {
+      @media (hover:hover) {
+        color: theme('colors.on-background.DEFAULT');
+        stroke: theme('colors.on-background.DEFAULT');
+      }
+    }
+
+    &-dark {
+      cursor: pointer;
+      transition: color 0.2s ease-in-out, stroke 0.2s ease-in-out;
+      color: theme('colors.on-background.dark.hover');
+      stroke: theme('colors.on-background.dark.hover');
+
+      &:hover {
+        @media (hover:hover) {
+          color: theme('colors.on-background.dark.DEFAULT');
+          stroke: theme('colors.on-background.dark.DEFAULT');
+        }
+      }
+    }
+  }
+
   .hover-button {
     border: 2px solid currentColor;
     border-radius: .5em;

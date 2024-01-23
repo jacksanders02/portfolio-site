@@ -6,6 +6,8 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import { fontSans } from "@/app/fonts";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ACTION_FAST_REFRESH } from "next/dist/client/components/router-reducer/router-reducer-types";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Jack Sanders",
@@ -27,6 +29,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <Footer />
         </Providers>
         <SpeedInsights />
         <Analytics />

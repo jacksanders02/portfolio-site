@@ -107,6 +107,42 @@
       "description": "This was a week-long project in the January of my second year. Similarly to the Global Engineering Challenge Week, I was working in a team of 4 interdisciplinary engineers. However, contrasting to GEC, we were more well-organised, having already had one-and-a-half years of engineering experience under our belts. Our task was to apply the concept of swarm robotics (self-organising, multi-robot systems, characterised by high redundancy, which embodies ‘swarm intelligence’: a model copied from nature, seen classically in the behaviour of insects, birds and fish) to an area of civilian interest. Our proposed idea was to use a swarm of flying drones to assist mountain rescue services, utilising the natural advantages of swarm intelligence to quickly search a large area of a remote environment to locate an injured/missing person.<br class='mb-2' />Over the course of the week, we led a couple of informal boardroom meetings with our hub supervisor, before giving a final presentation to the whole hub (roughly 30 students, plus the hub supervisor, and an industry mentor).",
       "grade": "Distinction",
       "year": 2
+    },
+    {
+      "name": "Dissertation Project - Visual Models of Prosody in Speech Synthesis",
+      "description": "",
+      "grade": "",
+      "year": 3
+    },
+    {
+      "name": "COM3110 Text Processing",
+      "description": "This module introduces fundamental concepts and ideas in natural language text processing (such as the workings of text encoding methods such as UTF-8, and compression algorithms such as LZ77), and introduces higher-level text processing concepts such as information retrieval and sentiment analysis. During the course of this module we were tasked with building both an information retrieval engine (utilising the vector space model alongside cosine similarity) and a sentiment retrieval model (using a simple naive bayesian classifier).",
+      "grade": "",
+      "year": 3
+    },
+    {
+      "name": "COM3502 Speech Processing",
+      "description": "",
+      "grade": "",
+      "year": 3
+    },
+    {
+      "name": "MGT388 Finance & Law for Engineers",
+      "description": "This module, completed in the first semester of my third year, aimed to provide engineering students with an overview of business-related areas of finance and law. The law section covered laws pertaining to contracts, intellectual property, negligence, and the environment. The finance section gave an overview of business-related financial metrics such as return on capital employed (ROCE), as well as introducing financial decision-making methods such as accounting rate of return and net present value.",
+      "grade": "",
+      "year": 3
+    },
+    {
+      "name": "MLT01034 Dutch Intermediate 1",
+      "description": "",
+      "grade": "",
+      "year": 3
+    },
+    {
+      "name": "MLT01034 Dutch Intermediate 2",
+      "description": "",
+      "grade": "",
+      "year": 3
     }
   ]
 }
