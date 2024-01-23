@@ -1,10 +1,9 @@
-"use client";
+"use client"
 import React, { MouseEventHandler } from "react";
 import dynamic from "next/dynamic";
 import SocialLinks from "@/components/SocialLinks";
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import MenuButton from "@/components/MenuButton";
-import { usePathname } from "next/navigation";
 const MediaQuery = dynamic(() => import("react-responsive"), {
   ssr: false,
 });
@@ -28,27 +27,25 @@ export default function Socials(): React.ReactElement {
     }),
   };
 
-  const tabletMenuVariants = {
-    visible: {
-      translateX: 0,
-    },
-
-    hidden: {
-      translateX: `-110%`,
-    },
-  };
-
   const handleClick: MouseEventHandler<SVGElement> = (
     e: React.MouseEvent<SVGElement, MouseEvent>
   ) => {
     setMenuExpanded(!menuExpanded);
   };
 
-  const path: string = usePathname();
-
   return (
     <div className={`flex items-center gap-6 text-3xl pointer-events-auto`}>
       <MediaQuery maxWidth={849}>
+        <a
+          className={`bi bi-house-fill hover-link dark:hover-link-dark`}
+          href={'/'}
+          key={`Home`}
+          aria-label={`Link to this website's homepage`}
+        />
+        <div
+          className={`self-stretch border-r-2 border-on-background 
+                      dark:border-on-background-dark`}
+        />
         <MenuButton
           clickAction={handleClick}
           menuOpenState={menuExpanded}
@@ -77,21 +74,12 @@ export default function Socials(): React.ReactElement {
             custom={1}
             variants={menuVariants}
           >
-            {path === "/" ? (
-              <a
-                className={`hover-link dark:hover-link-dark text-lg underline`}
-                href={`/about-me`}
-              >
-                About Me
-              </a>
-            ) : (
-              <a
-                className={`hover-link dark:hover-link-dark text-lg underline`}
-                href={`/`}
-              >
-                Main Page
-              </a>
-            )}
+            <a
+              className={`hover-link dark:hover-link-dark text-lg underline`}
+              href={`/about-me`}
+            >
+              About Me
+            </a>
           </motion.div>
           <motion.div
             className={`menu-item-right flex-1 flex items-center border-b-2 w-full justify-center
@@ -100,63 +88,47 @@ export default function Socials(): React.ReactElement {
             custom={2}
             variants={menuVariants}
           >
-            {path === "/other" ? (
-              <a className={`hover-link dark:hover-link-dark text-lg underline`}
-                 href={`/about-me`}
-              >
-                About Me
-              </a>
-            ) : (
-              <a
-                className={`hover-link dark:hover-link-dark text-lg underline`}
-                href={`/other`}
-              >
-                My Smaller Projects (Typically Webapps)
-              </a>
-            )}
+            <a
+              className={`hover-link dark:hover-link-dark text-lg underline text-center`}
+              href={`/other`}
+            >
+              My Smaller Projects (Typically Webapps)
+            </a>
           </motion.div>
         </motion.div>
       </MediaQuery>
       <MediaQuery minWidth={850}>
+        <a
+          className={`bi bi-house-fill hover-link dark:hover-link-dark`}
+          href={'/'}
+          key={`Home`}
+          aria-label={`Link to this website's homepage`}
+        />
+
         <SocialLinks />
-        <div
-          className={`self-stretch border-r-2 border-on-background 
-                      dark:border-on-background-dark`}
-        />
-        {path === "/" ? (
-          <a className={`hover-link dark:hover-link-dark text-lg underline`}
-             href={`/about-me`}
-          >
-            About Me
-          </a>
-        ) : (
-          <a
-            className={`hover-link dark:hover-link-dark text-lg underline`}
-            href={`/`}
-          >
-            Homepage
-          </a>
-        )}
 
         <div
           className={`self-stretch border-r-2 border-on-background 
                       dark:border-on-background-dark`}
         />
 
-        {path === "/other" ? (
-          <a className={`hover-link dark:hover-link-dark text-lg underline`}
-             href={`/about-me`}
-          >
-            About Me
-          </a>
-        ) : (
-          <a
-            className={`hover-link dark:hover-link-dark text-lg underline`}
-            href={`/other`}
-          >
-            My Smaller Projects (Typically Webapps)
-          </a>
-        )}
+        <a className={`hover-link dark:hover-link-dark text-lg underline`}
+           href={`/about-me`}
+        >
+          About Me
+        </a>
+
+        <div
+          className={`self-stretch border-r-2 border-on-background 
+                      dark:border-on-background-dark`}
+        />
+
+        <a
+          className={`hover-link dark:hover-link-dark text-lg underline`}
+          href={`/other`}
+        >
+          My Smaller Projects (Typically Webapps)
+        </a>
       </MediaQuery>
     </div>
   );
