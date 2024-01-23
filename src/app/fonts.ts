@@ -8,12 +8,13 @@ import { NextFont } from "next/dist/compiled/@next/font";
 export const fontSerif: NextFont = DM_Serif_Display({
   subsets: ["latin"],
   weight: ["400"],
+  style: ["normal", "italic"],
   fallback: ["serif"]
 });
 
 export const fontSans: NextFont = DM_Sans({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "700"],
   fallback: ["sans-serif"]
 });
 
