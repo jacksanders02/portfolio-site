@@ -92,7 +92,7 @@ export default function Socials(): React.ReactElement {
               className={`hover-link dark:hover-link-dark text-lg underline text-center`}
               href={`/other`}
             >
-              My Smaller Projects (Typically Webapps)
+              All Projects
             </a>
           </motion.div>
         </motion.div>
@@ -103,6 +103,11 @@ export default function Socials(): React.ReactElement {
           href={'/'}
           key={`Home`}
           aria-label={`Link to this website's homepage`}
+        />
+
+        <div
+          className={`self-stretch border-r-2 border-on-background 
+                      dark:border-on-background-dark`}
         />
 
         <SocialLinks />
@@ -127,7 +132,7 @@ export default function Socials(): React.ReactElement {
           className={`hover-link dark:hover-link-dark text-lg underline`}
           href={`/other`}
         >
-          My Smaller Projects (Typically Webapps)
+          All Projects
         </a>
       </MediaQuery>
     </div>
