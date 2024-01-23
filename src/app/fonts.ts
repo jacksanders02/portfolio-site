@@ -2,7 +2,7 @@
  * Helper constants for fonts
  */
 
-import { DM_Serif_Display, Courier_Prime, DM_Sans } from "next/font/google";
+import { DM_Serif_Display, Courier_Prime, DM_Sans, DM_Mono } from "next/font/google";
 import { NextFont } from "next/dist/compiled/@next/font";
 
 export const fontSerif: NextFont = DM_Serif_Display({
@@ -17,7 +17,7 @@ export const fontSans: NextFont = DM_Sans({
   fallback: ["sans-serif"]
 });
 
-export const fontMono: NextFont = Courier_Prime({
+export const fontMono: NextFont = DM_Mono({
   subsets: ["latin"],
   weight: ["400"],
   fallback: ["mono"]
