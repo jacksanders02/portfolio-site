@@ -7,32 +7,35 @@ import { motion } from "framer-motion";
  */
 export default function AboutDropdown(): React.ReactNode {
   const [menuShown, setMenuShown] = React.useState(false);
-  const [hovering, setHovering] = React.useState(false);
 
   const startHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setMenuShown(true);
-    setHovering(true);
+    // Only allow non-touchscreen devices to hover to open menu
+    if (!('ontouchstart' in document.documentElement)) {
+      setMenuShown(true);
+    }
   }
 
   const endHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setMenuShown(false);
-    setHovering(true);
   }
 
   const toggleHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    // Prevent click to hide when hovering
-    if (!(hovering && menuShown)) {
+    // Only allow touchscreen devices to click to toggle menu
+    if ('ontouchstart' in document.documentElement) {
       setMenuShown(!menuShown);
     }
   }
 
   const menuParentVariants = {
-    hidden: {
-      opacity: 0,
-    },
-
     visible: {
       opacity: `100%`,
+      transition: {
+        staggerChildren: 0.15
+      }
+    },
+
+    hidden: {
+      opacity: 0,
     },
   }
 
@@ -54,8 +57,8 @@ export default function AboutDropdown(): React.ReactNode {
       <div
         className={`relative text-lg font-bold z-40 ${menuShown ? "text-on-background-dark" : ""} cursor-pointer
             transition-all duration-500`}
-        onClick={toggleHover}
         onMouseEnter={startHover}
+        onClick={toggleHover}
       >
         About
       </div>
@@ -64,10 +67,10 @@ export default function AboutDropdown(): React.ReactNode {
         onMouseEnter={startHover}
         onMouseLeave={endHover}
         variants={menuParentVariants}
-        transition={{ staggerChildren: 0.15 }}
         animate={menuShown ? "visible" : "hidden"}
       >
-        <motion.a href={'/about-me'} className={`inverse-hover-link-dark w-max`} variants={menuVariants}>About Me</motion.a>
+        <motion.a href={'/about-me'} className={`inverse-hover-link-dark`} variants={menuVariants}>About Me</motion.a>
+        <motion.a href={'/projects'} className={`inverse-hover-link-dark`} variants={menuVariants}>Projects</motion.a>
         <motion.a
           className="bi bi-instagram inverse-hover-link-dark text-3xl"
           href="https://www.instagram.com/jacksanders02/"
@@ -94,6 +97,7 @@ export default function AboutDropdown(): React.ReactNode {
       <div
         className={`fixed top-0 left-0 w-screen h-screen opacity-0 ${menuShown ? 'opacity-75' : 'pointer-events-none'} z-20
             bg-on-background transition-opacity duration-1000`}
+        onClick={endHover}
       >
 
       </div>

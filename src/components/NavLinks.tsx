@@ -18,18 +18,6 @@ export default function NavLinks(): React.ReactElement {
 
       <a
         className={`hover-link dark:hover-link-dark text-lg font-bold`}
-        href={`/projects`}
-      >
-        Projects
-      </a>
-
-      <div
-        className={`self-stretch border-r-2 border-on-background 
-                    dark:border-on-background-dark`}
-      />
-
-      <a
-        className={`hover-link dark:hover-link-dark text-lg font-bold`}
         href={`/`}
       >
         Home
