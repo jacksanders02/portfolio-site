@@ -71,6 +71,27 @@ export default function RandomBlob({
     const animateRequest = (timestamp: number) =>
       animate(elem, timestamp, animateRequest);
     requestAnimationFrame(animateRequest);
+
+    window.onmousemove = ev => {
+      if (blobPathRef.current && blobPathRef.current.parentElement) {
+        let svg = blobPathRef.current.parentElement;
+
+        let svgRect = svg.getBoundingClientRect()
+
+
+        let xDiff = ev.clientX - (svgRect.x + svgRect.width / 2);
+        let yDiff = ev.clientY - (svgRect.y + svgRect.height / 2);
+
+        let vecLength = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2))
+
+        let unitX = xDiff / vecLength;
+        let unitY = yDiff / vecLength;
+
+        svg.animate({
+          transform: `translate(${-unitX * 35}px, ${-unitY * 35}px)`
+        }, { duration: 5000, fill: "forwards" })
+      }
+    }
   }, [noiseStep, points]);
 
   // Returns an svg containing the animated path.
