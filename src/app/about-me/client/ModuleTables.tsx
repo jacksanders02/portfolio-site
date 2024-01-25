@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect } from "react";
 import { fontSerif } from "@/app/fonts";
 import ModuleTableHeader from "@/components/ModuleTableHeader";
 import { IModule, IModuleCollection } from "@/helpers/db/schema";
