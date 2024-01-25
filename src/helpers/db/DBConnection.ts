@@ -19,9 +19,7 @@ export default class DBConnection {
     });
   }
 
-  readModules() {
-    ModuleCollection.find({stage: "Year 1"}).then((mcs: Array<IModuleCollection>) => {
-      console.log(mcs)
-    })
+  async readModules(): Promise<IModuleCollection[]> {
+    return ModuleCollection.find({}).then((mcs: IModuleCollection[]) => mcs)
   }
 }

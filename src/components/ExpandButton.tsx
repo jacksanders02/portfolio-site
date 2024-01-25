@@ -3,6 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+/**
+ * Use class-based component here to allow refs to be assigned
+ */
 export default class ExpandButton extends React.Component {
   state = {
     open: false
