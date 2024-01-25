@@ -1,9 +1,8 @@
 import React from "react";
 import PageContainer from "@/components/PageContainer";
-import { fontSerif } from "@/app/fonts";
 import Image from "next/image";
-import ModulesTable from "@/components/ModulesTable";
 import PageTitle from "@/components/PageTitle";
+import ModuleTables from "@/app/about-me/client/ModuleTables";
 
 export default function AboutMe(): React.ReactNode {
   return (
@@ -49,7 +48,7 @@ export default function AboutMe(): React.ReactNode {
             </div>
           </div>
 
-          <ModulesTable />
+          <ModuleTables/>
         </div>
       </PageContainer>
     </main>
