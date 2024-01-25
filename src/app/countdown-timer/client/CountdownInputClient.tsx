@@ -10,18 +10,18 @@ export default function CountdownInputClient(): React.ReactNode {
   const router = useRouter();
 
   async function setTimer() {
-    let time_seconds = Math.floor((new Date()).getTime() / 1000)
+    let time_seconds = Math.floor(new Date().getTime() / 1000);
 
-    if (isNaN(+(days)) || isNaN(+(hours)) || isNaN(+(minutes)) || isNaN(+(seconds))) {
+    if (isNaN(+days) || isNaN(+hours) || isNaN(+minutes) || isNaN(+seconds)) {
       setErrorMessage("Please ensure all entered values are numbers!");
     } else {
       // Taking advantage of JS weirdness again for converting strings to ints
-      time_seconds += 24*60*60*+days
-      time_seconds += 60*60*+hours
-      time_seconds += 60*+minutes
-      time_seconds += +seconds
+      time_seconds += 24 * 60 * 60 * +days;
+      time_seconds += 60 * 60 * +hours;
+      time_seconds += 60 * +minutes;
+      time_seconds += +seconds;
 
-      router.push(`/countdown-timer?t=${time_seconds}`)
+      router.push(`/countdown-timer?t=${time_seconds}`);
     }
   }
 
@@ -32,15 +32,19 @@ export default function CountdownInputClient(): React.ReactNode {
   const [seconds, setSeconds] = useState<string>("");
 
   return (
-    <div className={`fixed flex flex-col gap-6 items-center justify-center h-screen w-full`}>
-      <p className={'text-xl sm:text-2xl lg:text-3xl text-center'}>
+    <div
+      className={`fixed flex flex-col gap-6 items-center justify-center h-screen w-full`}
+    >
+      <p className={"text-xl sm:text-2xl lg:text-3xl text-center"}>
         Set a timer using the below inputs:
       </p>
 
       {errorMessage !== null && (
         <p className={`text-red-700 font-bold text-center`}>{errorMessage}</p>
       )}
-      <div className={`${fontMono.className} text-xl sm:text-2xl lg:text-3xl flex flex-row gap-2 items-center`}>
+      <div
+        className={`${fontMono.className} text-xl sm:text-2xl lg:text-3xl flex flex-row gap-2 items-center`}
+      >
         <input
           type={"text"}
           maxLength={4}
@@ -76,7 +80,9 @@ export default function CountdownInputClient(): React.ReactNode {
 
       <button
         onClick={setTimer}
-        className={"hover-button dark:hover-button-dark w-64 text-lg sm:text-xl lg:text-2xl mt-1.5"}
+        className={
+          "hover-button dark:hover-button-dark w-64 text-lg sm:text-xl lg:text-2xl mt-1.5"
+        }
       >
         Set Timer
       </button>

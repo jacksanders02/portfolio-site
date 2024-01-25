@@ -3,7 +3,7 @@ import { fontSerif } from "@/app/fonts";
 
 export default function PageSubTitle({
   children,
-  extraClasses
+  extraClasses,
 }: {
   children: React.ReactNode;
   extraClasses?: string;

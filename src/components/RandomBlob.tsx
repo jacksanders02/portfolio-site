@@ -72,47 +72,82 @@ export default function RandomBlob({
       animate(elem, timestamp, animateRequest);
     requestAnimationFrame(animateRequest);
 
-    window.onmousemove = ev => {
+    window.onmousemove = (ev) => {
       if (blobPathRef.current && blobPathRef.current.parentElement) {
         let svg = blobPathRef.current.parentElement;
 
-        let svgRect = svg.getBoundingClientRect()
-
+        let svgRect = svg.getBoundingClientRect();
 
         let xDiff = ev.clientX - (svgRect.x + svgRect.width / 2);
         let yDiff = ev.clientY - (svgRect.y + svgRect.height / 2);
 
-        let vecLength = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2))
+        let vecLength = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
 
         let unitX = xDiff / vecLength;
         let unitY = yDiff / vecLength;
 
-        svg.animate({
-          transform: `translate(${-unitX * 35}px, ${-unitY * 35}px)`
-        }, { duration: 5000, fill: "forwards" })
+        svg.animate(
+          {
+            transform: `translate(${-unitX * 35}px, ${-unitY * 35}px)`,
+          },
+          { duration: 5000, fill: "forwards" }
+        );
       }
-    }
+    };
   }, [noiseStep, points]);
 
   // Returns an svg containing the animated path.
   // Animation will speed up on hover
   return (
     <div>
-      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={`overflow-visible ${className}`}>
+      <svg
+        viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+        className={`overflow-visible ${className}`}
+      >
         <defs>
-          <filter id={"blur1"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+          <filter
+            id={"blur1"}
+            x={"-50%"}
+            y={"-50%"}
+            width={"200%"}
+            height={"200%"}
+          >
             <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
           </filter>
-          <filter id={"blur2"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+          <filter
+            id={"blur2"}
+            x={"-50%"}
+            y={"-50%"}
+            width={"200%"}
+            height={"200%"}
+          >
             <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
           </filter>
-          <filter id={"blur3"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+          <filter
+            id={"blur3"}
+            x={"-50%"}
+            y={"-50%"}
+            width={"200%"}
+            height={"200%"}
+          >
             <feGaussianBlur in={"SourceGraphic"} stdDeviation={20} />
           </filter>
-          <filter id={"blur4"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+          <filter
+            id={"blur4"}
+            x={"-50%"}
+            y={"-50%"}
+            width={"200%"}
+            height={"200%"}
+          >
             <feGaussianBlur in={"SourceGraphic"} stdDeviation={25} />
           </filter>
-          <filter id={"blur5"} x={"-50%"} y={"-50%"} width={"200%"} height={"200%"}>
+          <filter
+            id={"blur5"}
+            x={"-50%"}
+            y={"-50%"}
+            width={"200%"}
+            height={"200%"}
+          >
             <feGaussianBlur in={"SourceGraphic"} stdDeviation={30} />
           </filter>
         </defs>

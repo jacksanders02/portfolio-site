@@ -5,11 +5,7 @@
       "alt": "an image of a golf course. There is a line indicating a shot path, and a box with strokes gained information.",
       "title": "Software Hut Project",
       "date": "Feb-May 2023",
-      "keyTechnologies": [
-        "Ruby",
-        "Rails",
-        "JavaScript"
-      ],
+      "keyTechnologies": ["Ruby", "Rails", "JavaScript"],
       "briefDescription": "As part of my second year of studies, I led a team of 6 other computer science students in a full-stack software engineering project where we had to develop a system for our client. After gathering all requirements from our client, we developed a system that would allow users with a 'map creator' role to interact with a satellite map in order to map out golf courses, and allow for users with no role to browse the database of maps created by the map creators, annotate these (in case they know that the course has changed, but the map creators have not yet updated it), and explore how to optimise their game using the 'strokes gained' metric. For this our team received the Software Hut Prize (Client), for producing the best system out of all teams that worked for this client, and I received a personal grade of 95%",
       "writeupLink": "/software-hut"
     },
@@ -18,21 +14,15 @@
       "alt": "an image of the visualiser.",
       "title": "Perceptron Algorithm Visualiser",
       "date": "18th-22nd January 2023",
-      "keyTechnologies": [
-        "Python"
-      ],
+      "keyTechnologies": ["Python"],
       "briefDescription": "This was a project made by me and <a class='hover-link dark:hover-link-dark underline' href='https://github.com/KushBharakhada/'>a friend</a> in our second year of studies, to help us to better understand the <a class='hover-link dark:hover-link-dark underline' href='https://en.wikipedia.org/wiki/Perceptron#Learning_algorithm'>Perceptron Learning Algorithm</a>, and also for myself to become acquainted with PyQt, the python binding for the popular Qt GUI toolkit.",
-      "githubLink":  "https://github.com/kj-collabs/simple-linear-perceptron"
+      "githubLink": "https://github.com/kj-collabs/simple-linear-perceptron"
     },
     {
       "imageURL": "/projects/portfolio-site/site-thumbnail.png",
       "alt": "A screenshot of the homepage of this website",
       "title": "Portfolio Website",
-      "keyTechnologies": [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS"
-      ],
+      "keyTechnologies": ["Next.js", "TypeScript", "Tailwind CSS"],
       "briefDescription": "This website was built as a place for me to write about projects that enhanced my knowledge of computer science, and improved my ability as a programmer overall. I started building it in May of 2023 using the <a class='hover-link dark:hover-link-dark underline' href='https://nextjs.org/'>Next.js</a> framework. Having never used a JavaScript framework of any kind before, this was a daunting task, but I found it remarkably easy to learn, in part thanks to the plethora of documentation available for both Next and React. I also decided to take this as an opportunity to learn TypeScript, a superset of JavaScript that introduces static typing, typehints in functions, and other general additions that make it easier to manage a large codebase.",
       "githubLink": "https://github.com/jacksanders02/portfolio-site"
     },
@@ -41,10 +31,7 @@
       "alt": "The bike builder app as it would be displayed after the user has built a bike. A receipt is displayed, reading: 'MACE CORP HONEYBERRY FRAME SET: £650. ECAM CORP MUDROCK HANDLEBARS: £49.99. EMAC CORP SKADI WHEELS (2): £70. ADDITIONAL ASSEMBLY COST: £10. TOTAL: £779.99.",
       "title": "Systems Design & Security - Bike Builder Project",
       "date": "Nov-Dec 2022",
-      "keyTechnologies": [
-        "Java",
-        "SQL"
-      ],
+      "keyTechnologies": ["Java", "SQL"],
       "briefDescription": "This project was made during my second year of studies. I led a team of three other computer scientists to develop a Java swing application for a fictional bike shop. Users are able to put together bikes from a list of components without logging in, only providing their details at checkout. Staff members can then log in and confirm payment receipt from customers, progress orders from 'pending' to 'confirmed', and then again from 'confirmed' to 'shipped'. Over the course of this project I worked with both the front-end (using Java swing) and the back-end (using a MySQL database connected to the application using Java Database Connectivity.), massively developing my skills in both areas.",
       "writeupLink": "/systems-design"
     }

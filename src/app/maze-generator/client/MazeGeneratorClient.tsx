@@ -4,7 +4,7 @@ import MazeHelper from "@/helpers/maze-gen/MazeHelper";
 import { search } from "@/helpers/maze-gen/AStar";
 
 export default function MazeGeneratorClient() {
-  const instructions: {[stage: number]: string} = {
+  const instructions: { [stage: number]: string } = {
     0: "Generate a maze using the below inputs:",
     1: "",
     2: "Click anywhere on the maze to set your start point.",
@@ -12,9 +12,12 @@ export default function MazeGeneratorClient() {
     4: "",
   };
 
-  const canvasRef: React.MutableRefObject<HTMLCanvasElement | null> = React.useRef(null);
-  const widthInputRef: React.MutableRefObject<HTMLInputElement | null> = React.useRef(null);
-  const heightInputRef: React.MutableRefObject<HTMLInputElement | null> = React.useRef(null);
+  const canvasRef: React.MutableRefObject<HTMLCanvasElement | null> =
+    React.useRef(null);
+  const widthInputRef: React.MutableRefObject<HTMLInputElement | null> =
+    React.useRef(null);
+  const heightInputRef: React.MutableRefObject<HTMLInputElement | null> =
+    React.useRef(null);
 
   const [maze, setMaze] = React.useState<MazeHelper | null>(null);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -27,7 +30,9 @@ export default function MazeGeneratorClient() {
       setErrorMessage("");
 
       if (isNaN(width + height) || width < 2 || height < 2) {
-        setErrorMessage("Please ensure that you have entered only numbers, and that both width & height are greater than 1.");
+        setErrorMessage(
+          "Please ensure that you have entered only numbers, and that both width & height are greater than 1."
+        );
         return;
       }
 
@@ -36,7 +41,9 @@ export default function MazeGeneratorClient() {
         setMaze(new MazeHelper(canvasRef.current, width, height));
         setStage(1);
       } catch (_e) {
-        setErrorMessage("Recursion error occurred - please try again with a smaller maze.")
+        setErrorMessage(
+          "Recursion error occurred - please try again with a smaller maze."
+        );
       }
     }
   }
@@ -65,26 +72,26 @@ export default function MazeGeneratorClient() {
 
       maze!.redrawCanvas();
 
-      canvasRef.current!.addEventListener("click", startListener)
-      document.addEventListener("start-selected", startSelectedCallback)
+      canvasRef.current!.addEventListener("click", startListener);
+      document.addEventListener("start-selected", startSelectedCallback);
     }
   }
 
   function startSelectedCallback(ev: Event): void {
     if (canvasRef.current) {
       setStage(3);
-      canvasRef.current!.removeEventListener("click", startListener)
-      canvasRef.current!.addEventListener("click", finishListener)
-      document.removeEventListener("start-selected", startSelectedCallback)
-      document.addEventListener("finish-selected", finishSelectedCallback)
+      canvasRef.current!.removeEventListener("click", startListener);
+      canvasRef.current!.addEventListener("click", finishListener);
+      document.removeEventListener("start-selected", startSelectedCallback);
+      document.addEventListener("finish-selected", finishSelectedCallback);
     }
   }
 
   function finishSelectedCallback(ev: Event): void {
     if (canvasRef.current) {
       setStage(4);
-      canvasRef.current!.removeEventListener("click", finishListener)
-      document.removeEventListener("finish-selected", finishSelectedCallback)
+      canvasRef.current!.removeEventListener("click", finishListener);
+      document.removeEventListener("finish-selected", finishSelectedCallback);
 
       search(maze!);
     }
@@ -93,7 +100,11 @@ export default function MazeGeneratorClient() {
   /**
    * Resize canvas based on window dimensions & number of rows/cols in the maze
    */
-  function resetCanvasSize(canvas: HTMLCanvasElement, cols: number, rows: number) {
+  function resetCanvasSize(
+    canvas: HTMLCanvasElement,
+    cols: number,
+    rows: number
+  ) {
     let widthLim: number = Math.round(window.screen.width * 0.8);
     let heightLim: number = Math.round(window.screen.height * 0.66);
     let aspectRatio = cols / rows;
@@ -103,19 +114,19 @@ export default function MazeGeneratorClient() {
      */
     if (widthLim < heightLim) {
       canvas.width = widthLim;
-      canvas.height = canvas.width / aspectRatio
+      canvas.height = canvas.width / aspectRatio;
 
       if (canvas.height > heightLim) {
         canvas.height = heightLim;
-        canvas.width = canvas.height * aspectRatio
+        canvas.width = canvas.height * aspectRatio;
       }
     } else {
       canvas.height = heightLim;
-      canvas.width = canvas.height * aspectRatio
+      canvas.width = canvas.height * aspectRatio;
 
       if (canvas.width > widthLim) {
         canvas.width = widthLim;
-        canvas.height = canvas.width / aspectRatio
+        canvas.height = canvas.width / aspectRatio;
       }
     }
   }
@@ -130,13 +141,17 @@ export default function MazeGeneratorClient() {
       {stage == 0 && (
         <>
           <div className="absolute-top flex flex-col items-center gap-1">
-            <p className={`text-red-700 font-bold text-center`}>{errorMessage}</p>
+            <p className={`text-red-700 font-bold text-center`}>
+              {errorMessage}
+            </p>
             <div className={"grid grid-cols-3 grid-rows-2 gap-2 auto-cols-min"}>
               <label htmlFor="map-size-input" className={`w-max col-span-2`}>
                 Maze Width:{" "}
               </label>
               <input
-                className={"w-16 text-center border-2 border-on-background dark:border-on-background-dark"}
+                className={
+                  "w-16 text-center border-2 border-on-background dark:border-on-background-dark"
+                }
                 type="tel"
                 ref={widthInputRef}
                 maxLength={4}
@@ -145,7 +160,9 @@ export default function MazeGeneratorClient() {
                 Maze Height:{" "}
               </label>
               <input
-                className={"w-16 text-center border-2 border-on-background dark:border-on-background-dark"}
+                className={
+                  "w-16 text-center border-2 border-on-background dark:border-on-background-dark"
+                }
                 type="tel"
                 ref={heightInputRef}
                 maxLength={4}
@@ -172,7 +189,9 @@ export default function MazeGeneratorClient() {
         <div className={`flex flex-row gap-6 w-full lg:w-3/4 2xl:w-1/2 h-12`}>
           <button
             className={`hover-button dark:hover-button-dark flex-1`}
-            onClick={() => { setStage(0) }}
+            onClick={() => {
+              setStage(0);
+            }}
           >
             New Maze
           </button>
@@ -187,9 +206,11 @@ export default function MazeGeneratorClient() {
 
       <canvas
         id="maze-area"
-        className={`border-2 border-on-background dark:border-0 ${stage == 0 ? "hidden" : ""} block`}
+        className={`border-2 border-on-background dark:border-0 ${
+          stage == 0 ? "hidden" : ""
+        } block`}
         ref={canvasRef}
       />
     </div>
-  )
+  );
 }

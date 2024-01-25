@@ -37,9 +37,9 @@ export type Module = {
   description: string;
   grade: string;
   year: number;
-}
+};
 
 /**
  * Coordinate type, used in the maze generator
  */
-export type Coordinate = [number, number]
+export type Coordinate = [number, number];

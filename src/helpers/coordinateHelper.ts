@@ -7,8 +7,14 @@ export function equalCoords(arr1: Coordinate, arr2: Coordinate): boolean {
 }
 
 // Check if coordinates are invalid due to being out-of-bounds
-export function invalidCoords(coords: Coordinate, maxCol: number, maxRow: number): boolean {
-  return coords[0] < 0 || coords[0] >= maxRow || coords[1] < 0 || coords[1] >= maxCol;
+export function invalidCoords(
+  coords: Coordinate,
+  maxCol: number,
+  maxRow: number
+): boolean {
+  return (
+    coords[0] < 0 || coords[0] >= maxRow || coords[1] < 0 || coords[1] >= maxCol
+  );
 }
 
 // Returns a random integer between two values
@@ -27,5 +33,5 @@ export function addCoords(coord1: Coordinate, coord2: Coordinate): Coordinate {
 }
 
 export function pythagoras(node: Coordinate, finish: Coordinate): number {
-  return Math.sqrt((finish[1] - node[1]) ** 2 + (finish[0] - node[0]) ** 2)
+  return Math.sqrt((finish[1] - node[1]) ** 2 + (finish[0] - node[0]) ** 2);
 }

@@ -22,8 +22,11 @@ function renderTechnologies(techs: string[]): React.JSX.Element[] {
         key={`technology_${i++}`}
       >
         <Image
-          src={technologyIcons.get(technology) || 'technologies/notfound.svg'}
-          alt={technologyAlts.get(technology) || 'A question mark, indicating that the technology icon was not found'}
+          src={technologyIcons.get(technology) || "technologies/notfound.svg"}
+          alt={
+            technologyAlts.get(technology) ||
+            "A question mark, indicating that the technology icon was not found"
+          }
           width={24}
           height={24}
           draggable={false}
@@ -97,7 +100,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
  */
 export default function ProjectCard({
   project,
-  id
+  id,
 }: {
   project: Project;
   id?: string;
@@ -157,11 +160,15 @@ export default function ProjectCard({
             className={`flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left`}
           >
             <div>
-              <h2 className={`${fontSerif.className} text-3xl lg:text-5xl tracking-wider`}>
+              <h2
+                className={`${fontSerif.className} text-3xl lg:text-5xl tracking-wider`}
+              >
                 {project.title}
               </h2>
               {project.date && (
-                <p className={`text-sm lg:text-base mt-2 underline`}>{project.date}</p>
+                <p className={`text-sm lg:text-base mt-2 underline`}>
+                  {project.date}
+                </p>
               )}
             </div>
             <div

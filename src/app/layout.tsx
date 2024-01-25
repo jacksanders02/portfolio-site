@@ -5,7 +5,7 @@ import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import { fontSans } from "@/app/fonts";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/Footer";
 
 export const metadata = {

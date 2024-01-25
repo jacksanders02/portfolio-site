@@ -15,12 +15,12 @@ export default function ThemeToggle(): React.ReactElement {
 
     // Only update if html element doesn't have a theme class already
     // Prevents theme changing back to default on page change
-    let htmlClasses = document.getElementsByTagName("html")[0].classList
+    let htmlClasses = document.getElementsByTagName("html")[0].classList;
 
     // Set data theme to default, so theme toggle position matches actual theme
     if (htmlClasses.contains("light")) {
       setDataTheme("light");
-    } else if(htmlClasses.contains("dark")) {
+    } else if (htmlClasses.contains("dark")) {
       setDataTheme("dark");
     } else {
       setTheme(isDark.matches ? "dark" : "light");

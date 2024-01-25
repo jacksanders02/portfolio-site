@@ -6,7 +6,11 @@ import { IModule } from "@/helpers/db/schema";
  * ModuleTableRow.tsx
  * Creates a row of the module tables displayed on my 'about me' page
  */
-export default function ModuleTableRow({ module }: { module: IModule }): React.ReactNode {
+export default function ModuleTableRow({
+  module,
+}: {
+  module: IModule;
+}): React.ReactNode {
   const ebRef = React.useRef<ExpandButton>(null);
   return (
     <div
@@ -23,7 +27,7 @@ export default function ModuleTableRow({ module }: { module: IModule }): React.R
       />
       <p className={"text-right max-lg:grade-prefix"}>{module.grade}</p>
 
-      { /*@ts-ignore custom prop error */}
+      {/*@ts-ignore custom prop error */}
       <ExpandButton ref={ebRef} moduleDescription={module.description} />
     </div>
   );

@@ -1,8 +1,18 @@
 import AStarNode from "@/helpers/maze-gen/AStarNode";
 import { Coordinate } from "@/helpers/types";
-import { addCoords, invalidCoords, randChoice, randInt } from "@/helpers/coordinateHelper";
+import {
+  addCoords,
+  invalidCoords,
+  randChoice,
+  randInt,
+} from "@/helpers/coordinateHelper";
 
-export const directions: [Coordinate, string][] = [[[0, 1], "EW"], [[1, 0], "SN"], [[0, -1], "WE"], [[-1, 0], "NS"]];
+export const directions: [Coordinate, string][] = [
+  [[0, 1], "EW"],
+  [[1, 0], "SN"],
+  [[0, -1], "WE"],
+  [[-1, 0], "NS"],
+];
 
 export default class MazeHelper {
   map: AStarNode[][];
@@ -16,7 +26,7 @@ export default class MazeHelper {
    */
   constructor(canvas: HTMLCanvasElement, cols: number, rows: number) {
     this.canvas = canvas;
-    this.ctx = canvas.getContext('2d')!;
+    this.ctx = canvas.getContext("2d")!;
     this.ctx.imageSmoothingEnabled = false;
     this.ctx.translate(0.5, 0.5);
 
@@ -25,19 +35,23 @@ export default class MazeHelper {
     this.finishCoords = [0, 0];
 
     // Initialise map with empty nodes
-    for (let i=0; i<rows; i++) {
+    for (let i = 0; i < rows; i++) {
       this.map[i] = new Array(cols);
-      for (let j=0; j<cols; j++) {
-        this.map[i][j] = new AStarNode(j, i, this.ctx.canvas.width / cols,
-                                             this.ctx.canvas.height / rows);
+      for (let j = 0; j < cols; j++) {
+        this.map[i][j] = new AStarNode(
+          j,
+          i,
+          this.ctx.canvas.width / cols,
+          this.ctx.canvas.height / rows
+        );
         // Set walls all true
-        this.map[i][j].walls = [true,true, true, true];
+        this.map[i][j].walls = [true, true, true, true];
       }
     }
 
     let startCoords: Coordinate = [randInt(0, rows), randInt(0, cols)];
 
-    let startNode: AStarNode = this.map[startCoords[0]][startCoords[1]]
+    let startNode: AStarNode = this.map[startCoords[0]][startCoords[1]];
 
     this.pickRandomNeighbour(startNode);
   }
@@ -75,8 +89,11 @@ export default class MazeHelper {
 
     let validDirections = [];
     for (let direction of directions) {
-      let newCoords: Coordinate = addCoords(direction[0], currentNode.coords)
-      if (!invalidCoords(newCoords, this.map[0].length, this.map.length) && !this.map[newCoords[0]][newCoords[1]].visited) {
+      let newCoords: Coordinate = addCoords(direction[0], currentNode.coords);
+      if (
+        !invalidCoords(newCoords, this.map[0].length, this.map.length) &&
+        !this.map[newCoords[0]][newCoords[1]].visited
+      ) {
         validDirections.push(direction);
       }
     }
@@ -87,7 +104,10 @@ export default class MazeHelper {
     }
 
     let direction = randChoice(validDirections);
-    let neighbourCoords: Coordinate = addCoords(direction[0], currentNode.coords);
+    let neighbourCoords: Coordinate = addCoords(
+      direction[0],
+      currentNode.coords
+    );
     let neighbour: AStarNode = this.map[neighbourCoords[0]][neighbourCoords[1]];
 
     neighbour.parent = currentNode;
@@ -105,8 +125,12 @@ export default class MazeHelper {
   }
 
   findClickedNode(coords: Coordinate): AStarNode {
-    let x: number = Math.floor(coords[1] / (this.ctx.canvas.width / this.map[0].length));
-    let y: number = Math.floor(coords[0] / (this.ctx.canvas.height / this.map.length));
+    let x: number = Math.floor(
+      coords[1] / (this.ctx.canvas.width / this.map[0].length)
+    );
+    let y: number = Math.floor(
+      coords[0] / (this.ctx.canvas.height / this.map.length)
+    );
 
     return this.map[y][x];
   }
@@ -115,7 +139,9 @@ export default class MazeHelper {
    * Sets the finish node for the A* algorithm
    */
   setFinish(event: MouseEvent) {
-    let finishNode: AStarNode = this.findClickedNode(this.findMouseOnCanvas(event));
+    let finishNode: AStarNode = this.findClickedNode(
+      this.findMouseOnCanvas(event)
+    );
     finishNode.fill = "red";
     this.redrawCanvas();
 

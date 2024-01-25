@@ -6,7 +6,6 @@ import AboutDropdown from "@/components/AboutDropdown";
  * @constructor
  */
 export default function NavLinks(): React.ReactElement {
-
   return (
     <div className={`flex items-center gap-6 text-3xl pointer-events-auto`}>
       <AboutDropdown />

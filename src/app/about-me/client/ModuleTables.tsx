@@ -5,9 +5,15 @@ import ModuleTableHeader from "@/components/ModuleTableHeader";
 import { IModule, IModuleCollection } from "@/helpers/db/schema";
 import ModuleTableRow from "@/components/ModuleTableRow";
 
-const STAGE_SORT = ["A-Level", "Year 1", "Year 2", "Year 3", "Year 4"]
-function mcCompareFunction(mc1: IModuleCollection, mc2: IModuleCollection): number {
-  return STAGE_SORT.indexOf(mc2.stage.toString()) - STAGE_SORT.indexOf(mc1.stage.toString())
+const STAGE_SORT = ["A-Level", "Year 1", "Year 2", "Year 3", "Year 4"];
+function mcCompareFunction(
+  mc1: IModuleCollection,
+  mc2: IModuleCollection
+): number {
+  return (
+    STAGE_SORT.indexOf(mc2.stage.toString()) -
+    STAGE_SORT.indexOf(mc1.stage.toString())
+  );
 }
 
 function buildTableRows(mc: IModuleCollection): React.ReactNode {
@@ -29,23 +35,25 @@ function buildTableRows(mc: IModuleCollection): React.ReactNode {
  * ModuleTables.tsx
  */
 export default function ModuleTables(): React.ReactNode {
-  const [tables, setTables] = React.useState<React.ReactNode[]>([])
+  const [tables, setTables] = React.useState<React.ReactNode[]>([]);
 
   async function getModules(): Promise<IModuleCollection[]> {
-    return await fetch("/get-modules").then(r => r.json())
+    return await fetch("/get-modules").then((r) => r.json());
   }
 
   useEffect(() => {
     getModules().then((r: IModuleCollection[]) => {
-      setTables(r.sort(mcCompareFunction).map((mc: IModuleCollection) => (
-        <div
-          className={`w-full flex flex-col items-center lg:grid grid-cols-[6fr_max-content_max-content] gap-2`}
-          key={mc.stage.toString()}
-        >
-          <ModuleTableHeader stage={mc.stage.toString()} />
-          {buildTableRows(mc)}
-        </div>
-      )))
+      setTables(
+        r.sort(mcCompareFunction).map((mc: IModuleCollection) => (
+          <div
+            className={`w-full flex flex-col items-center lg:grid grid-cols-[6fr_max-content_max-content] gap-2`}
+            key={mc.stage.toString()}
+          >
+            <ModuleTableHeader stage={mc.stage.toString()} />
+            {buildTableRows(mc)}
+          </div>
+        ))
+      );
     });
   }, []);
 
@@ -56,7 +64,7 @@ export default function ModuleTables(): React.ReactNode {
       >
         Academic Achievements
       </h2>
-      { tables.length > 0 && tables || (
+      {(tables.length > 0 && tables) || (
         <p className={`mt-10 w-full flex flex-col items-center text-xl`}>
           Loading...
         </p>

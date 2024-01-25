@@ -6,8 +6,12 @@ import PageContainer from "@/components/PageContainer";
 import PageTitle from "@/components/PageTitle";
 
 export default function DividendDashboard() {
-  type portfolio = {shareLabels: string[]; shares: number[]; message?: string};
-  Chart.register(PieController, ArcElement, Tooltip, Title)
+  type portfolio = {
+    shareLabels: string[];
+    shares: number[];
+    message?: string;
+  };
+  Chart.register(PieController, ArcElement, Tooltip, Title);
 
   const [portfolio, setPortfolio] = useState<portfolio | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -18,7 +22,7 @@ export default function DividendDashboard() {
     if (key !== null) {
       setSubmitted(true);
       fetch(`get-portfolio?auth=${key}`)
-        .then(res => res.json())
+        .then((res) => res.json())
         .then((data: portfolio) => {
           if (data.message) {
             setErrorMessage(data.message);
@@ -27,7 +31,7 @@ export default function DividendDashboard() {
             setErrorMessage(null);
             setPortfolio(data);
           }
-        })
+        });
     }
   }
 
@@ -37,15 +41,20 @@ export default function DividendDashboard() {
         <PageTitle>Portfolio Overview</PageTitle>
         {!keySubmitted && (
           <>
-            <p className={'mt-16 text-center'}>
-              Note: The only permissions this needs from your T212 account are &lsquo;Metadata&rsquo; and &lsquo;Portfolio&rsquo;. API keys can be very powerful, so never give one more permissions than necessary.
+            <p className={"mt-16 text-center"}>
+              Note: The only permissions this needs from your T212 account are
+              &lsquo;Metadata&rsquo; and &lsquo;Portfolio&rsquo;. API keys can
+              be very powerful, so never give one more permissions than
+              necessary.
             </p>
             <form
               onSubmit={submitAPIKey}
               className={"w-96 flex flex-col items-center gap-6"}
             >
               {errorMessage !== null && (
-                <p className={`text-red-700 font-bold text-center`}>{errorMessage}</p>
+                <p className={`text-red-700 font-bold text-center`}>
+                  {errorMessage}
+                </p>
               )}
               <input
                 type={"text"}
@@ -64,9 +73,11 @@ export default function DividendDashboard() {
         )}
         {keySubmitted && (
           <div className={"flex flex-col items-center mt-6"}>
-            <p className={'text-xl'}>Portfolio Breakdown (By # of Shares)</p>
+            <p className={"text-xl"}>Portfolio Breakdown (By # of Shares)</p>
             <div
-              className={"w-[80vmin] h-[80vmin] flex items-center justify-center"}
+              className={
+                "w-[80vmin] h-[80vmin] flex items-center justify-center"
+              }
             >
               {portfolio === null && <p>Loading...</p>}
               {portfolio !== null && (
@@ -79,16 +90,16 @@ export default function DividendDashboard() {
                         label: "# of Shares",
                         data: portfolio.shares,
                         backgroundColor: [
-                          'rgb(248,100,100)',
-                          'rgb(111,193,111)',
-                          'rgb(36,91,186)'
+                          "rgb(248,100,100)",
+                          "rgb(111,193,111)",
+                          "rgb(36,91,186)",
                         ],
-                        hoverOffset: 100
+                        hoverOffset: 100,
                       },
                     ],
                   }}
                   options={{
-                    radius: '80%'
+                    radius: "80%",
                   }}
                 />
               )}

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -8,34 +8,34 @@ import { motion } from "framer-motion";
  */
 export default class ExpandButton extends React.Component {
   state = {
-    open: false
-  }
+    open: false,
+  };
 
   variants = {
     open: {
-      rotate: 180
+      rotate: 180,
     },
 
     closed: {
-      rotate: 0
+      rotate: 0,
     },
   };
 
   descVariants = {
     open: {
-      display: "block"
+      display: "block",
     },
 
     closed: {
-      display: "none"
+      display: "none",
     },
   };
 
   toggleOpen = () => {
     this.setState({
-      open: !this.state.open
-    })
-  }
+      open: !this.state.open,
+    });
+  };
 
   render() {
     // @ts-ignore
@@ -46,7 +46,7 @@ export default class ExpandButton extends React.Component {
           viewBox={`0 0 8 7`}
           overflow="visible"
           preserveAspectRatio="none"
-          className={'w-5 h-3'}
+          className={"w-5 h-3"}
           variants={this.variants}
           animate={this.state.open ? "open" : "closed"}
         >
@@ -68,13 +68,13 @@ export default class ExpandButton extends React.Component {
           />
         </motion.svg>
         <motion.p
-          className={'col-span-3 overflow-hidden text-center lg:text-left'}
+          className={"col-span-3 overflow-hidden text-center lg:text-left"}
           dangerouslySetInnerHTML={{ __html: moduleDescription }}
           variants={this.descVariants}
           animate={this.state.open ? "open" : "closed"}
           initial={"closed"}
         />
       </>
-    )
+    );
   }
 }

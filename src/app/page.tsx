@@ -40,9 +40,7 @@ export default function Home(): React.ReactNode {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <h2
-                className={`text-sm sm:text-base lg:text-xl text-center`}
-              >
+              <h2 className={`text-sm sm:text-base lg:text-xl text-center`}>
                 Student of computer science, hobbyist full-stack software
                 engineer
               </h2>
