@@ -16,7 +16,9 @@ export default function ResidenceEvil(): React.ReactNode {
           </p>
           <iframe
             src={"residence_evil/residence_evil.html"}
-            className={'aspect-square max-w-[85vw] max-h-[85vh]'}
+            className={'h-[75vh] max-w-[75vw] aspect-square bg-transparent'}
+            style={{colorScheme: "normal"}}
+            allowTransparency={true}
           />
         </div>
       </PageContainer>
