@@ -18,7 +18,6 @@ export default function ResidenceEvil(): React.ReactNode {
             src={"residence_evil/residence_evil.html"}
             className={'h-[75vh] max-w-[75vw] aspect-square bg-transparent'}
             style={{colorScheme: "normal"}}
-            allowTransparency={true}
           />
         </div>
       </PageContainer>
