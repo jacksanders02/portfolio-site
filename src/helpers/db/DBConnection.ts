@@ -1,12 +1,19 @@
 import mongoose, { Model } from "mongoose";
-import { IModuleCollection, ModuleCollectionSchema } from "@/helpers/db/schema";
+import {
+  IModuleCollection,
+  IResidenceEvilScore,
+  ModuleCollectionSchema,
+  ResidenceEvilScoreSchema
+} from "@/helpers/db/schema";
 
 // Replace the uri string with your connection string.
 const uri: string = process.env.MONGODB_URI || "";
 
-const ModuleCollection: Model<IModuleCollection> =
-  mongoose.models.ModuleCollection ||
-  mongoose.model("ModuleCollection", ModuleCollectionSchema);
+const ModuleCollection: Model<IModuleCollection> = mongoose.models.ModuleCollection ||
+    mongoose.model("ModuleCollection", ModuleCollectionSchema);
+
+const ResidenceEvilScore: Model<IResidenceEvilScore> = mongoose.models.ResidenceEvilScore ||
+    mongoose.model("ResidenceEvilScore", ResidenceEvilScoreSchema);
 
 export default class DBConnection {
   conn: mongoose.Connection;
@@ -23,5 +30,9 @@ export default class DBConnection {
 
   async readModules(): Promise<IModuleCollection[]> {
     return ModuleCollection.find({}).then((mcs: IModuleCollection[]) => mcs);
+  }
+
+  async readScores(): Promise<IResidenceEvilScore[]> {
+    return ResidenceEvilScore.find({}).sort({score: -1}).then((scores: IResidenceEvilScore[]) => scores);
   }
 }
