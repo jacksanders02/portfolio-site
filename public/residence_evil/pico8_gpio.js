@@ -22,7 +22,6 @@ const SCORE_LEN = 2;
 var pico8_gpio = Array(128).fill(0);
 
 window.onmessage = ev => {
-    console.log(ev);
     if (ev.data.type === "send_scores" && "scores" in ev.data) {
         // Message is list of scores - treat as list of {player: string, score: number}
         for (let i=0; i<ev.data.scores.length && i<LEADERBOARD_SPOTS; i++) {
@@ -96,7 +95,10 @@ function postScores() {
     }
 
 
-    window.top.postMessage(players);
+    window.top.postMessage({
+        type: "new_scores",
+        scores: players
+    });
 }
 
 function doGPIO()

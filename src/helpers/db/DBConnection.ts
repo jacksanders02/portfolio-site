@@ -35,4 +35,27 @@ export default class DBConnection {
   async readScores(): Promise<IResidenceEvilScore[]> {
     return ResidenceEvilScore.find({}).sort({score: -1}).then((scores: IResidenceEvilScore[]) => scores);
   }
+
+  async postScores(scores: IResidenceEvilScore[]) {
+    const successArray: boolean[] = []
+    for (let score of scores) {
+      if ((score.score as number) > 0) {
+        ResidenceEvilScore.exists({player: score.player, score: score.score}).then(exists => {
+          if (exists == null) {
+            ResidenceEvilScore.create(score).then(() => {
+              // On success
+              successArray.push(true);
+            }, () => {
+              // On failure
+              successArray.push(false);
+            });
+          }
+        })
+      } else {
+        successArray.push(true);
+      }
+    }
+
+    return successArray;
+  }
 }
