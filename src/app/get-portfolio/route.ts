@@ -31,7 +31,8 @@ const portfolioErrors = {
   408: 'Request timed out! Please try again later.',
 };
 
-export default async function GET(request: NextRequest) {
+// eslint-disable-next-line import/prefer-default-export
+export async function GET(request: NextRequest) {
   const auth = request.nextUrl.searchParams.get('auth');
 
   if (auth === null) {
