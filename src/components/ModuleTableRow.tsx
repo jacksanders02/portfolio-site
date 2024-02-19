@@ -13,7 +13,6 @@ export default function ModuleTableRow({
 }): React.ReactNode {
   const ebRef = React.useRef<ExpandButton>(null);
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       aria-label="Expand module information"
       className="flex flex-col w-full items-center lg:contents cursor-pointer hover-link dark:hover-link-dark"
