@@ -17,7 +17,7 @@ export default function ModuleTableRow({
       type="button"
       aria-label="Expand module information"
       className="flex flex-col w-full items-center lg:contents cursor-pointer hover-link dark:hover-link-dark"
-      onClick={ebRef.current?.toggleOpen}
+      onClick={() => { ebRef.current?.toggleOpen(); }}
     >
       <p
         dangerouslySetInnerHTML={{ __html: module.name }}
