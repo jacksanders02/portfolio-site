@@ -21,7 +21,7 @@ export default function ModuleTableRow({
     >
       <p
         dangerouslySetInnerHTML={{ __html: module.name }}
-        className="max-lg:text-center max-lg:text-xl max-lg:font-bold max-lg:underline"
+        className="max-lg:text-center max-lg:text-xl max-lg:font-bold max-lg:underline text-left"
       />
       <p className="text-right max-lg:grade-prefix">{module.grade}</p>
 
