@@ -13,7 +13,8 @@ export default function ModuleTableRow({
 }): React.ReactNode {
   const ebRef = React.useRef<ExpandButton>(null);
   return (
-    <div
+    <button
+      type="button"
       aria-label="Expand module information"
       className="flex flex-col w-full items-center lg:contents cursor-pointer hover-link dark:hover-link-dark"
       onClick={() => { ebRef.current?.toggleOpen(); }}
@@ -26,6 +27,6 @@ export default function ModuleTableRow({
 
       {/* @ts-ignore custom prop error */}
       <ExpandButton ref={ebRef} moduleDescription={module.description} />
-    </div>
+    </button>
   );
 }
