@@ -47,9 +47,13 @@ export default class DBUtils {
   }
 
   static async readScores(): Promise<IResidenceEvilScore[]> {
+    console.log('Reading Scores...');
     return ResidenceEvilScore.find({})
       .sort({ score: -1 })
-      .then((scores: IResidenceEvilScore[]) => scores);
+      .then((scores: IResidenceEvilScore[]) => {
+        console.log(scores);
+        return scores;
+      });
   }
 
   static async postScores(scores: IResidenceEvilScore[]) {
