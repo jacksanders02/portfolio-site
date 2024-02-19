@@ -1,31 +1,29 @@
-import React from "react";
-import PageContainer from "@/components/PageContainer";
-import Image from "next/image";
-import PageTitle from "@/components/PageTitle";
-import ModuleTables from "@/app/about-me/client/ModuleTables";
+import React from 'react';
+import Image from 'next/image';
+import PageContainer from '@/components/PageContainer';
+import PageTitle from '@/components/PageTitle';
+import ModuleTables from '@/app/about-me/client/ModuleTables';
 
 export default function AboutMe(): React.ReactNode {
   return (
     <main>
       <PageContainer>
         <PageTitle>About Me</PageTitle>
-        <div className={"max-lg:flex flex-col items-center gap-6"}>
-          <div className={"overflow-hidden"}>
+        <div className="max-lg:flex flex-col items-center gap-6">
+          <div className="overflow-hidden">
             <div
               className={`relative w-[250px] md:w-[350px] aspect-square 
                         lg:float-right rounded-full overflow-clip m-auto mb-6 lg:m-2`}
-              style={{ shapeOutside: "circle()" }}
+              style={{ shapeOutside: 'circle()' }}
             >
               <Image
-                src={"/profile-photo.jpg"}
-                alt={
-                  "A photo of young, brown-haired man (me), sitting on a pile of logs in front of a field of tulips."
-                }
+                src="/profile-photo.jpg"
+                alt="A photo of young, brown-haired man (me), sitting on a pile of logs in front of a field of tulips."
                 fill
-                sizes={`(max-width: 768px) 250px, 350px`}
+                sizes="(max-width: 768px) 250px, 350px"
               />
             </div>
-            <p className={"max-lg:text-center mb-4"}>
+            <p className="max-lg:text-center mb-4">
               I&apos;m Jack Sanders, a third-year student at the University of
               Sheffield, studying for an MComp degree in Computer Science. Over
               the course of this degree I have undertaken a variety of projects
@@ -34,7 +32,7 @@ export default function AboutMe(): React.ReactNode {
               three-year course in Dutch, which will massively expand my
               personal horizons and afford me many future opportunities, both in
               the UK and abroad.
-              <br className={`mb-2`} />
+              <br className="mb-2" />
               While my degree has massively developed my technical ability, I
               would say that it has also provided me with the opportunity to
               develop my soft skills - for example my ability to work
@@ -42,7 +40,7 @@ export default function AboutMe(): React.ReactNode {
               worked in a software engineering team, much less led one, but now
               I feel perfectly comfortable working alongside others, sharing
               ideas, and even taking the lead when necessary.
-              <br className={"mb-2"} />
+              <br className="mb-2" />
               During my third year, I had the opportunity to work as a
               demonstrator on one of the first-year modules, Java Programming.
               My responsibilities in this role included attending first-year lab
@@ -55,7 +53,7 @@ export default function AboutMe(): React.ReactNode {
             </p>
           </div>
 
-          <div className={"clear-right mt-8 mb-8 text-center lg:text-left"}>
+          <div className="clear-right mt-8 mb-8 text-center lg:text-left">
             <p>
               Studying Dutch at university has become an unexpectedly big part
               of my studies. Initially, I took it as a non-credit module
@@ -63,15 +61,14 @@ export default function AboutMe(): React.ReactNode {
               skill that I learnt over the course of my second year. However, I
               now take it as one of my modules, meaning it counts towards my
               final degree classification
-              <br className={"mb-2"} />
+              <br className="mb-2" />
               As part of my dutch studies, I was asked to take part in a
               promotional video for the university&apos;s Languages for all
-              program, which you can watch either below, or on the{" "}
+              program, which you can watch either below, or on the
+              {' '}
               <a
-                href={
-                  "https://www.sheffield.ac.uk/languages-for-all/choose-language/dutch"
-                }
-                className={`underline hover-link dark:hover-link-dark`}
+                href="https://www.sheffield.ac.uk/languages-for-all/choose-language/dutch"
+                className="underline hover-link dark:hover-link-dark"
               >
                 Languages for All Dutch Course&apos;s homepage
               </a>
@@ -90,10 +87,10 @@ export default function AboutMe(): React.ReactNode {
               self-belief, both of which will serve me very well in future.
             </p>
 
-            <div className={`w-full lg:w-2/3 aspect-video m-auto mt-4`}>
+            <div className="w-full lg:w-2/3 aspect-video m-auto mt-4">
               <iframe
-                className={`w-full h-full`}
-                title={`Dutch at the University of Sheffield`}
+                className="w-full h-full"
+                title="Dutch at the University of Sheffield"
                 src="https://www.youtube-nocookie.com/embed/Yt1lXzREX14?origin=https%3A%2F%2Fjacksanders.uk"
                 allowFullScreen
               />

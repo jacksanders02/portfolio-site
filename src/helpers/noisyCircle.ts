@@ -2,8 +2,11 @@
  * Contains helper functions to create the blob in @components/RandomBlob.tsx
  */
 
-import { createNoise2D, NoiseFunction2D } from "simplex-noise";
-import { Point } from "@/helpers/types";
+import { createNoise2D, NoiseFunction2D } from 'simplex-noise';
+import { Point } from '@/helpers/types';
+
+// Used to generate noise values
+const noiseGen: NoiseFunction2D = createNoise2D();
 
 /**
  * Generates an initial set of 8 points, within a given bounding box.
@@ -11,7 +14,7 @@ import { Point } from "@/helpers/types";
  * @param svgHeight {number} the height of the SVG bounding box
  */
 export function genPoints(svgWidth: number, svgHeight: number): Point[] {
-  let points: Point[] = [];
+  const points: Point[] = [];
 
   const nPoints: number = 8;
 
@@ -27,8 +30,8 @@ export function genPoints(svgWidth: number, svgHeight: number): Point[] {
     const y: number = svgHeight / 2 + Math.sin(theta) * r;
 
     points.push({
-      x: x,
-      y: y,
+      x,
+      y,
 
       originX: x,
       originY: y,
@@ -56,6 +59,3 @@ export function nextPointStep(point: Point): { x: number; y: number } {
 
   return { x: newX, y: newY };
 }
-
-// Used to generate noise values
-const noiseGen: NoiseFunction2D = createNoise2D();

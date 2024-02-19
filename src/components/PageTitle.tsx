@@ -1,5 +1,5 @@
-import React from "react";
-import { fontSerif } from "@/app/fonts";
+import React from 'react';
+import { fontSerif } from '@/app/fonts';
 
 export default function PageTitle({
   children,

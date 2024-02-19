@@ -1,6 +1,6 @@
-import React from "react";
-import NavLinks from "@/components/NavLinks";
-import ThemeToggle from "@/components/ThemeToggle";
+import React from 'react';
+import NavLinks from '@/components/NavLinks';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Navbar(): React.ReactElement {
   return (

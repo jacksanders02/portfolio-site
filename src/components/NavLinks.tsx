@@ -1,5 +1,5 @@
-import React from "react";
-import AboutDropdown from "@/components/AboutDropdown";
+import React from 'react';
+import AboutDropdown from '@/components/AboutDropdown';
 
 /**
  * Creates links to my social media accounts/about me page
@@ -7,7 +7,7 @@ import AboutDropdown from "@/components/AboutDropdown";
  */
 export default function NavLinks(): React.ReactElement {
   return (
-    <div className={`flex items-center gap-6 text-3xl pointer-events-auto`}>
+    <div className="flex items-center gap-6 text-3xl pointer-events-auto">
       <AboutDropdown />
 
       <div
@@ -16,8 +16,8 @@ export default function NavLinks(): React.ReactElement {
       />
 
       <a
-        className={`hover-link dark:hover-link-dark text-lg font-bold`}
-        href={`/`}
+        className="hover-link dark:hover-link-dark text-lg font-bold"
+        href="/"
       >
         Home
       </a>

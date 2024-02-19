@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { genPoints, nextPointStep } from "@/helpers/noisyCircle";
-import { spline } from "@georgedoescode/spline";
-import { Point } from "@/helpers/types";
+import React, { useEffect, useRef } from 'react';
+import { spline } from '@georgedoescode/spline';
+import { genPoints, nextPointStep } from '@/helpers/noisyCircle';
+import { Point } from '@/helpers/types';
 
 /**
  * Creates a random blob svg, using simplex noise & Catmull-Rom splines
@@ -38,25 +38,25 @@ export default function RandomBlob({
     function animate(
       elem: SVGPathElement,
       timestamp: number,
-      req: (time: number) => void
+      req: (time: number) => void,
     ) {
-      if (typeof prevFrame === "undefined") {
+      if (typeof prevFrame === 'undefined') {
         prevFrame = timestamp;
       }
 
-      let sinceLastFrame: number = (timestamp - prevFrame) / 1000;
+      const sinceLastFrame: number = (timestamp - prevFrame) / 1000;
 
       // Use 'spline' method of @georgedoescode/spline to create a Catmull-Rom
       // spline joining all points
-      elem.setAttribute("d", spline(points, 1, true));
+      elem.setAttribute('d', spline(points, 1, true));
 
-      for (let point of points) {
+      points.forEach((point: Point) => {
         const newCoords: { x: number; y: number } = nextPointStep(point);
         point.x = newCoords.x;
         point.y = newCoords.y;
         point.noiseX += noiseStep * sinceLastFrame;
         point.noiseY += noiseStep * sinceLastFrame;
-      }
+      });
 
       prevFrame = timestamp;
       requestAnimationFrame(req);
@@ -68,29 +68,28 @@ export default function RandomBlob({
 
     const elem: SVGPathElement = blobPathRef.current;
 
-    const animateRequest = (timestamp: number) =>
-      animate(elem, timestamp, animateRequest);
+    const animateRequest = (timestamp: number) => animate(elem, timestamp, animateRequest);
     requestAnimationFrame(animateRequest);
 
     window.onmousemove = (ev) => {
       if (blobPathRef.current && blobPathRef.current.parentElement) {
-        let svg = blobPathRef.current.parentElement;
+        const svg = blobPathRef.current.parentElement;
 
-        let svgRect = svg.getBoundingClientRect();
+        const svgRect = svg.getBoundingClientRect();
 
-        let xDiff = ev.clientX - (svgRect.x + svgRect.width / 2);
-        let yDiff = ev.clientY - (svgRect.y + svgRect.height / 2);
+        const xDiff = ev.clientX - (svgRect.x + svgRect.width / 2);
+        const yDiff = ev.clientY - (svgRect.y + svgRect.height / 2);
 
-        let vecLength = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
+        const vecLength = Math.sqrt(xDiff ** 2 + yDiff ** 2);
 
-        let unitX = xDiff / vecLength;
-        let unitY = yDiff / vecLength;
+        const unitX = xDiff / vecLength;
+        const unitY = yDiff / vecLength;
 
         svg.animate(
           {
             transform: `translate(${-unitX * 35}px, ${-unitY * 35}px)`,
           },
-          { duration: 5000, fill: "forwards" }
+          { duration: 5000, fill: 'forwards' },
         );
       }
     };
@@ -106,58 +105,58 @@ export default function RandomBlob({
       >
         <defs>
           <filter
-            id={"blur1"}
-            x={"-50%"}
-            y={"-50%"}
-            width={"200%"}
-            height={"200%"}
+            id="blur1"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
           >
-            <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={15} />
           </filter>
           <filter
-            id={"blur2"}
-            x={"-50%"}
-            y={"-50%"}
-            width={"200%"}
-            height={"200%"}
+            id="blur2"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
           >
-            <feGaussianBlur in={"SourceGraphic"} stdDeviation={15} />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={15} />
           </filter>
           <filter
-            id={"blur3"}
-            x={"-50%"}
-            y={"-50%"}
-            width={"200%"}
-            height={"200%"}
+            id="blur3"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
           >
-            <feGaussianBlur in={"SourceGraphic"} stdDeviation={20} />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={20} />
           </filter>
           <filter
-            id={"blur4"}
-            x={"-50%"}
-            y={"-50%"}
-            width={"200%"}
-            height={"200%"}
+            id="blur4"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
           >
-            <feGaussianBlur in={"SourceGraphic"} stdDeviation={25} />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={25} />
           </filter>
           <filter
-            id={"blur5"}
-            x={"-50%"}
-            y={"-50%"}
-            width={"200%"}
-            height={"200%"}
+            id="blur5"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
           >
-            <feGaussianBlur in={"SourceGraphic"} stdDeviation={30} />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={30} />
           </filter>
         </defs>
         <path
           ref={blobPathRef}
           d=""
-          onMouseEnter={(): number => (noiseStep = baseNoiseStep * 2)}
-          onMouseLeave={(): number => (noiseStep = baseNoiseStep)}
-          className={"overflow-visible"}
-        ></path>
+          onMouseEnter={() => { noiseStep = baseNoiseStep * 2; }}
+          onMouseLeave={() => { noiseStep = baseNoiseStep; }}
+          className="overflow-visible"
+        />
       </svg>
     </div>
   );

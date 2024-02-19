@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function PageContainer({
   children,
@@ -13,11 +13,11 @@ export default function PageContainer({
 }): React.ReactElement {
   return (
     <div
-      id={id ? id : ""}
+      id={id || ''}
       className={`md:w-[60%] min-[1200px]:max-2xl:w-[50%] ${
-        extraClasses ? extraClasses : ""
+        extraClasses || ''
       }
-         ${!isProjectCard && "m-auto mt-16 p-8 flex flex-col gap-6"}`}
+         ${!isProjectCard && 'm-auto mt-16 p-8 flex flex-col gap-6'}`}
     >
       {children}
     </div>

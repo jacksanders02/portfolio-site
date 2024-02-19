@@ -1,6 +1,7 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * AboutDropdown.tsx
@@ -8,27 +9,27 @@ import { motion } from "framer-motion";
 export default function AboutDropdown(): React.ReactNode {
   const [menuShown, setMenuShown] = React.useState(false);
 
-  const startHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const startHover = () => {
     // Only allow non-touchscreen devices to hover to open menu
-    if (!("ontouchstart" in document.documentElement)) {
+    if (!('ontouchstart' in document.documentElement)) {
       setMenuShown(true);
     }
   };
 
-  const endHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const endHover = () => {
     setMenuShown(false);
   };
 
-  const toggleHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const toggleHover = () => {
     // Only allow touchscreen devices to click to toggle menu
-    if ("ontouchstart" in document.documentElement) {
+    if ('ontouchstart' in document.documentElement) {
       setMenuShown(!menuShown);
     }
   };
 
   const menuParentVariants = {
     visible: {
-      opacity: `100%`,
+      opacity: '100%',
       transition: {
         staggerChildren: 0.15,
       },
@@ -48,39 +49,40 @@ export default function AboutDropdown(): React.ReactNode {
     },
 
     hidden: {
-      translateX: `-110%`,
+      translateX: '-110%',
     },
   };
 
   return (
     <>
-      <div
+      <button
+        type="button"
         className={`relative text-lg font-bold z-40 ${
-          menuShown ? "text-on-background-dark" : ""
+          menuShown ? 'text-on-background-dark' : ''
         } cursor-pointer
             transition-all duration-500`}
         onMouseEnter={startHover}
         onClick={toggleHover}
       >
         About
-      </div>
+      </button>
       <motion.div
-        className={`opacity-0 hover:opacity-100 fixed top-0 left-0 pt-16 pb-4 pl-4 pr-1 text-lg font-bold flex flex-col gap-4 z-30`}
+        className="opacity-0 hover:opacity-100 fixed top-0 left-0 pt-16 pb-4 pl-4 pr-1 text-lg font-bold flex flex-col gap-4 z-30"
         onMouseEnter={startHover}
         onMouseLeave={endHover}
         variants={menuParentVariants}
-        animate={menuShown ? "visible" : "hidden"}
+        animate={menuShown ? 'visible' : 'hidden'}
       >
         <motion.a
-          href={"/about-me"}
-          className={`inverse-hover-link-dark`}
+          href="/about-me"
+          className="inverse-hover-link-dark"
           variants={menuVariants}
         >
           About Me
         </motion.a>
         <motion.a
-          href={"/projects"}
-          className={`inverse-hover-link-dark`}
+          href="/projects"
+          className="inverse-hover-link-dark"
           variants={menuVariants}
         >
           Projects
@@ -109,12 +111,13 @@ export default function AboutDropdown(): React.ReactNode {
       </motion.div>
 
       <div
+        role="presentation"
         className={`fixed top-0 left-0 w-screen h-screen opacity-0 ${
-          menuShown ? "opacity-75" : "pointer-events-none"
+          menuShown ? 'opacity-75' : 'pointer-events-none'
         } z-20
             bg-on-background transition-opacity duration-1000`}
         onClick={endHover}
-      ></div>
+      />
     </>
   );
 }

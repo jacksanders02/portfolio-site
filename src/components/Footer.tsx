@@ -1,14 +1,14 @@
-import React from "react";
-import { fontSerif } from "@/app/fonts";
+import React from 'react';
+import { fontSerif } from '@/app/fonts';
 
 /**
  * Footer.tsx
  */
 export default function Footer(): React.ReactNode {
   return (
-    <footer className={"flex justify-center items-center"}>
+    <footer className="flex justify-center items-center">
       <div
-        className={`p-4 border-t-2 border-on-background dark:border-on-background-dark w-max flex flex-col items-center text-center`}
+        className="p-4 border-t-2 border-on-background dark:border-on-background-dark w-max flex flex-col items-center text-center"
       >
         <p
           className={`${fontSerif.className} text-3xl sm:text-4xl lg:text-5xl text-center italic mb-4`}
@@ -16,24 +16,28 @@ export default function Footer(): React.ReactNode {
           JS
         </p>
         <p>
-          Built by myself using{" "}
+          Built by myself using
+          {' '}
           <a
-            href={"nextjs.com"}
-            className={"hover-link dark:hover-link-dark underline"}
+            href="nextjs.com"
+            className="hover-link dark:hover-link-dark underline"
           >
             Next.js
-          </a>{" "}
-          and{" "}
+          </a>
+          {' '}
+          and
+          {' '}
           <a
-            href={"tailwindcss.com"}
-            className={"hover-link dark:hover-link-dark underline"}
+            href="tailwindcss.com"
+            className="hover-link dark:hover-link-dark underline"
           >
             Tailwind
           </a>
-          . Deployed with{" "}
+          . Deployed with
+          {' '}
           <a
-            href={"vercel.com"}
-            className={"hover-link dark:hover-link-dark underline"}
+            href="vercel.com"
+            className="hover-link dark:hover-link-dark underline"
           >
             Vercel
           </a>

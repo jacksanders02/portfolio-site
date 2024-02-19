@@ -1,10 +1,10 @@
-import React from "react";
-import Image from "next/image";
-import { Project } from "@/helpers/types";
-import { fontSerif } from "@/app/fonts";
-import { Slide, Fade } from "react-awesome-reveal";
-import { technologyIcons, technologyAlts } from "@/helpers/technologies";
-import PageContainer from "@/components/PageContainer";
+import React from 'react';
+import Image from 'next/image';
+import { Slide, Fade } from 'react-awesome-reveal';
+import { Project } from '@/helpers/types';
+import { fontSerif } from '@/app/fonts';
+import { technologyIcons, technologyAlts } from '@/helpers/technologies';
+import PageContainer from '@/components/PageContainer';
 
 /**
  * Renders JSX for a project's technologies.
@@ -14,33 +14,29 @@ import PageContainer from "@/components/PageContainer";
 function renderTechnologies(techs: string[]): React.JSX.Element[] {
   let i: number = 0;
   // Map each technology to a div containing both the icon and the tooltip
-  return techs.map((technology: string) => {
-    return (
-      // Relative positioned div so that absolute tooltip is positioned relative to this (nearest positioned ancestor)
+  return techs.map((technology: string) => (
+    // Relative positioned div so that absolute tooltip is positioned relative to this
+    <div
+      className="flex gap-1 z-10 technology-icon relative"
+      key={`technology_${i++}`}
+    >
+      <Image
+        src={technologyIcons.get(technology) || 'technologies/notfound.svg'}
+        alt={
+            technologyAlts.get(technology)
+            || 'A question mark, indicating that the technology icon was not found'
+          }
+        width={24}
+        height={24}
+        draggable={false}
+      />
       <div
-        className={"flex gap-1 z-10 technology-icon relative"}
-        key={`technology_${i++}`}
+        className="absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600 w-max"
       >
-        <Image
-          src={technologyIcons.get(technology) || "technologies/notfound.svg"}
-          alt={
-            technologyAlts.get(technology) ||
-            "A question mark, indicating that the technology icon was not found"
-          }
-          width={24}
-          height={24}
-          draggable={false}
-        />
-        <div
-          className={
-            "absolute top-[110%] tooltip text-on-background-dark bg-gray-600 after:border-b-gray-600 w-max"
-          }
-        >
-          {technology}
-        </div>
+        {technology}
       </div>
-    );
-  });
+    </div>
+  ));
 }
 
 /**
@@ -50,11 +46,11 @@ function renderTechnologies(techs: string[]): React.JSX.Element[] {
 function renderButtons(proj: Project): React.JSX.Element | string {
   // If no buttons needed, simply return
   if (!proj.writeupLink && !proj.demoLink && !proj.githubLink) {
-    return "";
+    return '';
   }
 
   return (
-    <div className={`flex flex-col min-[560px]:flex-row gap-4 items-center`}>
+    <div className="flex flex-col min-[560px]:flex-row gap-4 items-center">
       {proj.demoLink && (
         <a
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
@@ -62,7 +58,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           href={proj.demoLink}
           aria-label={`A link to a live version of ${proj.title}`}
         >
-          <i className={`bi bi-joystick me-2`} />
+          <i className="bi bi-joystick me-2" />
           Demo
         </a>
       )}
@@ -73,7 +69,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           href={proj.githubLink}
           aria-label={`The github link for ${proj.title}`}
         >
-          <i className={`bi bi-github me-2`} />
+          <i className="bi bi-github me-2" />
           View on Github
         </a>
       )}
@@ -84,7 +80,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
           href={proj.writeupLink}
           aria-label={`Read more about ${proj.title}`}
         >
-          <i className={`bi bi-info-circle-fill me-2`} />
+          <i className="bi bi-info-circle-fill me-2" />
           Project Writeup
         </a>
       )}
@@ -108,17 +104,17 @@ export default function ProjectCard({
   return (
     <PageContainer
       id={id}
-      extraClasses={`flex flex-col 2xl:flex-row gap-8 2xl:gap-16`}
+      extraClasses="flex flex-col 2xl:flex-row gap-8 2xl:gap-16"
       isProjectCard
     >
       {/* Cascade fade animation so that image is visible before title/description */}
       <Fade cascade damping={0.33}>
         <Slide
           onVisibilityChange={(inView, entry) => {
-            let target: Element = entry.target;
+            const { target } = entry;
             if (inView && target.getBoundingClientRect().top < 0) {
               setTimeout(() => {
-                target.classList.add("skip-animation");
+                target.classList.add('skip-animation');
               }, 10);
             }
           }}
@@ -127,14 +123,14 @@ export default function ProjectCard({
             className={`m-auto w-full 2xl:min-w-[450px] max-w-[500px] p-2 sm:p-4 bg-on-background-dark
                         border-2 border-colour-background-dark`}
           >
-            <div className={"relative"}>
+            <div className="relative">
               <Image
                 src={project.imageURL}
                 alt={project.alt}
                 width={500}
                 height={500}
                 draggable={false}
-                className={`w-full h-auto`}
+                className="w-full h-auto"
               />
               <div
                 className={`absolute top-0 right-0 flex gap-3 p-2 bg-on-background-dark
@@ -147,17 +143,17 @@ export default function ProjectCard({
         </Slide>
         <Slide
           onVisibilityChange={(inView, entry) => {
-            let target: Element = entry.target;
+            const { target } = entry;
             if (inView && target.getBoundingClientRect().top < 0) {
               setTimeout(() => {
-                target.classList.add("skip-animation");
+                target.classList.add('skip-animation');
               }, 10);
             }
           }}
-          direction={"right"}
+          direction="right"
         >
           <div
-            className={`flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left`}
+            className="flex flex-col gap-4 items-center 2xl:items-start text-center 2xl:text-left"
           >
             <div>
               <h2
@@ -166,7 +162,7 @@ export default function ProjectCard({
                 {project.title}
               </h2>
               {project.date && (
-                <p className={`text-sm lg:text-base mt-2 underline`}>
+                <p className="text-sm lg:text-base mt-2 underline">
                   {project.date}
                 </p>
               )}

@@ -1,6 +1,7 @@
-"use client";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+'use client';
+
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * Creates a small button, indicating to the user that there is more content
@@ -13,7 +14,7 @@ export default function ScrollHelper(): React.ReactElement {
 
   useEffect(() => {
     setMounted(true);
-    let projectsElement = document.getElementById("projects") || {
+    const projectsElement = document.getElementById('projects') || {
       children: {},
     };
     setProjects(Object.values(projectsElement.children));
@@ -26,11 +27,11 @@ export default function ScrollHelper(): React.ReactElement {
     if (mounted) {
       let firstBottomHalf: number = window.scrollY;
       let i: number = 0;
-      let navElem: Element = document.getElementsByTagName("nav")[0];
+      const navElem: Element = document.getElementsByTagName('nav')[0];
 
       // Find first project that is more than halfway down the viewport
       while (projects.length > i && firstBottomHalf === window.scrollY) {
-        let clientY = projects[i].getBoundingClientRect().top;
+        const clientY = projects[i].getBoundingClientRect().top;
         if (clientY > window.innerHeight / 2) {
           firstBottomHalf = clientY + window.scrollY - 25;
         }
@@ -40,7 +41,7 @@ export default function ScrollHelper(): React.ReactElement {
 
       firstBottomHalf -= navElem.getBoundingClientRect().height;
 
-      window.scrollTo({ top: firstBottomHalf, behavior: "smooth" });
+      window.scrollTo({ top: firstBottomHalf, behavior: 'smooth' });
     }
   }
 

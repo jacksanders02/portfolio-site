@@ -1,12 +1,13 @@
-"use client";
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { fontSerif } from "@/app/fonts";
-import RandomBlob from "@/components/RandomBlob";
-import { Parallax } from "react-scroll-parallax";
-import ScrollHelper from "@/components/ScrollHelper";
-import ProjectDisplay from "@/components/ProjectDisplay";
-import MediaParallax from "@/components/MediaParallax";
+'use client';
+
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Parallax } from 'react-scroll-parallax';
+import { fontSerif } from '@/app/fonts';
+import RandomBlob from '@/components/RandomBlob';
+import ScrollHelper from '@/components/ScrollHelper';
+import ProjectDisplay from '@/components/ProjectDisplay';
+import MediaParallax from '@/components/MediaParallax';
 
 /**
  * Index page
@@ -18,7 +19,7 @@ export default function Home(): React.ReactNode {
   });
   return (
     <main>
-      <div className={"w-full h-screen"}>
+      <div className="w-full h-screen">
         <div
           className={`absolute left-[50%] top-[50%] translate-y-[-50%] 
                     translate-x-[-50%] vertical-stack-children`}
@@ -27,7 +28,7 @@ export default function Home(): React.ReactNode {
             <motion.div
               initial={{ y: 100, scale: 0 }}
               animate={{ y: 0, scale: 1 }}
-              transition={{ type: "spring", stiffness: 80 }}
+              transition={{ type: 'spring', stiffness: 80 }}
             >
               <h1
                 className={`${fontSerif.className} text-7xl sm:text-8xl lg:text-9xl text-center mb-2`}
@@ -40,13 +41,13 @@ export default function Home(): React.ReactNode {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <h2 className={`text-sm sm:text-base lg:text-xl text-center`}>
+              <h2 className="text-sm sm:text-base lg:text-xl text-center">
                 Student of computer science, hobbyist full-stack software
                 engineer
               </h2>
             </motion.div>
           </MediaParallax>
-          <Parallax className={`m-auto z-10`} speed={15} rotateZ={[0, 360]}>
+          <Parallax className="m-auto z-10" speed={15} rotateZ={[0, 360]}>
             <RandomBlob
               svgWidth={200}
               svgHeight={200}
@@ -62,7 +63,7 @@ export default function Home(): React.ReactNode {
       </div>
 
       <ProjectDisplay />
-      <div className={"fixed bottom-0 p-8"}>
+      <div className="fixed bottom-0 p-8">
         <ScrollHelper />
       </div>
     </main>

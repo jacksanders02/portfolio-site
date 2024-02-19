@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema } from 'mongoose';
 
 export interface IModule {
   name: String;
@@ -29,7 +29,7 @@ export const ModuleCollectionSchema: Schema = new Schema<IModuleCollection>({
 
 export const ResidenceEvilScoreSchema: Schema = new Schema<IResidenceEvilScore>({
   player: { type: String, required: true },
-  score: { type: Number, required: true }
+  score: { type: Number, required: true },
 }, {
-  versionKey: false
+  versionKey: false,
 });

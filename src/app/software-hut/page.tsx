@@ -1,8 +1,8 @@
-import PageContainer from "@/components/PageContainer";
-import { fontSerif } from "@/app/fonts";
-import Image from "next/image";
-import PageTitle from "@/components/PageTitle";
-import PageSubTitle from "@/components/PageSubTitle";
+import React from 'react';
+import Image from 'next/image';
+import PageContainer from '@/components/PageContainer';
+import PageTitle from '@/components/PageTitle';
+import PageSubTitle from '@/components/PageSubTitle';
 
 /**
  * More information about my software hut project
@@ -12,13 +12,13 @@ export default function SoftwareHutWriteup() {
   return (
     <main>
       <PageContainer>
-        <div className={`flex flex-col gap-2 mb-2`}>
+        <div className="flex flex-col gap-2 mb-2">
           <PageTitle>Software Hut Project</PageTitle>
           <PageSubTitle>Individual Grade Achieved: 95%</PageSubTitle>
           <PageSubTitle>Software Hut Prize (Client Awarded)</PageSubTitle>
         </div>
 
-        <p className={`text-center`}>
+        <p className="text-center">
           For this project, my team and I were tasked with creating a system
           that our client could &lsquo;interrogate for data&rsquo; about various
           golf courses. During the course of our weekly client meetings, we
@@ -27,68 +27,74 @@ export default function SoftwareHutWriteup() {
           roles - map creators and regular users. The role of map creators is to
           create detailed maps of the holes of golf courses, which can then be
           utilised by regular users in optimising their golf game in a
-          data-driven manner, using the{" "}
+          data-driven manner, using the
+          {' '}
           <a
-            className={`underline hover-link dark:hover-link-dark`}
-            href={`https://www.golfmonthly.com/features/the-game/what-is-strokes-gained-185460`}
+            className="underline hover-link dark:hover-link-dark"
+            href="https://www.golfmonthly.com/features/the-game/what-is-strokes-gained-185460"
           >
             strokes gained
-          </a>{" "}
+          </a>
+          {' '}
           metric.
         </p>
 
-        <div className={"flex flex-col gap-1 items-center"}>
+        <div className="flex flex-col gap-1 items-center">
           <div
-            className={`relative w-[100%] aspect-[1.86] border-2 border-colour-background-dark`}
+            className="relative w-[100%] aspect-[1.86] border-2 border-colour-background-dark"
           >
-            {" "}
+            {' '}
             {/* Image Container */}
             <Image
-              src={"/projects/software-hut/login-page.png"}
+              src="/projects/software-hut/login-page.png"
               alt={`The login page of my software hut project. A faint outline of
                     a golf course is visible next to the login form.`}
               fill
             />
           </div>
-          <p className={`text-center`}>
+          <p className="text-center">
             The login page of my team&apos;s software hut project
           </p>
         </div>
 
-        <div className={"flex flex-col gap-1 items-center"}>
+        <div className="flex flex-col gap-1 items-center">
           <video
             autoPlay
             loop
             muted
-            className={`relative w-[100%] border-2 border-colour-background-dark`}
+            className="relative w-[100%] border-2 border-colour-background-dark"
           >
             <source
-              src={"/projects/software-hut/map-creation.mp4"}
-              type={`video/mp4`}
+              src="/projects/software-hut/map-creation.mp4"
+              type="video/mp4"
             />
             Your browser does not support the video tag :(
           </video>
-          <p className={`text-center`}>
+          <p className="text-center">
             An example of how a map creator might use the system.
           </p>
         </div>
 
-        <p className={`text-center`}>
+        <p className="text-center">
           My main role in the project was programming the map interactions -
-          such as the above page. In order to do this I used{" "}
+          such as the above page. In order to do this I used
+          {' '}
           <a
-            className={`underline hover-link dark:hover-link-dark`}
-            href={`leafletjs.com`}
+            className="underline hover-link dark:hover-link-dark"
+            href="leafletjs.com"
           >
             Leaflet
-          </a>{" "}
-          to create the base map, and{" "}
+          </a>
+          {' '}
+          to create the base map, and
+          {' '}
           <a
-            className={`underline hover-link dark:hover-link-dark`}
-            href={`geoman.io`}
+            className="underline hover-link dark:hover-link-dark"
+            href="geoman.io"
           >
             Leaflet Geoman
-          </a>{" "}
+          </a>
+          {' '}
           to allow the map creator to draw on the map. Using geoman, I was able
           to create a variety of different custom polygon drawing controls - one
           for each of the terrain types that we agreed on with our client. These
@@ -100,17 +106,20 @@ export default function SoftwareHutWriteup() {
           Development&rsquo; to &lsquo;Complete&rsquo;). This will control what
           regular users can see, as they are only permitted to view courses that
           are marked as &lsquo;Complete&rsquo;. Once done, they can save their
-          changes, which will be written to the database. I used the{" "}
+          changes, which will be written to the database. I used the
+          {' '}
           <a
-            className={`underline hover-link dark:hover-link-dark`}
-            href={`https://overpass-turbo.eu/`}
+            className="underline hover-link dark:hover-link-dark"
+            href="https://overpass-turbo.eu/"
           >
             Overpass Turbo API
-          </a>{" "}
+          </a>
+          {' '}
           to pre-populate the database with the locations and outlines of every
           golf course that is marked on openstreetmap, meaning the only thing
           that map creators had to do was draw the detail on the holes.
-          <br className={`mb-2`} />I also wrote the page for users to annotate
+          <br className="mb-2" />
+          I also wrote the page for users to annotate
           the map, which is identical to this one and therefore is not shown on
           this page. The only difference between this and the annotation page is
           the fact that when a user presses the save button, the map is not
@@ -118,25 +127,25 @@ export default function SoftwareHutWriteup() {
           user&apos;s own &lsquo;annotations&rsquo; table within the database.
         </p>
 
-        <div className={"flex flex-col gap-1 items-center"}>
+        <div className="flex flex-col gap-1 items-center">
           <video
             autoPlay
             loop
             muted
-            className={`relative w-[100%] border-2 border-colour-background-dark`}
+            className="relative w-[100%] border-2 border-colour-background-dark"
           >
             <source
-              src={"/projects/software-hut/user-optimal.mp4"}
-              type={`video/mp4`}
+              src="/projects/software-hut/user-optimal.mp4"
+              type="video/mp4"
             />
             Your browser does not support the video tag :(
           </video>
-          <p className={`text-center`}>
+          <p className="text-center">
             An example of how a user might use the system.
           </p>
         </div>
 
-        <p className={`text-center`}>
+        <p className="text-center">
           Programming the above page was another of my responsibilities over the
           course of the project, as it was mainly map interaction. Users can
           select their starting point, and then click around on the map to see
@@ -149,7 +158,7 @@ export default function SoftwareHutWriteup() {
           aspect. As shown in the above video, users can click on a button which
           will run an algorithm to determine their best shot from their current
           position, and have that displayed on the map.
-          <br className={`mb-2`} />
+          <br className="mb-2" />
           The algorithm that I wrote for this essentially takes a random sample
           of points across the user&apos;s dispersion for a club (1 point for
           every square metre), calculates the average strokes gained for each

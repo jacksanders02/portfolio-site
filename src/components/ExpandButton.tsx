@@ -1,16 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface IProps {
+  moduleDescription: string
+}
+
+interface IState {
+  open: boolean
+}
 
 /**
  * Use class-based component here to allow refs to be assigned
  */
-export default class ExpandButton extends React.Component {
-  state = {
-    open: false,
-  };
-
+export default class ExpandButton extends React.Component<IProps, IState> {
   variants = {
     open: {
       rotate: 180,
@@ -23,18 +27,28 @@ export default class ExpandButton extends React.Component {
 
   descVariants = {
     open: {
-      display: "block",
+      display: 'block',
     },
 
     closed: {
-      display: "none",
+      display: 'none',
     },
   };
 
+  constructor(props: IProps) {
+    super(props);
+
+    this.state = {
+      open: false,
+    };
+  }
+
+  // This is used. I don't know what eslint is getting at
+  // eslint-disable-next-line react/no-unused-class-component-methods
   toggleOpen = () => {
-    this.setState({
-      open: !this.state.open,
-    });
+    this.setState((prevState: IState) => ({
+      open: !prevState.open,
+    }));
   };
 
   render() {
@@ -43,12 +57,12 @@ export default class ExpandButton extends React.Component {
     return (
       <>
         <motion.svg
-          viewBox={`0 0 8 7`}
+          viewBox="0 0 8 7"
           overflow="visible"
           preserveAspectRatio="none"
-          className={"w-5 h-3"}
+          className="w-5 h-3"
           variants={this.variants}
-          animate={this.state.open ? "open" : "closed"}
+          animate={this.state.open ? 'open' : 'closed'}
         >
           <line
             x1="0"
@@ -68,11 +82,11 @@ export default class ExpandButton extends React.Component {
           />
         </motion.svg>
         <motion.p
-          className={"col-span-3 overflow-hidden text-center lg:text-left"}
+          className="col-span-3 overflow-hidden text-center lg:text-left"
           dangerouslySetInnerHTML={{ __html: moduleDescription }}
           variants={this.descVariants}
-          animate={this.state.open ? "open" : "closed"}
-          initial={"closed"}
+          animate={this.state.open ? 'open' : 'closed'}
+          initial="closed"
         />
       </>
     );

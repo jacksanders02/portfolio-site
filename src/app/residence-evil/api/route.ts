@@ -1,24 +1,24 @@
-import DBConnection from "@/helpers/db/DBConnection";
-import { IResidenceEvilScore } from "@/helpers/db/schema";
-import { NextRequest } from "next/server";
+import { NextRequest } from 'next/server';
+import DBUtils from '@/helpers/db/DBUtils';
+import { IResidenceEvilScore } from '@/helpers/db/schema';
 
-export const dynamic = "force-dynamic"; // defaults to auto
+export const dynamic = 'force-dynamic'; // defaults to auto
 
 export async function GET() {
-  let db: DBConnection = new DBConnection();
-  let scores: IResidenceEvilScore[] = await db.readScores();
+  const scores: IResidenceEvilScore[] = await DBUtils.readScores();
 
   return new Response(JSON.stringify(scores), { status: 200 });
 }
 
 export async function POST(req: NextRequest) {
-  let js = await req.json();
-  let db: DBConnection = new DBConnection();
+  await DBUtils.openConnection();
 
-  let successArray: boolean[] = await db.postScores(js.scores);
-  let success: boolean = successArray.every(e => e);
+  const js = await req.json();
+
+  const successArray: boolean[] = await DBUtils.postScores(js.scores);
+  const success: boolean = successArray.every((e) => e);
 
   return new Response(JSON.stringify({
-    successArray: successArray
-  }), { status: success ? 200 : 500 } );
+    successArray,
+  }), { status: success ? 200 : 500 });
 }

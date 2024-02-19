@@ -1,6 +1,6 @@
 // Functions that can be used by all scripts
 // Check if coordinates are equal (arr1 === arr2 checks references, not content)
-import { Coordinate } from "@/helpers/types";
+import { Coordinate } from '@/helpers/types';
 
 export function equalCoords(arr1: Coordinate, arr2: Coordinate): boolean {
   return arr1[0] === arr2[0] && arr1[1] === arr2[1];
@@ -10,7 +10,7 @@ export function equalCoords(arr1: Coordinate, arr2: Coordinate): boolean {
 export function invalidCoords(
   coords: Coordinate,
   maxCol: number,
-  maxRow: number
+  maxRow: number,
 ): boolean {
   return (
     coords[0] < 0 || coords[0] >= maxRow || coords[1] < 0 || coords[1] >= maxCol

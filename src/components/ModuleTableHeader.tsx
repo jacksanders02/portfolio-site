@@ -1,12 +1,10 @@
-import React from "react";
-import { fontSerif } from "@/app/fonts";
+import React from 'react';
+import { fontSerif } from '@/app/fonts';
 
 export default function ModuleTableHeader({
   stage,
-  className,
 }: {
   stage: string;
-  className?: string;
 }): React.ReactNode {
   return (
     <>
@@ -16,16 +14,12 @@ export default function ModuleTableHeader({
         {stage}
       </h3>
       <p
-        className={
-          "bold underline text-left text-md lg:text-xl hidden lg:block"
-        }
+        className="bold underline text-left text-md lg:text-xl hidden lg:block"
       >
         Module Name
       </p>
       <p
-        className={
-          "bold underline text-right text-md lg:text-xl hidden lg:block"
-        }
+        className="bold underline text-right text-md lg:text-xl hidden lg:block"
       >
         Grade
       </p>

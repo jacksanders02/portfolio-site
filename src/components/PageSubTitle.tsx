@@ -1,12 +1,10 @@
-import React from "react";
-import { fontSerif } from "@/app/fonts";
+import React from 'react';
+import { fontSerif } from '@/app/fonts';
 
 export default function PageSubTitle({
   children,
-  extraClasses,
 }: {
   children: React.ReactNode;
-  extraClasses?: string;
 }): React.ReactElement {
   return (
     <h2

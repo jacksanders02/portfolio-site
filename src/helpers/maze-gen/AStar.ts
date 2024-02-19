@@ -3,10 +3,10 @@ import {
   pythagoras,
   addCoords,
   invalidCoords,
-} from "@/helpers/coordinateHelper";
-import { Coordinate } from "@/helpers/types";
-import AStarNode from "@/helpers/maze-gen/AStarNode";
-import MazeHelper from "@/helpers/maze-gen/MazeHelper";
+} from '@/helpers/coordinateHelper';
+import { Coordinate } from '@/helpers/types';
+import AStarNode from '@/helpers/maze-gen/AStarNode';
+import MazeHelper from '@/helpers/maze-gen/MazeHelper';
 
 // N, E, S, W
 const directions: Coordinate[] = [
@@ -16,8 +16,8 @@ const directions: Coordinate[] = [
   [0, -1],
 ];
 
-export function search(mh: MazeHelper) {
-  const startCoords: Coordinate = mh.startCoords;
+export default function search(mh: MazeHelper) {
+  const { startCoords } = mh;
   const goalCoords: Coordinate = mh.finishCoords;
 
   const startNode: AStarNode = mh.map[startCoords[0]][startCoords[1]];
@@ -36,48 +36,51 @@ export function search(mh: MazeHelper) {
       break;
     }
 
-    let validNeighbours: Coordinate[] = [];
+    const validNeighbours: Coordinate[] = [];
     for (let i = 0; i < directions.length; i++) {
       if (
-        !currentNode.walls[i] &&
-        !invalidCoords(
+        !currentNode.walls[i]
+        && !invalidCoords(
           addCoords(currentNode.coords, directions[i]),
           mh.map[0].length,
-          mh.map.length
+          mh.map.length,
         )
       ) {
         validNeighbours.push(directions[i]);
       }
     }
 
+    // Prevent unsafe references to currentNode in forEach
+    const cNode: AStarNode = currentNode;
     // Check every neighbour of the current node
-    for (let neighbour of validNeighbours) {
-      let neighbourCoords: Coordinate = addCoords(
+    validNeighbours.forEach((neighbour: Coordinate) => {
+      const neighbourCoords: Coordinate = addCoords(
         neighbour,
-        currentNode.coords
+        cNode.coords,
       );
 
       // Calculate g cost of current neighbour
-      let travelled: number =
-        currentNode.g + pythagoras(currentNode.coords, neighbourCoords);
+      const travelled: number = cNode.g + pythagoras(cNode.coords, neighbourCoords);
 
       let inOpen: boolean = false;
       let inClosed: boolean = false;
 
       // Check if current neighbour is in openList
-      for (let node of openList) {
+      openList.some((node: AStarNode) => {
         if (equalCoords(node.coords, neighbourCoords)) {
           // If in open list, but new path has a lower g cost,
           // change the node in open list to reflect the better values
           if (node.g > travelled) {
-            node.parent = currentNode;
+            node.parent = cNode;
             node.g = travelled;
             node.f = travelled + pythagoras(neighbourCoords, goalCoords);
           }
           inOpen = true;
-          break;
+          return true; // Returning true ends the iteration of 'some()' function
         }
-      }
+
+        return false;
+      });
 
       if (!inOpen) {
         // Check if neighbour in closed list
@@ -100,30 +103,31 @@ export function search(mh: MazeHelper) {
       // closed list, add it to the open list, ensuring that the list
       // remains sorted with lowest f costs at the start.
       if (!inOpen && !inClosed) {
-        let neighbour = mh.map[neighbourCoords[0]][neighbourCoords[1]];
-        neighbour.parent = currentNode;
-        neighbour.g = travelled;
-        neighbour.f = travelled + pythagoras(neighbourCoords, goalCoords);
+        const neighbourNode: AStarNode = mh.map[neighbourCoords[0]][neighbourCoords[1]];
+        neighbourNode.parent = cNode;
+        neighbourNode.g = travelled;
+        neighbourNode.f = travelled + pythagoras(neighbourCoords, goalCoords);
         if (openList.length === 0) {
-          openList.push(neighbour);
+          openList.push(neighbourNode);
         }
-        let oLength = openList.length;
+        const oLength = openList.length;
         for (let i = 0; i < oLength; i++) {
           if (
-            !openList[i] ||
-            openList[i].f > travelled + pythagoras(neighbourCoords, goalCoords)
+            !openList[i]
+            || openList[i].f > travelled + pythagoras(neighbourCoords, goalCoords)
           ) {
-            openList.splice(i, 0, neighbour);
+            openList.splice(i, 0, neighbourNode);
             break;
           } else if (i === oLength - 1) {
-            openList.push(neighbour);
+            openList.push(neighbourNode);
             break;
           }
         }
       }
-    }
+    });
+
     // Add current node to closed list
-    closedList.push(currentNode);
+    closedList.push(cNode);
   }
 
   // If current node is the finish node, solution is found!
@@ -132,26 +136,26 @@ export function search(mh: MazeHelper) {
     mh.redrawCanvas();
 
     mh.ctx.beginPath();
-    mh.ctx.strokeStyle = "green";
+    mh.ctx.strokeStyle = 'green';
     mh.ctx.lineWidth = currentNode.width > 4 ? 4 : 1;
     mh.ctx.moveTo(
       currentNode.topLeft[0] + currentNode.width / 2,
-      currentNode.topLeft[1] + currentNode.height / 2
+      currentNode.topLeft[1] + currentNode.height / 2,
     );
 
     while (currentNode.parent) {
-      let pr = currentNode.parent;
+      const pr = currentNode.parent;
       mh.ctx.lineTo(
         pr.topLeft[0] + pr.width / 2,
-        pr.topLeft[1] + pr.height / 2
+        pr.topLeft[1] + pr.height / 2,
       );
       currentNode = currentNode.parent;
     }
 
     mh.ctx.stroke();
 
-    document.dispatchEvent(new Event("maze-solved"));
+    document.dispatchEvent(new Event('maze-solved'));
   } else {
-    document.dispatchEvent(new Event("maze-not-solved"));
+    document.dispatchEvent(new Event('maze-not-solved'));
   }
 }

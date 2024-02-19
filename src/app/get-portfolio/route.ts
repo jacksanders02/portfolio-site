@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from 'next/server';
 
-type instrument = {
+type Instrument = {
   ticker: string;
   type: string;
   workingScheduleId: number;
@@ -14,44 +14,42 @@ type instrument = {
 };
 
 // The URL to get all instruments
-const INSTRUMENTS_API: string =
-  "https://live.trading212.com/api/v0/equity/metadata/instruments";
+const INSTRUMENTS_API: string = 'https://live.trading212.com/api/v0/equity/metadata/instruments';
 // The URL to get user's portfolio
-const PORTFOLIO_API: string =
-  "https://live.trading212.com/api/v0/equity/portfolio";
+const PORTFOLIO_API: string = 'https://live.trading212.com/api/v0/equity/portfolio';
 
 const instrumentErrors = {
-  401: "API key was rejected! Please ensure you entered it correctly.",
+  401: 'API key was rejected! Please ensure you entered it correctly.',
   403: "Couldn't access instruments! Please ensure you have 'metadata' enabled for your API key.",
-  408: "Request timed out! Please try again later.",
-  429: "Too many requests! Please wait a minute before trying again.",
+  408: 'Request timed out! Please try again later.',
+  429: 'Too many requests! Please wait a minute before trying again.',
 };
 
 // Don't need 401 or 429 here, as the first instrument request will catch these
 const portfolioErrors = {
   403: "Couldn't access your portfolio! Please ensure you have 'portfolio' enabled for your API key.",
-  408: "Request timed out! Please try again later.",
+  408: 'Request timed out! Please try again later.',
 };
 
-export async function GET(request: NextRequest) {
-  let auth = request.nextUrl.searchParams.get("auth");
+export default async function GET(request: NextRequest) {
+  const auth = request.nextUrl.searchParams.get('auth');
 
   if (auth === null) {
     return new Response(
       JSON.stringify({
-        message: instrumentErrors["401"],
+        message: instrumentErrors['401'],
       }),
-      { status: 401 }
+      { status: 401 },
     );
   }
 
   // Get all instruments that API key can access
   const instrumentResponse = await fetch(INSTRUMENTS_API, {
-    method: "GET",
-    credentials: "include",
+    method: 'GET',
+    credentials: 'include',
     headers: new Headers({
       Authorization: auth,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     }),
   });
 
@@ -63,24 +61,24 @@ export async function GET(request: NextRequest) {
         // @ts-ignore (status will always be one that is in instrumentErrors)
         message: instrumentErrors[instrumentResponse.status],
       }),
-      { status: instrumentResponse.status }
+      { status: instrumentResponse.status },
     );
   }
 
   // Build map of all instruments & metadata (T212 ticker -> {})
-  const instrumentData: instrument[] = await instrumentResponse.json();
-  const tickersToInstruments: Map<string, instrument> = new Map();
-  for (const i of instrumentData) {
+  const instrumentData: Instrument[] = await instrumentResponse.json();
+  const tickersToInstruments: Map<string, Instrument> = new Map();
+  instrumentData.forEach((i: Instrument) => {
     tickersToInstruments.set(i.ticker, i);
-  }
+  });
 
   // Now can get user's portfolio
   const portfolioResponse = await fetch(PORTFOLIO_API, {
-    method: "GET",
-    credentials: "include",
+    method: 'GET',
+    credentials: 'include',
     headers: new Headers({
       Authorization: auth,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     }),
   });
 
@@ -92,7 +90,7 @@ export async function GET(request: NextRequest) {
         // @ts-ignore (status will always be one that is in portfolioErrors)
         message: portfolioErrors[portfolioResponse.status],
       }),
-      { status: portfolioResponse.status }
+      { status: portfolioResponse.status },
     );
   }
 
@@ -100,8 +98,7 @@ export async function GET(request: NextRequest) {
 
   // Sort portfolio data by quantity
   portfolioData.sort(
-    (a: { quantity: number }, b: { quantity: number }): number =>
-      a.quantity - b.quantity
+    (a: { quantity: number }, b: { quantity: number }): number => a.quantity - b.quantity,
   );
 
   const totalShares = portfolioData
@@ -109,33 +106,33 @@ export async function GET(request: NextRequest) {
     .reduce((a: number, b: number) => a + b);
 
   // Array of labels, array of shares, and array of values (for pie charts)
-  let shareLabels: string[] = [];
-  let shares: number[] = [];
+  const shareLabels: string[] = [];
+  const shares: number[] = [];
 
   // How many shares are held in 'other'
   let otherTotal: number = 0;
 
-  for (const i of portfolioData) {
+  portfolioData.forEach((i: { quantity: number; ticker: string; }) => {
     // If less than 1% of total portfolio, add to 'other'
-    if (i["quantity"] / totalShares <= 0.01) {
-      otherTotal += i["quantity"];
+    if (i.quantity / totalShares <= 0.01) {
+      otherTotal += i.quantity;
     } else {
-      const t212Ticker = i["ticker"];
+      const t212Ticker = i.ticker;
       const companyName = tickersToInstruments.get(t212Ticker)!.name;
       shareLabels.push(companyName);
-      shares.push(i["quantity"]);
+      shares.push(i.quantity);
     }
-  }
+  });
 
-  shareLabels.unshift("Other");
+  shareLabels.unshift('Other');
   shares.unshift(otherTotal);
 
   // Create new return object containing t212 response JSON
   return new Response(
     JSON.stringify({
-      shareLabels: shareLabels,
-      shares: shares,
+      shareLabels,
+      shares,
     }),
-    { status: 200 }
+    { status: 200 },
   );
 }

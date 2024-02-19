@@ -1,12 +1,12 @@
 // app/providers.jsx
 
-"use client";
+'use client';
 
-import { ThemeProvider } from "next-themes";
-import React from "react";
-import { ParallaxProvider } from "react-scroll-parallax";
+import { ThemeProvider } from 'next-themes';
+import React from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
-export function Providers({
+export default function Providers({
   children,
 }: {
   children: React.ReactNode;

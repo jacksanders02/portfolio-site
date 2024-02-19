@@ -1,8 +1,9 @@
-"use client";
-import React from "react";
-import { fontMono } from "@/app/fonts";
-import CountdownRenderer from "@/components/CountdownRenderer";
-import Countdown from "react-countdown";
+'use client';
+
+import React from 'react';
+import Countdown from 'react-countdown';
+import { fontMono } from '@/app/fonts';
+import CountdownRenderer from '@/components/CountdownRenderer';
 
 /**
  * CountdownClockClient.tsx
