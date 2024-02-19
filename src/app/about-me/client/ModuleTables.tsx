@@ -19,7 +19,7 @@ function mcCompareFunction(
 
 function buildTableRows(mc: IModuleCollection): React.ReactNode {
   return mc.modules.map((module: IModule) => (
-    <Fragment key={`${mc.stage}`}>
+    <Fragment key={`${module.name}`}>
       <ModuleTableRow module={module} />
       <div
         className="col-span-3 border-b-2 border-on-background dark:border-on-background-dark"
