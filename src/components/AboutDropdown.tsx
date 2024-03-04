@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -55,6 +55,14 @@ export default function AboutDropdown(): React.ReactNode {
       translateX: '-110%',
     },
   };
+
+  useEffect(() => {
+    if (menuShown) {
+      document.body.classList.add('overflow-y-hidden');
+    } else {
+      document.body.classList.remove('overflow-y-hidden');
+    }
+  }, [menuShown]);
 
   return (
     <>
