@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import PageContainer from '@/components/PageContainer';
 import PageTitle from '@/components/PageTitle';
 import PageSubTitle from '@/components/PageSubTitle';
@@ -29,12 +30,13 @@ export default function SoftwareHutWriteup() {
           utilised by regular users in optimising their golf game in a
           data-driven manner, using the
           {' '}
-          <a
+          <Link
             className="underline hover-link dark:hover-link-dark"
+            target="_blank"
             href="https://www.golfmonthly.com/features/the-game/what-is-strokes-gained-185460"
           >
             strokes gained
-          </a>
+          </Link>
           {' '}
           metric.
         </p>
@@ -79,21 +81,23 @@ export default function SoftwareHutWriteup() {
           My main role in the project was programming the map interactions -
           such as the above page. In order to do this I used
           {' '}
-          <a
+          <Link
             className="underline hover-link dark:hover-link-dark"
-            href="leafletjs.com"
+            target="_blank"
+            href="https://leafletjs.com/"
           >
             Leaflet
-          </a>
+          </Link>
           {' '}
           to create the base map, and
           {' '}
-          <a
+          <Link
             className="underline hover-link dark:hover-link-dark"
-            href="geoman.io"
+            target="_blank"
+            href="https://geoman.io"
           >
             Leaflet Geoman
-          </a>
+          </Link>
           {' '}
           to allow the map creator to draw on the map. Using geoman, I was able
           to create a variety of different custom polygon drawing controls - one
@@ -108,12 +112,13 @@ export default function SoftwareHutWriteup() {
           are marked as &lsquo;Complete&rsquo;. Once done, they can save their
           changes, which will be written to the database. I used the
           {' '}
-          <a
+          <Link
             className="underline hover-link dark:hover-link-dark"
+            target="_blank"
             href="https://overpass-turbo.eu/"
           >
             Overpass Turbo API
-          </a>
+          </Link>
           {' '}
           to pre-populate the database with the locations and outlines of every
           golf course that is marked on openstreetmap, meaning the only thing

@@ -14,7 +14,7 @@ export default function PageContainer({
   return (
     <div
       id={id || ''}
-      className={`md:w-[60%] min-[1200px]:max-2xl:w-[50%] ${
+      className={`md:w-[66%] ${
         extraClasses || ''
       }
          ${!isProjectCard && 'm-auto mt-16 p-8 flex flex-col gap-6'}`}

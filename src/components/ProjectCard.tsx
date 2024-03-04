@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Slide, Fade } from 'react-awesome-reveal';
+import Link from 'next/link';
 import { Project } from '@/helpers/types';
 import { fontSerif } from '@/app/fonts';
 import { technologyIcons, technologyAlts } from '@/helpers/technologies';
@@ -52,7 +53,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
   return (
     <div className="flex flex-col min-[560px]:flex-row gap-4 items-center">
       {proj.demoLink && (
-        <a
+        <Link
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.demoLink}
@@ -60,21 +61,22 @@ function renderButtons(proj: Project): React.JSX.Element | string {
         >
           <i className="bi bi-joystick me-2" />
           Demo
-        </a>
+        </Link>
       )}
       {proj.githubLink && (
-        <a
+        <Link
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
+          target="_blank"
           href={proj.githubLink}
           aria-label={`The github link for ${proj.title}`}
         >
           <i className="bi bi-github me-2" />
           View on Github
-        </a>
+        </Link>
       )}
       {proj.writeupLink && (
-        <a
+        <Link
           className={`hover-button dark:hover-button-dark text-center lg:text-xl
                       flex items-center`}
           href={proj.writeupLink}
@@ -82,7 +84,7 @@ function renderButtons(proj: Project): React.JSX.Element | string {
         >
           <i className="bi bi-info-circle-fill me-2" />
           Project Writeup
-        </a>
+        </Link>
       )}
     </div>
   );

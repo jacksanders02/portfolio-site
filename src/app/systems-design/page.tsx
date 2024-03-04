@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import PageContainer from '@/components/PageContainer';
 import PageTitle from '@/components/PageTitle';
 import PageSubTitle from '@/components/PageSubTitle';
@@ -118,12 +119,13 @@ export default function SystemsDesignWriteup() {
           of this project. First off, to keep staff logins secure, I developed a
           PasswordHash helper class, which implements the
           {' '}
-          <a
+          <Link
             className="underline hover-link dark:hover-link-dark"
+            target="_blank"
             href="https://en.wikipedia.org/wiki/PBKDF2"
           >
             PBKDF2-HMAC-SHA512
-          </a>
+          </Link>
           {' '}
           key derivation function in order to hash the passwords of members of
           staff members before they are stored in the database.

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import AboutDropdown from '@/components/AboutDropdown';
 
 /**
@@ -15,12 +16,12 @@ export default function NavLinks(): React.ReactElement {
                     dark:border-on-background-dark`}
       />
 
-      <a
+      <Link
         className="hover-link dark:hover-link-dark text-lg font-bold"
         href="/"
       >
         Home
-      </a>
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PageContainer from '@/components/PageContainer';
 import PageTitle from '@/components/PageTitle';
 import CountdownInputClient from '@/app/countdown-timer/client/CountdownInputClient';
@@ -35,12 +36,12 @@ export default function CountdownTimer({
                 {endDate.toString()}
               </p>
             </div>
-            <a
+            <Link
               href="/countdown-timer"
               className="hover-button dark:hover-button-dark w-max"
             >
               Set a new timer
-            </a>
+            </Link>
             <div className="flex flex-col items-center">
               <p>Link to this timer:</p>
               <p className="underline text-center">

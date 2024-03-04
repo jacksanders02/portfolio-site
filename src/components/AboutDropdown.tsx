@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+const MotionLink = motion(Link);
 
 /**
  * AboutDropdown.tsx
@@ -73,36 +76,39 @@ export default function AboutDropdown(): React.ReactNode {
         variants={menuParentVariants}
         animate={menuShown ? 'visible' : 'hidden'}
       >
-        <motion.a
+        <MotionLink
           href="/about-me"
           className="inverse-hover-link-dark"
           variants={menuVariants}
         >
           About Me
-        </motion.a>
-        <motion.a
+        </MotionLink>
+        <MotionLink
           href="/projects"
           className="inverse-hover-link-dark"
           variants={menuVariants}
         >
           Projects
-        </motion.a>
-        <motion.a
+        </MotionLink>
+        <MotionLink
           className="bi bi-instagram inverse-hover-link-dark text-3xl"
+          target="_blank"
           href="https://www.instagram.com/jacksanders02/"
           key="instagram"
           aria-label="Link to my Instagram Page"
           variants={menuVariants}
         />
-        <motion.a
+        <MotionLink
           className="bi bi-linkedin inverse-hover-link-dark text-3xl"
+          target="_blank"
           href="https://www.linkedin.com/in/jacksanders02/"
           key="linkedin"
           aria-label="Link to my LinkedIn Page"
           variants={menuVariants}
         />
-        <motion.a
+        <MotionLink
           className="bi bi-github inverse-hover-link-dark text-3xl"
+          target="_blank"
           href="https://github.com/jacksanders02"
           key="github"
           aria-label="Link to my GitHub Page"

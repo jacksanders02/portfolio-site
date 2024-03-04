@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import PageContainer from '@/components/PageContainer';
 import PageTitle from '@/components/PageTitle';
 import ModuleTables from '@/app/about-me/client/ModuleTables';
@@ -66,12 +67,13 @@ export default function AboutMe(): React.ReactNode {
               promotional video for the university&apos;s Languages for all
               program, which you can watch either below, or on the
               {' '}
-              <a
+              <Link
                 href="https://www.sheffield.ac.uk/languages-for-all/choose-language/dutch"
+                target="_blank"
                 className="underline hover-link dark:hover-link-dark"
               >
                 Languages for All Dutch Course&apos;s homepage
-              </a>
+              </Link>
               . At first, this was a daunting prospect, as I had never been on
               film like this before, and the prospect of being one of the first
               things that prospective Dutch students would see when they looked
