@@ -20,37 +20,39 @@ export default function CountdownTimer({
   }
 
   return (
-    <main>
-      <PageContainer extraClasses="items-center !pt-0 !pb-0 !mt-0 !mb-0">
-        <PageTitle extraClasses="pt-5 mt-16">Countdown Timer</PageTitle>
-        {Number.isNaN(time) && <CountdownInputClient />}
-        {!Number.isNaN(time) && (
-          <div
-            className="flex flex-col gap-6 items-center justify-center h-screen w-full text-xs md:text-lg"
-          >
-            <div className="flex flex-col items-center">
-              <CountdownClockClient time={time} />
-              <p className="text-center">
-                This timer will end at:
-                {' '}
-                {endDate.toString()}
-              </p>
-            </div>
-            <Link
-              href="/countdown-timer"
-              className="hover-button dark:hover-button-dark w-max"
-            >
-              Set a new timer
-            </Link>
-            <div className="flex flex-col items-center">
-              <p>Link to this timer:</p>
-              <p className="underline text-center">
-                https://www.jacksanders.uk/countdown-timer?t=
-                {time}
-              </p>
-            </div>
-          </div>
-        )}
+    <main className="flex items-stretch">
+      <PageContainer extraClasses="items-center !mb-0">
+        <PageTitle>Countdown Timer</PageTitle>
+        <div
+          className="flex flex-col gap-6 items-center justify-center text-xs md:text-lg flex-fill-space"
+        >
+          {Number.isNaN(time) && <CountdownInputClient />}
+          {!Number.isNaN(time) && (
+            <>
+              <div className="flex flex-col items-center">
+                <CountdownClockClient time={time} />
+                <p className="text-center">
+                  This timer will end at:
+                  {' '}
+                  {endDate.toString()}
+                </p>
+              </div>
+              <Link
+                href="/countdown-timer"
+                className="hover-button dark:hover-button-dark w-max"
+              >
+                Set a new timer
+              </Link>
+              <div className="flex flex-col items-center">
+                <p>Link to this timer:</p>
+                <p className="underline text-center">
+                  https://www.jacksanders.uk/countdown-timer?t=
+                  {time}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
       </PageContainer>
     </main>
   );

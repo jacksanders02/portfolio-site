@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function AStar(): React.ReactNode {
   return (
-    <main>
-      <PageContainer>
+    <main className="flex items-stretch">
+      <PageContainer extraClasses="items-center !mb-0">
         <PageTitle>Maze Generator & Solver</PageTitle>
         <MazeGeneratorClient />
       </PageContainer>

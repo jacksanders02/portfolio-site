@@ -34,9 +34,7 @@ export default function CountdownInputClient(): React.ReactNode {
   }
 
   return (
-    <div
-      className="fixed flex flex-col gap-6 items-center justify-center h-screen w-full"
-    >
+    <>
       <p className="text-xl sm:text-2xl lg:text-3xl text-center">
         Set a timer using the below inputs:
       </p>
@@ -87,6 +85,6 @@ export default function CountdownInputClient(): React.ReactNode {
       >
         Set Timer
       </button>
-    </div>
+    </>
   );
 }

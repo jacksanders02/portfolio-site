@@ -200,6 +200,6 @@ body {
   min-height: 100vh;
 }
 
-main {
+main, .flex-fill-space {
   flex: 1 0 auto;
 }

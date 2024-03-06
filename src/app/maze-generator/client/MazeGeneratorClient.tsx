@@ -131,7 +131,7 @@ export default function MazeGeneratorClient() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col flex-fill-space items-center gap-8">
       {instructions[stage].length > 0 && (
         <h1 className="text-xl sm:text-2xl lg:text-3xl text-center h-12">
           {instructions[stage]}

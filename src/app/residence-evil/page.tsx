@@ -46,7 +46,7 @@ export default function ResidenceEvil(): React.ReactNode {
   return (
     <main>
       <PageContainer>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col items-center gap-1">
           <PageTitle>Residence Evil</PageTitle>
           <p className="text-center">
             A 2D procedurally generated platformer created in 42 hours for the ShefJamX hackathon.
