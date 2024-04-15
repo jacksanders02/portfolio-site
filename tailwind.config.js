@@ -9,27 +9,27 @@ module.exports = {
       },
       colors: {
         'colour-background': {
-          DEFAULT: '#e0ffff',
+          DEFAULT: '#f1eee7',
           dark: '#0F052B',
         },
         'on-background': {
-          DEFAULT: 'rgb(5, 5, 5)',
-          hover: 'rgb(111,111,111)',
+          DEFAULT: 'rgb(38, 44, 38)',
+          hover: 'rgb(142,191,113)',
           dark: {
             DEFAULT: 'rgb(252, 252, 252)',
             hover: 'rgb(177, 177, 177)',
           },
         },
         primary: {
-          DEFAULT: '#ffbef3',
+          DEFAULT: '#2d5936',
           dark: '#CE6FC4',
         },
         secondary: {
-          DEFAULT: '#ffffff',
+          DEFAULT: '#8ebf71',
           dark: '#383838',
         },
         accent: {
-          DEFAULT: '#FFB5F8',
+          DEFAULT: '#8ebf71',
           dark: '#CE6FC4',
         },
       },
